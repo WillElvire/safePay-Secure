@@ -10,24 +10,40 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators" : true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
-    "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"],
+    "paths": {
+      "crypto": ["node_modules/crypto-browserify"],
+      "stream": ["./node_modules/stream-browserify"],
+      "assert": ["./node_modules/assert"],
+      "http": ["./node_modules/stream-http"],
+      "https": ["./node_modules/https-browserify"],
+      "process": ["./node_modules/process/browser"],
+      "url": ["./node_modules/url"],
+      "os": ["./node_modules/os-browserify"],
+      "Buffer" : ["./node_modules/buffer"]
+    }
   },
+  "files": ["src/main.ts", "src/polyfills.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "architect": {
+    "build": {
+      "options": {
+        "allowedCommonJsDependencies": ["crypto"] // note that this is the key of --> "crypto":["node_modules/crypto-js"]"
+      }
+    }
   }
 }
