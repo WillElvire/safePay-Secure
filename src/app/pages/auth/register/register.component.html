@@ -1,0 +1,52 @@
+<ng-container>
+  <form nz-form [formGroup]="validateForm" class="mt-5" (ngSubmit)="submitForm()" >
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Veuillez renseigner votre nom !">
+        <nz-input-group nzPrefixIcon="user">
+          <input type="text" nz-input formControlName="email" placeholder="nom" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Veuillez prenom !">
+        <nz-input-group nzPrefixIcon="user">
+          <input type="text" nz-input formControlName="email" placeholder="prenom" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Veuillez prenom !">
+        <nz-input-group nzPrefixIcon="phone">
+          <input type="text" nz-input formControlName="email" placeholder="prenom" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Veuillez renseigner votre email !">
+        <nz-input-group nzPrefixIcon="mail">
+          <input type="text" nz-input formControlName="email" placeholder="email" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Veuillez renseigner votre mot de passe!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input type="password" nz-input formControlName="password" placeholder="Mot de passe" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <button nz-button class="login-form-button login-form-margin col-md-12" [nzType]="'primary'">Se connecter</button>
+  </form>
+</ng-container>
+
+<ng-container>
+  <div class="text-center mt-4">
+    <span>- Ou -</span>
+    <p>
+      <a routerLink="/auth/login">Se connecter</a>
+    </p>
+  </div>
+</ng-container>
+

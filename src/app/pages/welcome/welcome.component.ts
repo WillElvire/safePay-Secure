@@ -1,3 +1,4 @@
+import { Web3Services } from './../../core/services/web3/web3.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  address : string = "";
+  constructor(private web3Services : Web3Services) { }
 
   ngOnInit() {
+    this.web3Services.accountStatus$.subscribe((response)=>{
+      console.log(response);
+      this.address = response;
+    })
+  }
+
+  connect(){
+    this.web3Services.connectAccount();
   }
 
 }

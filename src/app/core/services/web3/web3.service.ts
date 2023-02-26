@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import WalletConnectProvider from '@walletconnect/web3-provider';
 import { Subject } from 'rxjs';
 import Web3 from 'web3';
 import { provider } from 'web3-core';
@@ -31,7 +30,7 @@ export class Web3Services {
   enableWeb3Modal() {
     const providerOptions = {
       walletconnect: {
-        package: WalletConnectProvider, // required
+       package: null, // required
         options: {
           infuraId: "2feba8d780ba456997c88297b08e5e3c" // required
         }
@@ -41,7 +40,7 @@ export class Web3Services {
     this.web3Modal = new Web3Modal({
       network: "mainnet", // optional
       cacheProvider: true, // optional
-      providerOptions, // required
+      providerOptions : providerOptions as any, // required
       theme: {
         background: "rgb(39, 49, 56)",
         main: "rgb(199, 199, 199)",
@@ -50,12 +49,18 @@ export class Web3Services {
         hover: "rgb(16, 26, 32)"
       }
     });
+
+
+    this.web3Modal.connect();
+
+
   }
 
   async connectAccount() {
     this.web3Modal.clearCachedProvider();
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
+    this.provider = await this.web3Modal.connect();
+    this.web3js = new Web3(this.provider);
+   // create web3 instance
     this.accounts = await this.web3js.eth.getAccounts();
     this.accountStatusSource.next(this.accounts)
   }

@@ -1,3 +1,6 @@
+import { ComponentModule } from './modules/components.module';
+import { FormLayoutModule } from './modules/form-layout.module';
+import { environment } from './../environments/environment.prod';
 import { ServiceModule } from './modules/service.module';
 import { AdminDashboard } from './modules/adminDashboard.module';
 import { NgModule } from '@angular/core';
@@ -13,8 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { CKEditorModule } from 'ng2-ckeditor';
-
-
+import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 
 registerLocaleData(fr);
 
@@ -27,11 +31,15 @@ registerLocaleData(fr);
     HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
+    FormLayoutModule,
+    ComponentModule,
     AdminDashboard,
     ServiceModule,
-    CKEditorModule
+    CKEditorModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    AkitaNgRouterStoreModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: fr_FR }],
+  providers: [{ provide: NZ_I18N, useValue: fr_FR }, { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

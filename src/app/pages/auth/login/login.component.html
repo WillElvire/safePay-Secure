@@ -1,0 +1,17 @@
+<ng-container class="mt-2">
+  <app-login-form *ngIf="!useWeb3"></app-login-form>
+  <app-web3-form *ngIf="useWeb3"></app-web3-form>
+</ng-container>
+<button nz-button (click)="useWeb3 = !useWeb3" class="col-md-12 mt-4">
+  <span nz-icon nzType="security-scan" nzTheme="fill" *ngIf="useWeb3">Email/password</span>
+  <span nz-icon nzType="codepen-circle" nzTheme="fill" *ngIf="!useWeb3">Web3</span>
+</button>
+
+<ng-container>
+  <div class="text-center mt-4">
+    <span>- Ou -</span>
+    <p>
+      <a routerLink="/auth/register">S'inscrire</a>
+    </p>
+  </div>
+</ng-container>

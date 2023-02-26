@@ -1,0 +1,19 @@
+
+.banner{
+  background: url("http://trumpwallpapers.com/wp-content/uploads/Business-Wallpaper-02-1920x1080-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.login-form{
+  margin-top: 25% !important;
+  width: 80%;
+  margin-left: 10%;
+}
+
+@media(min-width:0px) and (max-width:900px) {
+  .banner {
+    height: 20vh;
+  }
+}
