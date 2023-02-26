@@ -1,13 +1,9 @@
-
-
-
 import { Injectable } from '@angular/core';
+import WalletConnectProvider from '@walletconnect/web3-provider';
 import { Subject } from 'rxjs';
 import Web3 from 'web3';
-import Web3Modal from "web3modal";
-import WalletConnectProvider from "@walletconnect/web3-provider";
 import { provider } from 'web3-core';
-
+import Web3Modal from 'web3modal';
 
 
 @Injectable({
@@ -15,46 +11,37 @@ import { provider } from 'web3-core';
 })
 export class Web3Services {
 
-  public accountsObservable = new Subject<string[]>();
-  web3Modal;
-  web3js: any;
-  provider: provider | undefined;
-  accounts: string[] | undefined;
-  balance: string | undefined;
+  private web3js: any;
+  private provider: any;
+  private accounts: any;
+  web3Modal !: Web3Modal;
+
+  private accountStatusSource = new Subject<any>();
+  accountStatus$ = this.accountStatusSource.asObservable();
 
   constructor() {
+    this.enableWeb3Modal();
+  }
+
+
+  async accountInfo(account: any[]) {
+
+  }
+
+  enableWeb3Modal() {
     const providerOptions = {
       walletconnect: {
-        package: WalletConnectProvider,
+        package: WalletConnectProvider, // required
         options: {
-          infuraId: 'env',
-          description: 'Scan the qr code and sign in',
-          qrcodeModalOptions: {
-            mobileLinks: [
-              'rainbow',
-              'metamask',
-              'argent',
-              'trust',
-              'imtoken',
-              'pillar'
-            ]
-          }
+          infuraId: "2feba8d780ba456997c88297b08e5e3c" // required
         }
-      },
-      injected: {
-        display: {
-          logo: 'https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg',
-          name: 'metamask',
-          description: "Connect with the provider in your Browser"
-        },
-        package: null
-      },
+      }
     };
 
     this.web3Modal = new Web3Modal({
-      network: "mainnet",
-      cacheProvider: true,
-      providerOptions,
+      network: "mainnet", // optional
+      cacheProvider: true, // optional
+      providerOptions, // required
       theme: {
         background: "rgb(39, 49, 56)",
         main: "rgb(199, 199, 199)",
@@ -65,20 +52,11 @@ export class Web3Services {
     });
   }
 
-
   async connectAccount() {
+    this.web3Modal.clearCachedProvider();
     this.provider = await this.web3Modal.connect(); // set provider
-    if (this.provider) {
-      this.web3js = new Web3(this.provider);
-    } // create web3 instance
+    this.web3js = new Web3(this.provider); // create web3 instance
     this.accounts = await this.web3js.eth.getAccounts();
-    return this.accounts;
+    this.accountStatusSource.next(this.accounts)
   }
-
-  async accountInfo(account: any[]) {
-    const initialvalue = await this.web3js.eth.getBalance(account);
-    this.balance = this.web3js.utils.fromWei(initialvalue, 'ether');
-    return this.balance;
-  }
-
 }
