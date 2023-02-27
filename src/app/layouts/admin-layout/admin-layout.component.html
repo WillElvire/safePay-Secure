@@ -1,10 +1,6 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
@@ -12,41 +8,73 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
-          </li>
-        </ul>
+      <li nz-menu-item routerLink="/user/" routerLinkActive="active">
+        <span nz-icon nzType="dashboard" nzTheme="fill"></span>
+        <span>Dashboard</span>
       </li>
+
+      <li nz-menu-item routerLink="/auth/" routerLinkActive="active">
+        <span nz-icon nzType="user" nzTheme="outline"></span>
+        <span>Profil</span>
+      </li>
+
+      <li nz-menu-item routerLink="/auth/" routerLinkActive="active">
+        <span nz-icon nzType="folder-add" nzTheme="fill"></span>
+        <span>Publication</span>
+      </li>
+
       <li nz-menu-item>
-        <span nz-icon nzType="file"></span>
-        <span>File</span>
+        <span nz-icon nzType="shopping-cart"></span>
+        <span>Pannier</span>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+
+      <li nz-menu-item>
+        <span nz-icon nzType="pie-chart" nzTheme="fill"></span>
+        <span>Vente</span>
+      </li>
+
+
+
+      <li nz-menu-item>
+        <span nz-icon nzType="message" nzTheme="fill"></span>
+        <span class="text-light">Notification</span>
+      </li>
+
+
+
+      <li nz-menu-item>
+        <span nz-icon nzType="logout" nzTheme="outline"></span>
+        <span class="text-light">Déconnexion</span>
+      </li>
+
+      <!-- <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a>Basic Form</a>
           </li>
         </ul>
-      </li>
+      </li>-->
     </ul>
   </nz-sider>
   <nz-layout>
-    <nz-header>
-      <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <span class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></span>
-        </span>
+    <nz-header nzTheme="dark">
+      <div class="app-header" nz-row>
+        <div nz-col nzSpan="10">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+          </span>
+        </div>
+        <div nz-col nzSpan="2" nzOffset="12" class="avatar">
+          <nz-avatar nz-dropdown [nzDropdownMenu]="menu" nzText="Uk"
+            style="color:#f56a00; background-color:#fde3cf;cursor:pointer">
+          </nz-avatar>
+          <nz-dropdown-menu  #menu="nzDropdownMenu">
+            <app-profil-tools>
+
+            </app-profil-tools>
+          </nz-dropdown-menu>
+
+        </div>
       </div>
     </nz-header>
     <nz-content>
@@ -54,5 +82,6 @@
         <router-outlet></router-outlet>
       </div>
     </nz-content>
+    <nz-footer>Safepay Secure ©2023</nz-footer>
   </nz-layout>
 </nz-layout>

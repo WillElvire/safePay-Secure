@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { NzNotificationDataOptions, NzNotificationPlacement, NzNotificationService } from 'ng-zorro-antd/notification';
 import { IBuilder } from '../../interface/IBuilder';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class NotificationService implements IBuilder<NotificationService> {
   private message!: string;
   private placement !: NzNotificationPlacement;

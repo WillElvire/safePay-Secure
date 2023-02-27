@@ -2,9 +2,7 @@ import { IBuilder } from './../../interface/IBuilder';
 import { Injectable } from '@angular/core';
 import { NzMessageDataOptions, NzMessageService } from 'ng-zorro-antd/message';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MessageService implements IBuilder<MessageService> {
 
   private message !: string;

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { RouterModule } from '@angular/router';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
   providers: [],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  encapsulation : ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
   useWeb3: boolean = true;

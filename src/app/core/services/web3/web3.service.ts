@@ -5,12 +5,10 @@ import { provider } from 'web3-core';
 import Web3Modal from 'web3modal';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class Web3Services {
 
-  private web3js: any;
+  private web3js!: Web3;
   private provider: any;
   private accounts: any;
   web3Modal !: Web3Modal;
@@ -51,17 +49,18 @@ export class Web3Services {
     });
 
 
-    this.web3Modal.connect();
+
 
 
   }
 
   async connectAccount() {
     this.web3Modal.clearCachedProvider();
+    this.web3Modal.toggleModal();
     this.provider = await this.web3Modal.connect();
     this.web3js = new Web3(this.provider);
    // create web3 instance
     this.accounts = await this.web3js.eth.getAccounts();
-    this.accountStatusSource.next(this.accounts)
+    this.accountStatusSource.next(this.accounts);
   }
 }

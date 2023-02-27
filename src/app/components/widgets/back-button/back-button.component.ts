@@ -1,11 +1,12 @@
 import { Location } from '@angular/common';
 import { Direction } from './../../../core/enum/EButton';
-import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-back-button',
   templateUrl: './back-button.component.html',
-  styleUrls: ['./back-button.component.scss']
+  styleUrls: ['./back-button.component.scss'],
+  encapsulation : ViewEncapsulation.Emulated
 })
 export class BackButtonComponent implements OnInit,AfterContentInit {
   @Input() direction : Direction = Direction.OUT;
