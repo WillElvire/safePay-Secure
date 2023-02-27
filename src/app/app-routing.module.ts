@@ -11,6 +11,9 @@ const routes: Routes = [
   {
     path: 'user',loadChildren: () =>import('./modules/adminDashboard.module').then((m) => m.AdminDashboard),
   },
+  {
+    path: 'admin',loadChildren: () =>import('./modules/adminDashboard.module').then((m) => m.AdminDashboard),
+  },
 ];
 
 @NgModule({

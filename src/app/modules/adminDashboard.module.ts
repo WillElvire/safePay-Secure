@@ -14,6 +14,7 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { ComponentModule } from './components.module';
 
 @NgModule({
   declarations : [AdminLayoutComponent],
@@ -29,6 +30,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
     NzAvatarModule,
     NzGridModule,
     NzDropDownModule,
+    ComponentModule,
     ProfilToolsComponent
 
   ],

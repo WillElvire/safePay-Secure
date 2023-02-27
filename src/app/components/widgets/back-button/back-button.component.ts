@@ -2,6 +2,8 @@ import { Location } from '@angular/common';
 import { Direction } from './../../../core/enum/EButton';
 import { AfterContentInit, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
+type direction =  keyof  typeof Direction;
+
 @Component({
   selector: 'app-back-button',
   templateUrl: './back-button.component.html',
@@ -9,7 +11,7 @@ import { AfterContentInit, Component, Input, OnInit, ViewEncapsulation } from '@
   encapsulation : ViewEncapsulation.Emulated
 })
 export class BackButtonComponent implements OnInit,AfterContentInit {
-  @Input() direction : Direction = Direction.OUT;
+  @Input() direction :  direction  = 'left';
   @Input() text : string = 'Retour en arriere';
   @Input() margin : number = 5;
 
@@ -18,7 +20,7 @@ export class BackButtonComponent implements OnInit,AfterContentInit {
   }
   ngAfterContentInit(): void {
     const  button$ = document.getElementById("button") as HTMLMenuElement;
-    button$.style.float = this.direction.valueOf() as string;
+    button$.style.float = this.direction as string;
     button$.style.marginTop = this.margin + "%";
     button$.style.marginLeft = this.margin + "%";
   }

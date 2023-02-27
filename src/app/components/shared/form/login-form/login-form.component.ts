@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFormModule } from 'ng-zorro-antd/form';
@@ -22,6 +22,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 })
 export class LoginFormComponent implements OnInit {
 
+  @Output() connectionState = new EventEmitter<any>();
+
   validateForm!: UntypedFormGroup;
 
   constructor(
@@ -38,6 +40,7 @@ export class LoginFormComponent implements OnInit {
 
   submitForm(): void {
     if (this.validateForm.valid) {
+      this.connectionState.emit({code : 'success' , response : this.validateForm.value});
       console.log('submit', this.validateForm.value);
     } else {
       Object.values(this.validateForm.controls).forEach((control) => {

@@ -1,11 +1,16 @@
-import { Component, ViewChild } from '@angular/core';
-import { CKEditorComponent } from 'ng2-ckeditor';
+import { userState } from './store/user.state';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [userState]
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private userState : userState) {
+    this.userState.isConnected$.subscribe((response)=>console.log("from parent : " + response));
+  }
+
 }

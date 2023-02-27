@@ -1,5 +1,5 @@
 import { AppFacades } from './../../../../core/services/facades/app.facades';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 
@@ -11,20 +11,17 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
   styleUrls: ['./web3-form.component.scss'],
 })
 export class Web3FormComponent {
+  @Output() connectionState = new EventEmitter<any>();
 
   constructor(private AppFacades: AppFacades) {}
 
   Web3Connect() {
     this.AppFacades.connectAccount()
-      .then((response) => {
-        this.AppFacades.getAccount().subscribe((response) => {
-          if (!!response) {
-            this.AppFacades.nBuildSuccess(response[0], 'Connection reussi');
-          }
-        });
+      .then((response: any) => {
+        this.connectionState.emit({ code: 'success', response: 'connected' });
       })
       .catch((err) => {
-        this.AppFacades.mBuildError(err.message);
+        this.connectionState.emit({ code: 'error', response: err });
       });
   }
 }

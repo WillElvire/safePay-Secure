@@ -25,13 +25,16 @@ export class MessageService implements IBuilder<MessageService> {
   }
 
   buildError() {
-   return  this.build(this.nzMessage.error(this.message,this.getOptions()));
+    this.build(this.nzMessage.error(this.message,this.getOptions()));
+    return null;
   }
   buildSuccess() {
-    return  this.build(this.nzMessage.success(this.message,this.getOptions()));
+    this.build(this.nzMessage.success(this.message,this.getOptions()));
+    return null;
   }
   buildDanger() {
-    return  this.build(this.nzMessage.warning(this.message,this.getOptions()));
+    this.build(this.nzMessage.warning(this.message,this.getOptions()));
+    return null;
   }
 
   getOptions() : NzMessageDataOptions{

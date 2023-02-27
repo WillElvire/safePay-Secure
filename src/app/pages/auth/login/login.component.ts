@@ -1,3 +1,4 @@
+import { userState } from './../../../store/user.state';
 import { LoginFormComponent } from './../../../components/shared/form/login-form/login-form.component';
 import { Web3FormComponent } from './../../../components/shared/form/web3-form/web3-form.component';
 import { Component, OnInit } from '@angular/core';
@@ -6,6 +7,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { RouterModule } from '@angular/router';
 import { ViewEncapsulation } from '@angular/core';
+import { AppFacades } from 'src/app/core/services/facades/app.facades';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,7 @@ import { ViewEncapsulation } from '@angular/core';
     NzIconModule,
     RouterModule
   ],
-  providers: [],
+  providers: [userState,AppFacades],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   encapsulation : ViewEncapsulation.None
@@ -26,9 +28,18 @@ import { ViewEncapsulation } from '@angular/core';
 export class LoginComponent implements OnInit {
   useWeb3: boolean = true;
 
-  constructor() {}
+  constructor(private userState : userState,private appFacade :  AppFacades) {}
 
   ngOnInit(): void {
+
+  }
+
+  getUserState(event : any) {
+    const childCompRes  = event;
+    this.userState.emit(childCompRes);
+    if(childCompRes.code == "success")
+    return this.appFacade.mBuildSuccess(childCompRes.response);
+    return this.appFacade.mBuildError(childCompRes.response);
 
   }
 }
