@@ -1,3 +1,4 @@
+import { MarketPlacesModule } from './modules/marketplaces.modules';
 import { ComponentModule } from './modules/components.module';
 import { FormLayoutModule } from './modules/form-layout.module';
 import { environment } from './../environments/environment.prod';
@@ -29,6 +30,7 @@ registerLocaleData(fr);
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
     FormLayoutModule,
@@ -37,7 +39,9 @@ registerLocaleData(fr);
     ServiceModule,
     CKEditorModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
-    AkitaNgRouterStoreModule
+    AkitaNgRouterStoreModule,
+    MarketPlacesModule,
+
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }, { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
   bootstrap: [AppComponent],

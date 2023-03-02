@@ -1,0 +1,6 @@
+<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Selectionner la crypto" [formControl]="crypto" >
+  <nz-option nzCustomContent nzLabel="{{crypto.asset_id}}" nzValue="{{crypto.asset_id}}" *ngFor="let crypto of cryptos$ | async">
+    <img src="{{crypto.url}}">
+    {{crypto.asset_id}}
+  </nz-option>
+</nz-select>

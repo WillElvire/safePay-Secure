@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentModule } from 'src/app/modules/components.module';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -13,4 +13,8 @@ import { RouterModule } from '@angular/router';
 })
 export class LandingComponent {
 
+
+  @HostListener('scroll') getScroll(event : any) {
+    console.log(event)
+  }
 }

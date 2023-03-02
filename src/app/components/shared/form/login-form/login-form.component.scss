@@ -1,0 +1,31 @@
+nz-input-group {
+  height: 6vh;
+}
+
+button {
+  height: 6vh !important;
+  background-color: var(--base-color);
+  color:black;
+  border: none !important;
+
+  &:hover {
+    background-color: var(--base-color);
+    color:black;
+    border: none !important;
+  }
+
+
+}
+
+
+@media (min-width: 0px) and (max-width: 900px) {
+  button {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  nz-input-group {
+    height: 6vh !important;
+  }
+}
+

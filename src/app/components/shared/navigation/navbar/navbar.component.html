@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" [ngClass]="(pageY > 200) && fixable ? 'fixed' : 'not-fixed'">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">SafePay</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,15 +7,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto d-flex mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/landing" routerLinkActive="active">Acceuil</a>
+          <a class="nav-link " aria-current="page" routerLink="/landing" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/makertplace" routerLinkActive="active">MarketPlace</a>
+          <a class="nav-link " aria-current="page" routerLink="/marketplace/new" routerLinkActive="active">MarketPlace</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " aria-current="page" routerLink="/faq" routerLinkActive="active">Faq</a>
         </li>
       </ul>
+      <div class="d-flex buttons">
+        <button nz-button routerLink="/auth/login">Inscription</button>
+        <button nz-button style="margin-left: 5%;" routerLink="/auth/register">
+          <span>Connexion</span>
+        </button>
+      </div>
     </div>
   </div>
 </nav>

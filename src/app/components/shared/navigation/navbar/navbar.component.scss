@@ -1,6 +1,4 @@
 .navbar{
-  background-color : var(--base-color) !important;
-  box-shadow:  0px 10px 10px 0px rbga(0,0,0,1) !important;
   .navbar-brand {
     color : black;
     font-weight: bold;
@@ -9,4 +7,38 @@
     color:var(--base-colo-light) !important;
     font-weight: bold;
   }
+}
+
+.fixed {
+  background-color : var(--base-color) !important;
+  box-shadow:  0px 10px 10px 0px rbga(0,0,0,1) !important;
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  button {
+    border-radius: 10px !important;
+  }
+
+
+}
+
+.not-fixed {
+  background-color : var(--base-colo-light) !important;
+
+  .active {
+    color: black !important;
+    font-weight: bold;
+  }
+  .buttons {
+    button {
+      background-color: var(--base-color) !important;
+      border-radius: 10px !important;
+      &:hover  {
+        color :white !important;
+        border : 1px solid black !important;
+      }
+    }
+  }
+
+
 }

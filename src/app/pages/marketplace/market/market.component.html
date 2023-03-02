@@ -1,0 +1,120 @@
+<app-navbar [fixable]="false"></app-navbar>
+<section class="banner">
+  <div class="container">
+    <div class="grid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="container text-area">
+            <div class="text">
+              <h1>Achetez et vendez facilement <br>vos<b class="crypto"> cryptomonnaies.</b></h1>
+              <p style="margin-top: 3%;">Premiere marketplace de vente de crypto P2P</p>
+            </div>
+            <div class="button mt-5">
+              <button nz-button routerLink="/auth/register">
+                <span>Se connecter</span>
+                <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+              </button>
+              <button nz-button style="margin-left: 1%;" class="buy">
+                <span>Acheter</span>
+                <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--<s-select></s-select>
+<s-select></s-select>!-->
+<section class="product mt-4">
+  <div class="container">
+    <h3>Achat</h3>
+    <div class="container mt-5">
+      <div class="grid global">
+        <div class="row">
+          <div class="col-md-2">
+            <button nz-button class="slider-button">
+              < </button>
+          </div>
+          <div class="col-md-8">
+            <div class="grid ml-3">
+              <div class="row">
+                <nz-card class="col-md-3" [nzCover]="coverTemplate">
+                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
+                </nz-card>
+                <nz-card class="col-md-3" [nzCover]="coverTemplate">
+                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description">
+
+                  </nz-card-meta>
+                  <button nz-button>
+                    <span nz-icon nzType="eye" nzTheme="outline"></span>
+                  </button>
+                </nz-card>
+                <nz-card class="col-md-3" [nzCover]="coverTemplate">
+                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
+                </nz-card>
+                <ng-template #coverTemplate>
+                  <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+                </ng-template>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-2">
+            <button nz-button class="slider-button">
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="product mt-4">
+  <div class="container">
+    <h3>Meilleur ventes</h3>
+    <div class="container mt-5">
+      <div class="grid global">
+        <div class="row">
+          <div class="col-md-2">
+            <button nz-button class="slider-button">
+              < </button>
+          </div>
+          <div class="col-md-8">
+            <div class="grid ml-3">
+              <div class="row">
+                <nz-card class="col-md-3" [nzCover]="coverTemplate">
+                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
+                </nz-card>
+                <nz-card class="col-md-3" [nzCover]="coverTemplate">
+                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description">
+
+                  </nz-card-meta>
+                  <button nz-button>
+                    <span nz-icon nzType="eye" nzTheme="outline"></span>
+                  </button>
+                </nz-card>
+                <nz-card class="col-md-3" [nzCover]="coverTemplate">
+                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
+                </nz-card>
+                <ng-template #coverTemplate>
+                  <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+                </ng-template>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-2">
+            <button nz-button class="slider-button">
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-join></app-join>
+<app-footer></app-footer>

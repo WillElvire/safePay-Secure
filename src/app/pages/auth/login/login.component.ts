@@ -25,7 +25,6 @@ import { AppFacades } from 'src/app/core/services/facades/app.facades';
   providers: [userState,AppFacades],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  encapsulation : ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
 

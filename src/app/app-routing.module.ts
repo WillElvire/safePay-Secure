@@ -15,6 +15,9 @@ const routes: Routes = [
     path: 'user',loadChildren: () =>import('./modules/adminDashboard.module').then((m) => m.AdminDashboard),
   },
   {
+    path : 'marketplace' , loadChildren : ()=> import('./modules/marketplaces.modules').then((m)=> m.MarketPlacesModule)
+  },
+  {
     path: 'admin',loadChildren: () =>import('./modules/adminDashboard.module').then((m) => m.AdminDashboard),
   },
 ];

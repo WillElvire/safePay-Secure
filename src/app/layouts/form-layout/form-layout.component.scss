@@ -12,6 +12,10 @@
   margin-left: 10%;
 }
 
+button {
+  background-color: var(--base-color) !important;
+}
+
 @media(min-width:0px) and (max-width:900px) {
   .banner {
     height: 20vh;
