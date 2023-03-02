@@ -3,10 +3,13 @@ import { Routes, RouterModule, NoPreloading } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', pathMatch: 'full', redirectTo: 'auth'
+    path: '', pathMatch: 'full', redirectTo: 'landing'
   },
   {
     path: 'auth',loadChildren: () =>import('./modules/form-layout.module').then((m) => m.FormLayoutModule),
+  },
+  {
+    path : 'landing',loadComponent : ()=> import('./pages/simple/landing/landing.component').then((m)=> m.LandingComponent)
   },
   {
     path: 'user',loadChildren: () =>import('./modules/adminDashboard.module').then((m) => m.AdminDashboard),

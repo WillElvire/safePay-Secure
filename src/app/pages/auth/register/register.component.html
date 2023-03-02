@@ -41,12 +41,5 @@
   </form>
 </ng-container>
 
-<ng-container>
-  <div class="text-center mt-4">
-    <span>- Ou -</span>
-    <p>
-      <a routerLink="/auth/login">Se connecter</a>
-    </p>
-  </div>
-</ng-container>
 
+<app-form-tool text="{{'se connecter'}}" [link]="'/auth/login'"></app-form-tool>

@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  background-color: var(--base-colo-light);
+  height: 60vh;
+  .crypto {
+    color: var(--base-color);
+    font-size: 43px;
+  }
+  img {
+    margin-left: 10%;
+    margin-top: 18.5%;
+    position: relative;
+  }
+  .text-area {
+    position: absolute;
+    margin-top: 7%;
+    margin-left: 5%;
+    button {
+      background-color: var(--base-color);
+      height: 6vh;
+      width: 200px;
+      &:hover {
+        background-color: var(--base-colo-light);
+        border: 1px solid black;
+        color: black;
+      }
+      span[nz-icon] {
+        margin-top: 1.2% !important;
+        position: absolute;
+      }
+    }
+  }
+}
+
+@media (min-width: 0px) and (max-width: 900px) {
+  .banner {
+    border-bottom-left-radius: 150px !important;
+    border-bottom-right-radius: 150px !important;
+    height: 50vh;
+    .buy {
+      display: none !important;
+    }
+    h1 {
+      font-size: 25px;
+      .crypto {
+        font-size: 28px;
+      }
+    }
+    .text-area {
+      position: relative;
+      margin-left: 3%;
+      margin-top: 20%;
+      padding: 0;
+      .buttons {
+        justify-content: center;
+        button {
+          width: 50px !important;
+          span[nz-icon] {
+            position: relative !important;
+          }
+        }
+      }
+    }
+    img {
+      display: none;
+    }
+  }
+}

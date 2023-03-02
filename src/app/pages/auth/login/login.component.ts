@@ -1,3 +1,4 @@
+import { FormToolComponent } from './../../../components/shared/form/form-tool/form-tool.component';
 import { userState } from './../../../store/user.state';
 import { LoginFormComponent } from './../../../components/shared/form/login-form/login-form.component';
 import { Web3FormComponent } from './../../../components/shared/form/web3-form/web3-form.component';
@@ -18,7 +19,8 @@ import { AppFacades } from 'src/app/core/services/facades/app.facades';
     LoginFormComponent,
     NzButtonModule,
     NzIconModule,
-    RouterModule
+    RouterModule,
+    FormToolComponent
   ],
   providers: [userState,AppFacades],
   templateUrl: './login.component.html',
@@ -26,6 +28,7 @@ import { AppFacades } from 'src/app/core/services/facades/app.facades';
   encapsulation : ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
+
   useWeb3: boolean = true;
 
   constructor(private userState : userState,private appFacade :  AppFacades) {}

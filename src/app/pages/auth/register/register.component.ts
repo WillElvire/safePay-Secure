@@ -6,6 +6,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { ReactiveFormsModule, UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FormToolComponent } from 'src/app/components/shared/form/form-tool/form-tool.component';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,9 @@ import { RouterModule } from '@angular/router';
     NzInputModule,
     ReactiveFormsModule,
     NzButtonModule,
-    RouterModule
+    RouterModule,
+    FormToolComponent
+
   ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']

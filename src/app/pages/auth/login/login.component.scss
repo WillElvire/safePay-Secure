@@ -1,5 +1,18 @@
-@media(min-width:0px) and (max-width:900px) {
- button {
+@media (min-width: 0px) and (max-width: 900px) {
+  button {
     width: 100% !important;
+    height: auto !important;
   }
+
+  nz-input-group {
+    height: auto;
+  }
+}
+
+nz-input-group {
+  height: 6vh;
+}
+
+button {
+  height: 6vh !important;
 }

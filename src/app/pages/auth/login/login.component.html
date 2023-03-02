@@ -7,11 +7,4 @@
   <span nz-icon nzType="codepen-circle" nzTheme="fill" *ngIf="!useWeb3">Web3</span>
 </button>
 
-<ng-container>
-  <div class="text-center mt-4">
-    <span>- Ou -</span>
-    <p>
-      <a routerLink="/auth/register">S'inscrire</a>
-    </p>
-  </div>
-</ng-container>
+<app-form-tool text="{{'s\'inscrire'}}" [link]="'/auth/register'"></app-form-tool>
