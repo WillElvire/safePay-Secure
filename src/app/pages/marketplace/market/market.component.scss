@@ -1,15 +1,8 @@
-nz-card{
-  margin: 20px !important;
+.crypto {
+  color: white;
 }
 
-.product{
-  button{
-    width: 100%;
-  }
-}
-
-
-.banner{
+.banner {
   background: var(--base-color);
   height: 40vh;
   .text-area {
@@ -17,21 +10,5 @@ nz-card{
     button {
       background-color: white !important;
     }
-  }
-}
-
-.global{
-  margin-left: 7%;
-}
-.slider-button {
-  height: 8vh;
-  background-color: var(--base-color);
-  border-radius: 50px !important;
-  width: 60px !important;
-  font-size: 20px;
-  &:hover{
-    background-color: var(--base-colo-light) !important;
-    border: 1px solid var(--base-color);
-    color: black;
   }
 }

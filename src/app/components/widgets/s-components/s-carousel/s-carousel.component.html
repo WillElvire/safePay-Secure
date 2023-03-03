@@ -1,0 +1,35 @@
+<div class="container shop-element">
+
+  <div class="buttons ml-5" style="margin-left:3%">
+    <button nz-button class="slider-button" (click)="owlCar2.next()"><</button>
+    <button nz-button class="slider-button" style="margin-left: 1%;" (click)="owlCar2.prev()">></button>
+  </div>
+  <owl-carousel-o [options]="customOptions" #owlCar2>
+    <ng-template carouselSlide>
+      <nz-card class="col-md-3" [nzCover]="coverTemplate">
+        <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
+        <button nz-button> voir plus</button>
+      </nz-card>
+    </ng-template>
+    <ng-template carouselSlide>
+      <nz-card class="col-md-3" [nzCover]="coverTemplate">
+        <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
+      </nz-card>
+    </ng-template>
+    <ng-template carouselSlide>
+      <nz-card class="col-md-3" [nzCover]="coverTemplate">
+        <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
+      </nz-card>
+    </ng-template>
+    <ng-template carouselSlide>
+      <nz-card class="col-md-3" [nzCover]="coverTemplate">
+        <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
+      </nz-card>
+    </ng-template>
+  </owl-carousel-o>
+
+  <ng-template #coverTemplate>
+    <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+  </ng-template>
+</div>
+

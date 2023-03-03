@@ -1,3 +1,5 @@
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { SCarouselComponent } from './../components/widgets/s-components/s-carousel/s-carousel.component';
 import { NgModule } from '@angular/core';
 import { BackButtonComponent } from '../components/widgets/back-button/back-button.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -14,6 +16,7 @@ import { CommonModule } from '@angular/common';
 import { SSelectComponent } from '../components/widgets/s-components/s-select/s-select.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PlanComponent,
     JoinComponent,
     SSelectComponent,
+    SCarouselComponent,
   ],
   exports: [
     BackButtonComponent,
@@ -36,7 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdvantageComponent,
     PlanComponent,
     JoinComponent,
-    SSelectComponent
+    SSelectComponent,
+    SCarouselComponent
   ],
   imports: [
     NzButtonModule,
@@ -45,7 +50,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     NzSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzCardModule,
+    CarouselModule
+
   ],
 })
 export class ComponentModule {}

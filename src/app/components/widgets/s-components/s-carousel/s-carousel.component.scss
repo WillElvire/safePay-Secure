@@ -1,0 +1,32 @@
+.global{
+  margin-left: 5%;
+}
+.slider-button {
+  height: 8vh;
+  background-color: var(--base-color);
+  border-radius: 50px !important;
+  width: 60px !important;
+  font-size: 20px;
+  margin-top: 8%;
+  &:hover{
+    background-color: var(--base-colo-light) !important;
+    border: 1px solid var(--base-color);
+    color: black;
+  }
+}
+
+nz-card{
+  margin: 20px !important;
+  width: 210px  !important;
+}
+
+.shop-element {
+  width: 80%;
+  margin-left: 12%;
+}
+
+.product{
+  button{
+    width: 100%;
+  }
+}

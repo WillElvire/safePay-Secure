@@ -20,6 +20,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 registerLocaleData(fr);
 
@@ -38,6 +39,7 @@ registerLocaleData(fr);
     AdminDashboard,
     ServiceModule,
     CKEditorModule,
+    CarouselModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule,
     MarketPlacesModule,

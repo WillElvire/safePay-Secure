@@ -1,4 +1,22 @@
-<app-navbar [fixable]="false"></app-navbar>
+<app-navbar [fixable]="false" [color]="'white'"></app-navbar>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <div class=" navbar-collapse container" id="navbarNav">
+    <ul class="navbar-nav nav justify-content-center">
+      <li class="nav-item active">
+        <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <section class="banner">
   <div class="container">
     <div class="grid">
@@ -27,94 +45,17 @@
 </section>
 <!--<s-select></s-select>
 <s-select></s-select>!-->
-<section class="product mt-4">
-  <div class="container">
-    <h3>Achat</h3>
-    <div class="container mt-5">
-      <div class="grid global">
-        <div class="row">
-          <div class="col-md-2">
-            <button nz-button class="slider-button">
-              < </button>
-          </div>
-          <div class="col-md-8">
-            <div class="grid ml-3">
-              <div class="row">
-                <nz-card class="col-md-3" [nzCover]="coverTemplate">
-                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
-                </nz-card>
-                <nz-card class="col-md-3" [nzCover]="coverTemplate">
-                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description">
 
-                  </nz-card-meta>
-                  <button nz-button>
-                    <span nz-icon nzType="eye" nzTheme="outline"></span>
-                  </button>
-                </nz-card>
-                <nz-card class="col-md-3" [nzCover]="coverTemplate">
-                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
-                </nz-card>
-                <ng-template #coverTemplate>
-                  <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-                </ng-template>
-              </div>
-            </div>
 
-          </div>
-          <div class="col-md-2">
-            <button nz-button class="slider-button">
-              >
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="product mt-4">
-  <div class="container">
-    <h3>Meilleur ventes</h3>
-    <div class="container mt-5">
-      <div class="grid global">
-        <div class="row">
-          <div class="col-md-2">
-            <button nz-button class="slider-button">
-              < </button>
-          </div>
-          <div class="col-md-8">
-            <div class="grid ml-3">
-              <div class="row">
-                <nz-card class="col-md-3" [nzCover]="coverTemplate">
-                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
-                </nz-card>
-                <nz-card class="col-md-3" [nzCover]="coverTemplate">
-                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description">
 
-                  </nz-card-meta>
-                  <button nz-button>
-                    <span nz-icon nzType="eye" nzTheme="outline"></span>
-                  </button>
-                </nz-card>
-                <nz-card class="col-md-3" [nzCover]="coverTemplate">
-                  <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
-                </nz-card>
-                <ng-template #coverTemplate>
-                  <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-                </ng-template>
-              </div>
-            </div>
+<div class="container">
+  <s-carousel [title]="'Achat'"></s-carousel>
+</div>
 
-          </div>
-          <div class="col-md-2">
-            <button nz-button class="slider-button">
-              >
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="container">
+  <s-carousel [title]="'Vente'"></s-carousel>
+</div>
+
 <app-join></app-join>
 <app-footer></app-footer>
