@@ -1,0 +1,34 @@
+
+
+.blink-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+
+}
+.blink {
+  height: 7vh;
+  border-radius: 20px !important;
+  width: 200px !important;
+  &:hover{
+    border: none;
+    color:black;
+  }
+}
+@keyframes glowing {
+  0% {
+    background-color: var(--base-color);
+    box-shadow: 0 0 5px var(--base-color);
+  }
+  50% {
+    background-color: var(--base-color);
+    box-shadow: 0 0 20px var(--base-color);
+  }
+  100% {
+    background-color: var(--base-color);
+    box-shadow: 0 0 5px var(--base-color);
+  }
+}
+.blink {
+  animation: glowing 1300ms infinite;
+}

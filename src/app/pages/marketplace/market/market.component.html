@@ -1,61 +1,38 @@
-<app-navbar [fixable]="false" [color]="'white'"></app-navbar>
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <div class=" navbar-collapse container" id="navbarNav">
-    <ul class="navbar-nav nav justify-content-center">
-      <li class="nav-item active">
-        <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<section class="banner">
-  <div class="container">
-    <div class="grid">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="container text-area">
-            <div class="text">
-              <h1>Achetez et vendez facilement <br>vos<b class="crypto"> cryptomonnaies.</b></h1>
-              <p style="margin-top: 3%;">Premiere marketplace de vente de crypto P2P</p>
-            </div>
-            <div class="button mt-5">
-              <button nz-button routerLink="/auth/register">
-                <span>Se connecter</span>
-                <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
-              </button>
-              <button nz-button style="margin-left: 1%;" class="buy">
-                <span>Acheter</span>
-                <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
-              </button>
+<div class="wrapper">
+  <app-market-nav></app-market-nav>
+  <section class="banner">
+    <div class="container">
+      <div class="grid">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="container text-area">
+              <div class="text">
+                <h1>Achetez et vendez facilement <br>vos<b class="crypto"> cryptomonnaies.</b></h1>
+                <p style="margin-top: 3%;">Premiere marketplace de vente de crypto P2P</p>
+              </div>
+              <div class="button mt-5">
+                <button nz-button routerLink="/auth/register">
+                  <span>Se connecter</span>
+                  <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+                </button>
+                <button nz-button style="margin-left: 1%;" class="buy" routerLink="/marketplace/index">
+                  <span>Boutique P2P</span>
+                  <span nz-icon nzType="shop" nzTheme="outline"></span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!--<s-select></s-select>
-<s-select></s-select>!-->
-
-
-
-
-<div class="container">
-  <s-carousel [title]="'Achat'"></s-carousel>
+  </section>
+  <div class="container"><s-carousel [title]="'Achat'"></s-carousel></div>
+  <div class="container"><s-carousel [title]="'Vente'"></s-carousel></div>
+  <app-glow-button [url]="'/marketplace/index'"></app-glow-button>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <app-footer style="margin-top: 5% !important;"></app-footer>
 </div>
-
-<div class="container">
-  <s-carousel [title]="'Vente'"></s-carousel>
-</div>
-
-<app-join></app-join>
-<app-footer></app-footer>

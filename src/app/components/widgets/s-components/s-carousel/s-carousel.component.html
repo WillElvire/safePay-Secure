@@ -1,9 +1,11 @@
 <div class="container shop-element">
 
+
   <div class="buttons ml-5" style="margin-left:3%">
     <button nz-button class="slider-button" (click)="owlCar2.next()"><</button>
     <button nz-button class="slider-button" style="margin-left: 1%;" (click)="owlCar2.prev()">></button>
   </div>
+  <h3 class="text-center">P2P {{title | uppercase}}</h3>
   <owl-carousel-o [options]="customOptions" #owlCar2>
     <ng-template carouselSlide>
       <nz-card class="col-md-3" [nzCover]="coverTemplate">

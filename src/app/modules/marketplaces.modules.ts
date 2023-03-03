@@ -1,3 +1,4 @@
+import { MarketFullComponent } from './../pages/marketplace/market-full/market-full.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NgModule } from '@angular/core';
 import { MarketPlaceRoutingModule } from '../routes/marketplace.routes';
@@ -8,9 +9,10 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ServiceModule } from './service.module';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 @NgModule({
-  declarations: [MarketComponent],
+  declarations: [MarketComponent,MarketFullComponent],
   imports: [
     MarketPlaceRoutingModule,
     ComponentModule,
@@ -20,6 +22,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NzIconModule,
     ServiceModule,
     CarouselModule,
+    NzTableModule,
   ],
   exports: [MarketComponent],
 })

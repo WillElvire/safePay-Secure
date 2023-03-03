@@ -1,6 +1,7 @@
 import { MarketComponent } from './../pages/marketplace/market/market.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { MarketFullComponent } from '../pages/marketplace/market-full/market-full.component';
 
 const routes: Routes = [
   {
@@ -8,8 +9,19 @@ const routes: Routes = [
     component: MarketComponent,
   },
   {
+    path: 'index',
+    component: MarketFullComponent,
+    pathMatch : 'prefix',
+    children : [
+      {
+        path :'?q:id',
+        component : MarketFullComponent
+      }
+    ]
+  },
+  {
     path: '',
-    redirectTo: 'new',
+    redirectTo: 'index',
     pathMatch: 'full',
   },
 ];

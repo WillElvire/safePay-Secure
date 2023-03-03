@@ -1,3 +1,4 @@
+import { GlowButtonComponent } from './../components/shared/website/glow-button/glow-button.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { SCarouselComponent } from './../components/widgets/s-components/s-carousel/s-carousel.component';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,7 @@ import { SSelectComponent } from '../components/widgets/s-components/s-select/s-
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { MarketNavComponent } from '../components/shared/navigation/market-nav/market-nav.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     JoinComponent,
     SSelectComponent,
     SCarouselComponent,
+    GlowButtonComponent,
+    MarketNavComponent,
   ],
   exports: [
     BackButtonComponent,
@@ -41,7 +45,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     PlanComponent,
     JoinComponent,
     SSelectComponent,
-    SCarouselComponent
+    SCarouselComponent,
+    GlowButtonComponent,
+    MarketNavComponent
   ],
   imports: [
     NzButtonModule,
@@ -53,6 +59,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ReactiveFormsModule,
     NzCardModule,
     CarouselModule
+
 
   ],
 })
