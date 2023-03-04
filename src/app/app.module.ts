@@ -1,9 +1,5 @@
-import { MarketPlacesModule } from './modules/marketplaces.modules';
-import { ComponentModule } from './modules/components.module';
-import { FormLayoutModule } from './modules/form-layout.module';
+
 import { environment } from './../environments/environment.prod';
-import { ServiceModule } from './modules/service.module';
-import { AdminDashboard } from './modules/adminDashboard.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +16,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 registerLocaleData(fr);
 
@@ -31,19 +27,11 @@ registerLocaleData(fr);
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
-    FormLayoutModule,
-    ComponentModule,
-    AdminDashboard,
-    ServiceModule,
     CKEditorModule,
-    CarouselModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule,
-    MarketPlacesModule,
-
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }, { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
   bootstrap: [AppComponent],

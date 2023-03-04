@@ -1,6 +1,6 @@
 <section class="data">
   <div class="container table-responsive mt-5">
-    <nz-table #basicTable [nzData]="listOfData" [nzFrontPagination]="true" [nzShowQuickJumper]="true"
+    <nz-table #headerTable [nzData]="listOfData" [nzScroll]="{ y: '500px' }" [nzFrontPagination]="true" [nzShowQuickJumper]="true"
       [nzLoading]="loading" [nzTotal]="total" [nzPageSize]="pageSize" [nzPageIndex]="pageIndex">
       <thead>
         <tr>
@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of basicTable.data">
+        <tr *ngFor="let data of headerTable.data">
           <td>
             <div>
               <nz-avatar [nzSize]="'small'" nzIcon="user" style="background-color:var(--base-color);"></nz-avatar>
@@ -22,8 +22,8 @@
               <span nz-icon nzType="star" nzTheme="fill" style="margin-left: 2%;"></span>
             </div>
           </td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
+          <td>{{data.age }}</td>
+          <td>{{data.address }}</td>
           <td>{{data.exchange}}</td>
           <td>{{data.fiat}}</td>
           <td>

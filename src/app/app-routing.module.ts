@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './pages/simple/error/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, NoPreloading } from '@angular/router';
 
@@ -15,10 +16,17 @@ const routes: Routes = [
     path: 'user',loadChildren: () =>import('./modules/adminDashboard.module').then((m) => m.AdminDashboard),
   },
   {
+    path : 'payment', loadChildren : ()=> import('./modules/payment.module').then((m)=> m.PaymentModule)
+  },
+  {
     path : 'marketplace' , loadChildren : ()=> import('./modules/marketplaces.modules').then((m)=> m.MarketPlacesModule)
   },
   {
     path: 'admin',loadChildren: () =>import('./modules/adminDashboard.module').then((m) => m.AdminDashboard),
+  },
+  {
+    path : '**',
+    loadComponent : ()=> import('./pages/simple/error/not-found/not-found.component').then((c)=> c.NotFoundComponent)
   },
 ];
 

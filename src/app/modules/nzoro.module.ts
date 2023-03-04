@@ -10,7 +10,7 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTableModule } from 'ng-zorro-antd/table';
-
+import { NzResultModule } from 'ng-zorro-antd/result';
 @NgModule({
   declarations: [],
   imports: [
@@ -24,7 +24,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
     NzNotificationModule,
     NzSelectModule,
     NzCardModule,
-    NzTableModule
+    NzTableModule,
+    NzResultModule
   ],
   exports: [
     NzIconModule,
@@ -37,7 +38,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
     NzNotificationModule,
     NzSelectModule,
     NzCardModule,
-    NzTableModule
+    NzTableModule,
+    NzResultModule
 
   ],
 })
