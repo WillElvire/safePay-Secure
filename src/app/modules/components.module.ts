@@ -1,10 +1,7 @@
 import { GlowButtonComponent } from './../components/shared/website/glow-button/glow-button.component';
-import { NzCardModule } from 'ng-zorro-antd/card';
 import { SCarouselComponent } from './../components/widgets/s-components/s-carousel/s-carousel.component';
 import { NgModule } from '@angular/core';
 import { BackButtonComponent } from '../components/widgets/back-button/back-button.component';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NavbarComponent } from '../components/shared/navigation/navbar/navbar.component';
 import { FooterComponent } from '../components/shared/navigation/footer/footer.component';
 import { BannerComponent } from '../components/shared/website/banner/banner.component';
@@ -15,10 +12,12 @@ import { JoinComponent } from '../components/shared/website/join/join.component'
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SSelectComponent } from '../components/widgets/s-components/s-select/s-select.component';
-import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MarketNavComponent } from '../components/shared/navigation/market-nav/market-nav.component';
+import { NZoroModule } from './nzoro.module';
+import { STableComponent } from '../components/widgets/s-components/s-table/s-table.component';
+import { MarketBannerComponent } from '../components/shared/website/market-banner/market-banner.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +33,8 @@ import { MarketNavComponent } from '../components/shared/navigation/market-nav/m
     SCarouselComponent,
     GlowButtonComponent,
     MarketNavComponent,
+    STableComponent,
+    MarketBannerComponent,
   ],
   exports: [
     BackButtonComponent,
@@ -47,18 +48,17 @@ import { MarketNavComponent } from '../components/shared/navigation/market-nav/m
     SSelectComponent,
     SCarouselComponent,
     GlowButtonComponent,
-    MarketNavComponent
+    MarketNavComponent,
+    STableComponent,
+    MarketBannerComponent
   ],
   imports: [
-    NzButtonModule,
-    NzIconModule,
     RouterModule,
     CommonModule,
-    NzSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    NzCardModule,
-    CarouselModule
+    CarouselModule,
+    NZoroModule
 
 
   ],

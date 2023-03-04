@@ -12,3 +12,75 @@
 .crypto {
   color: white !important;
 }
+
+
+.tool-bar {
+  margin-top: 5%;
+  .btn-group {
+    height: 6vh !important;
+    border: 2px solid rgb(184, 178, 178);
+    width: auto;
+    background-color: var(--base-color-second-light) !important;
+    button {
+      background-color: transparent !important;
+      border: none;
+      height: 5.5vh;
+    }
+    .buy-btn {
+      &:hover {
+        background-color: var(--base-color-buy) !important;
+        color: white;
+        border: none;
+      }
+      &:focus {
+        background-color: var(--base-color-buy) !important;
+        color: white;
+        border: none;
+      }
+
+      &:active {
+        background-color: var(--base-color-buy) !important;
+        color: white;
+        border: none;
+      }
+    }
+
+    .default {
+      background-color: var(--base-color-buy) !important;
+      color: white;
+      border: none;
+    }
+
+    .active-buy {
+      background-color: var(--base-color-buy) !important;
+      color: white;
+      border: none;
+    }
+
+    .active-sell{
+      background-color: var(--base-color-sell) !important;
+      color: white;
+      border: none;
+    }
+
+    .sell-btn {
+      &:hover {
+        background-color: var(--base-color-sell) !important;
+        color: white;
+        border: none;
+      }
+
+      &:focus {
+        background-color: var(--base-color-sell) !important;
+        color: white;
+        border: none;
+      }
+
+      &:active {
+        background-color: var(--base-color-sell) !important;
+        color: white;
+        border: none;
+      }
+    }
+  }
+}

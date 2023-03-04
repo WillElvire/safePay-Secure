@@ -1,55 +1,19 @@
-<app-market-nav></app-market-nav>
-<section class="banner">
-  <div class="container">
-    <div class="grid">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="container text-area">
-            <div class="text">
-              <h1>Achetez et vendez mieux <br>vos<b class="crypto"> cryptomonnaies.</b></h1>
-              <p style="margin-top: 3%;">Premiere marketplace de vente de crypto P2P</p>
-            </div>
-            <div class="button mt-5">
-              <button nz-button routerLink="/auth/register">
-                <span>Se connecter</span>
-                <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
-              </button>
-              <button nz-button style="margin-left: 1%;" class="buy">
-                <span>Boutique P2P</span>
-                <span nz-icon nzType="shop" nzTheme="outline"></span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+<app-market-nav [fixable]="true"></app-market-nav>
+
+<app-market-banner [titre]="'Achetez et vendez mieux'" [middleWord]="'vos'" ></app-market-banner>
+
+<section class="table container">
+  <div class="tool-bar">
+    <div class="btn-group">
+      <button nz-button class="buy-btn" [ngClass]="checkDefault ? 'default' : 'none'"
+        (click)="type='buy'; checkDefault = false"
+      >Acheter crypto</button>
+      <button nz-button class="sell-btn" (click)="type='sell'; checkDefault = false"
+        >Vendre Crypto</button>
     </div>
   </div>
+  <s-table [type]="type"></s-table>
 </section>
 
-<section class="data">
-  <div class="container">
-    <nz-table #basicTable [nzData]="listOfData">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Address</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of basicTable.data">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
-          <td>
-            <a>Action 一 {{ data.name }}</a>
-
-            <a>Delete</a>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table>
-  </div>
-
-</section>
+<app-join></app-join>
+<app-footer></app-footer>

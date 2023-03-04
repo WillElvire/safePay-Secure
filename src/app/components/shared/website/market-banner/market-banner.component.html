@@ -1,0 +1,26 @@
+<section class="banner">
+  <div class="container">
+    <div class="grid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="container text-area">
+            <div class="text">
+              <h1>{{titre}}<br>{{!!middleWord ? middleWord  : 'vos'}}<b class="crypto"> {{!!keyWord ? keyWord : 'cryptomonnaies'}}.</b></h1>
+              <p style="margin-top: 3%;">Premiere marketplace de vente de crypto P2P</p>
+            </div>
+            <div class="button mt-5">
+              <button nz-button routerLink="/auth/register">
+                <span>Se connecter</span>
+                <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
+              </button>
+              <button nz-button style="margin-left: 1%;" class="buy" routerLink="/marketplace/">
+                <span>Boutique P2P</span>
+                <span nz-icon nzType="shop" nzTheme="outline"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+
+nz-table {
+
+  button{
+    border: none;
+  }
+  .buy {
+    background:  var(--base-color-buy) !important;
+    color :white;
+  }
+  .sell {
+    background:  var(--base-color-sell) !important;
+    color :white;
+  }
+}
+
+a {
+  color : black;
+  cursor: pointer;
+  &:hover{
+    color : var(--base-color);
+    font-weight: bold;
+  }
+}
+nz-avatar {
+  span [nz-icon] {
+    position: absolute !important;
+    margin-top: 5% !important;
+    color : dodgerblue !important
+  }
+}

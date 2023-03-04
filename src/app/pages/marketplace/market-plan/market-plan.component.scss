@@ -1,0 +1,10 @@
+.banner {
+  background: var(--base-color);
+  height: 40vh;
+  .text-area {
+    margin-top: 5%;
+    button {
+      background-color: white !important;
+    }
+  }
+}

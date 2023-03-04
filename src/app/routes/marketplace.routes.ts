@@ -1,3 +1,4 @@
+import { MarketPlanComponent } from './../pages/marketplace/market-plan/market-plan.component';
 import { MarketComponent } from './../pages/marketplace/market/market.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,17 @@ const routes: Routes = [
       }
     ]
   },
+ {
+   path :'offer',
+   component :MarketPlanComponent,
+   pathMatch :'prefix',
+   children : [
+    {
+      path : 'billing',
+      component : MarketPlanComponent
+    }
+   ]
+ },
   {
     path: '',
     redirectTo: 'index',

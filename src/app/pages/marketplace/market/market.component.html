@@ -1,31 +1,6 @@
 <div class="wrapper">
   <app-market-nav></app-market-nav>
-  <section class="banner">
-    <div class="container">
-      <div class="grid">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="container text-area">
-              <div class="text">
-                <h1>Achetez et vendez facilement <br>vos<b class="crypto"> cryptomonnaies.</b></h1>
-                <p style="margin-top: 3%;">Premiere marketplace de vente de crypto P2P</p>
-              </div>
-              <div class="button mt-5">
-                <button nz-button routerLink="/auth/register">
-                  <span>Se connecter</span>
-                  <span nz-icon nzType="arrow-right" nzTheme="outline"></span>
-                </button>
-                <button nz-button style="margin-left: 1%;" class="buy" routerLink="/marketplace/index">
-                  <span>Boutique P2P</span>
-                  <span nz-icon nzType="shop" nzTheme="outline"></span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-market-banner [titre]="'Achetez et vendez facilement'" [middleWord]="'vos'"></app-market-banner>
   <div class="container"><s-carousel [title]="'Achat'"></s-carousel></div>
   <div class="container"><s-carousel [title]="'Vente'"></s-carousel></div>
   <app-glow-button [url]="'/marketplace/index'"></app-glow-button>

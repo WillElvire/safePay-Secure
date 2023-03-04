@@ -1,0 +1,43 @@
+<section class="data">
+  <div class="container table-responsive mt-5">
+    <nz-table #basicTable [nzData]="listOfData" [nzFrontPagination]="true" [nzShowQuickJumper]="true"
+      [nzLoading]="loading" [nzTotal]="total" [nzPageSize]="pageSize" [nzPageIndex]="pageIndex">
+      <thead>
+        <tr>
+          <th [nzShowFilter]="true">Annonceur</th>
+          <th [nzShowSort]="true">Prix</th>
+          <th [nzShowSort]="true">Limite / Disponible</th>
+          <th [nzShowSort]="true">Monnaie d'exchange</th>
+          <th [nzShowSort]="true">Paiement</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>
+            <div>
+              <nz-avatar [nzSize]="'small'" nzIcon="user" style="background-color:var(--base-color);"></nz-avatar>
+              <a style="margin-left: 5%;" routerLink="/marketplace/client/detail/{{data.name}}">{{ data.name }} </a>
+              <span nz-icon nzType="check-circle" nzTheme="fill" style="margin-left: 2%;"></span>
+              <span nz-icon nzType="star" nzTheme="fill" style="margin-left: 2%;"></span>
+            </div>
+          </td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{data.exchange}}</td>
+          <td>{{data.fiat}}</td>
+          <td>
+            <button nz-button class="buy" *ngIf="type=='buy';else sellButtton ">Acheter {{data.exchange}}
+              <span nz-icon nzType="arrow-up" nzTheme="outline"></span>
+            </button>
+            <ng-template #sellButtton>
+              <button nz-button class="sell">Vendre {{data.exchange}}
+                <span nz-icon nzType="arrow-down" nzTheme="outline"></span>
+              </button>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</section>

@@ -3,9 +3,8 @@
 }
 
 .navbar {
-
   .active {
-    color : rgb(235, 206, 206) !important;
+    color: rgb(235, 206, 206) !important;
     font-weight: bold;
   }
   .nav-link {
@@ -21,19 +20,7 @@
   }
 }
 
-@media (min-width: 0px) and (max-width: 900px) {
-  .fixed {
-    display: none !important;
-  }
 
-  .not-diplayed {
-    background-color: red !important;
-    display: block !important;
-    position: fixed !important;
-    width: 100% !important;
-    z-index: 9999 !important;
-  }
-}
 
 .fixed {
   background-color: rgb(41, 40, 40) !important;
@@ -46,5 +33,3 @@
     color: white;
   }
 }
-
-

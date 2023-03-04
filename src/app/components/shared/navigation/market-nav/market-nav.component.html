@@ -1,7 +1,7 @@
-<app-navbar [fixable]="false" [color]="'white'" [ngClass]="(pageY > 200) ? 'not-diplayed' : 'display'"></app-navbar>
-<nav class="navbar navbar-expand-lg navbar-light bg-dark" [ngClass]="(pageY > 200) ? 'fixed' : 'not-fixed'">
+<app-navbar [fixable]="false" [color]="'white'" [ngClass]="(pageY > 100 && fixable) ? 'not-diplayed' : 'display'"></app-navbar>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark" [ngClass]="(pageY > 100 && fixable) ? 'fixed' : 'not-fixed'">
   <a class="navbar-brand" style="margin-left: 3%;" href="#">SafePay</a>
-  <div class="container" id="navbarNav">
+  <div class="container collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav nav justify-content-center">
       <li class="nav-item active">
         <a class="nav-link text-light" routerLink="/marketplace/new" routerLinkActive="active">
@@ -21,7 +21,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" routerLink="/billing" routerLinkActive="active">Nos offres
+        <a class="nav-link text-light" routerLink="/offer/billing" routerLinkActive="active">Nos offres
           <span nz-icon nzType="wallet" class="icon" nzTheme="outline"></span>
         </a>
       </li>
