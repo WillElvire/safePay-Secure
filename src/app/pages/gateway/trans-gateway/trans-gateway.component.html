@@ -1,1 +1,35 @@
-<p>trans-gateway works!</p>
+<div class="container">
+  <nz-card class="main-card">
+   <app-back-button [text]="'Annuler'"></app-back-button>
+   <div class="grid container pay_method" style="margin-top: 3%;">
+     <div class="row justify-content-center">
+      <nz-card class="col-md-3">
+        <img src="/assets/imgs/payment/money.png" class="img-fluid" width="80" height="80">
+      </nz-card>
+      <nz-card class="col-md-3">
+        <img src="/assets/imgs/payment/visa.png"  class="img-fluid" width="200" height="80">
+      </nz-card>
+      <nz-card class="col-md-3">
+        <img src="/assets/imgs/payment/crypto.png" class="img-fluid" width="80" height="80">
+      </nz-card>
+     </div>
+   </div>
+  </nz-card>
+
+
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your username!">
+      <nz-input-group nzPrefixIcon="user">
+        <input  nz-input placeholder="Username" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your Password!">
+      <nz-input-group nzPrefixIcon="lock">
+        <input  nz-input type="password" placeholder="Password" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+</div>

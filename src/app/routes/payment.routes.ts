@@ -6,6 +6,15 @@ const routes : Routes = [
   {
     path :'',
     component : TransGatewayComponent
+  },{
+    path : 'transaction',
+    component : TransGatewayComponent,
+    children : [
+      {
+        path : 'checkout/:id',
+        component : TransGatewayComponent
+      }
+    ]
   }
 ]
 

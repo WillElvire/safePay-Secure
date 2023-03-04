@@ -27,11 +27,11 @@
           <td>{{data.exchange}}</td>
           <td>{{data.fiat}}</td>
           <td>
-            <button nz-button class="buy" *ngIf="type=='buy';else sellButtton ">Acheter {{data.exchange}}
+            <button nz-button class="buy" *ngIf="type=='buy';else sellButtton " routerLink="/payment/transaction/checkout/{{data.name}}">Acheter {{data.exchange}}
               <span nz-icon nzType="arrow-up" nzTheme="outline"></span>
             </button>
             <ng-template #sellButtton>
-              <button nz-button class="sell">Vendre {{data.exchange}}
+              <button nz-button class="sell" routerLink="/payment/transaction/checkout/{{data.name}}">Vendre {{data.exchange}}
                 <span nz-icon nzType="arrow-down" nzTheme="outline"></span>
               </button>
             </ng-template>

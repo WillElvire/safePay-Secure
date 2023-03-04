@@ -11,6 +11,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzResultModule } from 'ng-zorro-antd/result';
+import { NzFormModule } from 'ng-zorro-antd/form';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -25,7 +27,8 @@ import { NzResultModule } from 'ng-zorro-antd/result';
     NzSelectModule,
     NzCardModule,
     NzTableModule,
-    NzResultModule
+    NzResultModule,
+    NzFormModule
   ],
   exports: [
     NzIconModule,
@@ -39,7 +42,8 @@ import { NzResultModule } from 'ng-zorro-antd/result';
     NzSelectModule,
     NzCardModule,
     NzTableModule,
-    NzResultModule
+    NzResultModule,
+    NzFormModule
 
   ],
 })

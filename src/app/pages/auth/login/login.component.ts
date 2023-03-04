@@ -9,6 +9,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { RouterModule } from '@angular/router';
 import { ViewEncapsulation } from '@angular/core';
 import { AppFacades } from 'src/app/core/services/facades/app.facades';
+import { ServiceModule } from 'src/app/modules/service.module';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ import { AppFacades } from 'src/app/core/services/facades/app.facades';
     NzButtonModule,
     NzIconModule,
     RouterModule,
-    FormToolComponent
+    FormToolComponent,
+    ServiceModule
   ],
   providers: [userState,AppFacades],
   templateUrl: './login.component.html',

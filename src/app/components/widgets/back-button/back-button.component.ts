@@ -8,7 +8,6 @@ type direction =  keyof  typeof Direction;
   selector: 'app-back-button',
   templateUrl: './back-button.component.html',
   styleUrls: ['./back-button.component.scss'],
-  encapsulation : ViewEncapsulation.Emulated
 })
 export class BackButtonComponent implements OnInit,AfterContentInit {
   @Input() direction :  direction  = 'left';
