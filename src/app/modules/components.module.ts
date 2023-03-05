@@ -18,6 +18,9 @@ import { MarketNavComponent } from '../components/shared/navigation/market-nav/m
 import { NZoroModule } from './nzoro.module';
 import { STableComponent } from '../components/widgets/s-components/s-table/s-table.component';
 import { MarketBannerComponent } from '../components/shared/website/market-banner/market-banner.component';
+import { SCountrySelectComponent } from '../components/widgets/s-components/s-country-select/s-country-select.component';
+import { ServiceModule } from './service.module';
+import { SRoleSelectComponent } from '../components/widgets/s-components/s-role-select/s-role-select.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { MarketBannerComponent } from '../components/shared/website/market-banne
     MarketNavComponent,
     STableComponent,
     MarketBannerComponent,
+    SCountrySelectComponent,
+    SRoleSelectComponent,
   ],
   exports: [
     BackButtonComponent,
@@ -50,7 +55,9 @@ import { MarketBannerComponent } from '../components/shared/website/market-banne
     GlowButtonComponent,
     MarketNavComponent,
     STableComponent,
-    MarketBannerComponent
+    MarketBannerComponent,
+    SCountrySelectComponent,
+    SRoleSelectComponent,
   ],
   imports: [
     RouterModule,
@@ -58,6 +65,7 @@ import { MarketBannerComponent } from '../components/shared/website/market-banne
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
+    ServiceModule,
     NZoroModule
 
 

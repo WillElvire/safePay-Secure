@@ -30,7 +30,7 @@ import { ServiceModule } from 'src/app/modules/service.module';
 })
 export class LoginComponent implements OnInit {
 
-  useWeb3: boolean = true;
+  useWeb3: boolean = false;
 
   constructor(private userState : userState,private appFacade :  AppFacades) {}
 
@@ -44,6 +44,5 @@ export class LoginComponent implements OnInit {
     if(childCompRes.code == "success")
     return this.appFacade.mBuildSuccess(childCompRes.response);
     return this.appFacade.mBuildError(childCompRes.response);
-
   }
 }

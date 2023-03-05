@@ -1,40 +1,57 @@
 <ng-container>
-  <form nz-form [formGroup]="validateForm" class="mt-5" (ngSubmit)="submitForm()" >
+  <form nz-form [formGroup]="validateForm" class="mt-5" (ngSubmit)="submitForm()">
     <nz-form-item>
       <nz-form-control nzErrorTip="Veuillez renseigner votre nom !">
         <nz-input-group nzPrefixIcon="user">
-          <input type="text" nz-input formControlName="email" placeholder="nom" />
+          <input type="text" nz-input formControlName="firstname" placeholder="nom" />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-control nzErrorTip="Veuillez prenom !">
+      <nz-form-control nzErrorTip="Veuillez  renseigner votre prenom !">
         <nz-input-group nzPrefixIcon="user">
-          <input type="text" nz-input formControlName="email" placeholder="prenom" />
+          <input type="text" nz-input formControlName="lastname" placeholder="prenom" />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
-    <nz-form-item>
-      <nz-form-control nzErrorTip="Veuillez prenom !">
-        <nz-input-group nzPrefixIcon="phone">
-          <input type="text" nz-input formControlName="email" placeholder="prenom" />
-        </nz-input-group>
-      </nz-form-control>
-    </nz-form-item>
+
+    <s-role-select [(userRole)]="roleId"></s-role-select>
 
     <nz-form-item>
       <nz-form-control nzErrorTip="Veuillez renseigner votre email !">
         <nz-input-group nzPrefixIcon="mail">
-          <input type="text" nz-input formControlName="email" placeholder="email" />
+          <input type="email" nz-input formControlName="email" placeholder="email" />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
+
+    <div class="grid">
+      <div class="row">
+        <div class="col-md-4">
+          <s-country-select [(dialCode)]="countryCode"></s-country-select>
+        </div>
+        <div class="col-md-8">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Veuillez renseigner votre numero de telephone">
+              <nz-input-group nzPrefixIcon="phone">
+                <input type="text" nz-input formControlName="phone" placeholder="Numero de telephone" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </div>
     <nz-form-item>
       <nz-form-control nzErrorTip="Veuillez renseigner votre mot de passe!">
-        <nz-input-group nzPrefixIcon="lock">
-          <input type="password" nz-input formControlName="password" placeholder="Mot de passe" />
+        <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
+          <input type="password" [type]="passwordVisible ? 'text' : 'password'" nz-input formControlName="password"
+            placeholder="Mot de passe" />
         </nz-input-group>
+        <ng-template #suffixTemplate>
+          <span nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+            (click)="passwordVisible = !passwordVisible"></span>
+        </ng-template>
       </nz-form-control>
     </nz-form-item>
     <button nz-button class="login-form-button login-form-margin col-md-12" [nzType]="'primary'">Se connecter</button>

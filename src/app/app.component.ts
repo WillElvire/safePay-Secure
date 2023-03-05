@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
   providers: [userState]
 })
-export class AppComponent {
+export class AppComponent{
   constructor(private userState : userState) {
     this.userState.isConnected$.subscribe((response)=>console.log("from parent : " + response));
   }

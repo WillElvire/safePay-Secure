@@ -21,7 +21,7 @@ export class HttpHeader  {
   }
 
   build() {
-    console.log(this.header);
+    //console.log(this.header);
     return this.header;
   }
 }

@@ -1,0 +1,7 @@
+<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Votre pays " [formControl]="country" >
+  <nz-option nzCustomContent nzLabel="{{country?.name}}" nzValue="{{country.dial_code}}" *ngFor="let country of countryCode$ | async">
+    {{country?.name}} ({{country?.dial_code}})
+  </nz-option>
+</nz-select>
+<br>
+<br>

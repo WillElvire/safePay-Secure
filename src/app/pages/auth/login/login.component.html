@@ -1,10 +1,12 @@
 <ng-container class="mt-2">
+  <br>
+  <br>
   <app-login-form *ngIf="!useWeb3" (connectionState)="getUserState($event)"></app-login-form>
-  <app-web3-form *ngIf="useWeb3" (connectionState)="getUserState($event)"></app-web3-form>
+  <!--<app-web3-form *ngIf="useWeb3" (connectionState)="getUserState($event)"></app-web3-form>!-->
 </ng-container>
-<button nz-button (click)="useWeb3 = !useWeb3" class="col-md-12 mt-4">
+ <!--<button nz-button (click)="useWeb3 = !useWeb3" class="col-md-12 mt-4">
   <span nz-icon nzType="security-scan" nzTheme="fill" *ngIf="useWeb3">Email/password</span>
   <span nz-icon nzType="codepen-circle" nzTheme="fill" *ngIf="!useWeb3">Web3</span>
-</button>
+</button>!-->
 
 <app-form-tool text="{{'s\'inscrire'}}" [link]="'/auth/register'"></app-form-tool>

@@ -12,6 +12,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 @NgModule({
   declarations: [],
@@ -28,7 +29,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     NzCardModule,
     NzTableModule,
     NzResultModule,
-    NzFormModule
+    NzFormModule,
+    NzInputModule
   ],
   exports: [
     NzIconModule,
@@ -43,7 +45,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     NzCardModule,
     NzTableModule,
     NzResultModule,
-    NzFormModule
+    NzFormModule,
+    NzInputModule
 
   ],
 })

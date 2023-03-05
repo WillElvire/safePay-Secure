@@ -1,0 +1,11 @@
+<nz-select nzShowSearch nzAllowClear nzPlaceHolder="Type de profil" [formControl]="role" >
+  <br>
+<br>
+<br>
+<br>
+  <nz-option nzCustomContent nzLabel="{{role.name}}" nzValue="{{role.id}}" *ngFor="let role of allRoles ">
+    {{role.name}}
+  </nz-option>
+</nz-select>
+<br>
+<br>

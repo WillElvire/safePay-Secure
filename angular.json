@@ -39,6 +39,7 @@
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "node_modules/animate.css/animate.min.css",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
               {
                 "input": "src/shared/css/variables.scss"
               }
