@@ -37,11 +37,4 @@ export class LoginComponent implements OnInit {
 
   }
 
-  getUserState(event : any) {
-    const childCompRes  = event;
-    this.userState.emit(childCompRes);
-    if(childCompRes.code == "success")
-    return this.appFacade.mBuildSuccess(childCompRes.response);
-    return this.appFacade.mBuildError(childCompRes.response);
-  }
 }

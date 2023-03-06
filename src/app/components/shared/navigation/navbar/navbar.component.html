@@ -1,7 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" [ngClass]="(pageY > 200) && fixable ? 'fixed' : 'not-fixed'" #navbar>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" [ngClass]="(pageY > 200) && fixable ? 'fixed' : 'not-fixed'"
+  #navbar>
   <div class="container">
     <a class="navbar-brand" href="#">SafePay</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -10,18 +12,31 @@
           <a class="nav-link " aria-current="page" routerLink="/landing" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/marketplace" routerLinkActive="active">Acheter de la crypto</a>
+          <a class="nav-link " aria-current="page" routerLink="/marketplace" routerLinkActive="active">Acheter de la
+            crypto</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " aria-current="page" routerLink="/faq" routerLinkActive="active">Faq</a>
         </li>
       </ul>
-      <div class="d-flex buttons">
-        <button nz-button routerLink="/auth/login">Inscription</button>
-        <button nz-button style="margin-left: 5%;" routerLink="/auth/register">
+
+      {{connectedUser?.user?.id}}
+
+      <div class="d-flex buttons"  *ngIf="!connectedUser?.user?.id;else profil">
+        <button nz-button routerLink="/auth/register">Inscription</button>
+        <button nz-button style="margin-left: 5%;" routerLink="/auth/login">
           <span>Connexion</span>
         </button>
       </div>
+      <ng-template #profil class="d-flex">
+        <nz-avatar nzText="{{connectedUser?.user?.firstname?.[0]| uppercase }}{{ connectedUser?.user?.lastname?.[0]| uppercase }}"
+          style="color:white; background-color:black;cursor: pointer;" nzSize="large" nz-dropdown [nzDropdownMenu]="menu1">
+        </nz-avatar>
+        <nz-dropdown-menu #menu1="nzDropdownMenu" style="width:100% !important;">
+          <s-navbar-widget></s-navbar-widget>
+        </nz-dropdown-menu>
+      </ng-template>
+
     </div>
   </div>
 </nav>

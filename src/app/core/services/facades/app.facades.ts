@@ -5,6 +5,8 @@ import { Web3Services } from '../web3/web3.service';
 import { MessageService } from '../../helpers/message/message.service';
 import { NotificationService } from '../../helpers/notification/notification.service';
 import { mapUser } from '../../mapper/user.mapper';
+import { SessionService } from '../storage/session.service';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +17,9 @@ export class AppFacades {
     private messageService: MessageService,
     private notificationService: NotificationService,
     private HttpService : HttpService,
-    private apiFunctionService : apiFunctionService
+    private apiFunctionService : apiFunctionService,
+    private sessionService : SessionService,
+    private storageService : StorageService
   ) {}
 
   /*--------------------------------*/
@@ -26,6 +30,29 @@ export class AppFacades {
     return this.web3Services.accountStatus$;
   }
   /*--------------------------------*/
+
+  setStorage(data  : {key : string ,value : any}) {
+    return this.storageService.set(data);
+  }
+  getStorage(key : string) {
+    return this.storageService.get(key);
+  }
+  deleteStorage(key : string) {
+    return this.storageService.delete(key);
+  }
+  /*--------------------------------*/
+
+  setSession(data  : {key : string ,value : string}) {
+    return this.sessionService.set(data);
+  }
+  getSession(key : string) {
+    return this.sessionService.get(key);
+  }
+  deleteSession(key : string) {
+    return this.sessionService.delete(key);
+  }
+  /*--------------------------------*/
+
   mBuildError(message : string,duration : number = 2000) {
     return this.messageService.setMessage(message).setDuration(duration).buildError();
   }
@@ -36,16 +63,18 @@ export class AppFacades {
     return this.messageService.setMessage(message).setDuration(duration).buildDanger();
   }
   /*--------------------------------*/
-  nBuildError(message : string,title : string) {
-    return this.notificationService.setMessage(message).setTitle(title).buildError();
+
+  nBuildError(message : string,title ?: string) {
+    return this.notificationService.setMessage(message).setTitle(title as string).buildError();
   }
   nBuildSuccess(message : string,title : string) {
-    return this.notificationService.setMessage(message).setTitle(title).buildSuccess();
+    return this.notificationService.setMessage(message).setTitle(title as string).buildSuccess();
   }
   nBuildWarning(message : string,title : string) {
-    return this.notificationService.setMessage(message).setTitle(title).buildDanger();
+    return this.notificationService.setMessage(message).setTitle(title as string).buildDanger();
   }
   /*--------------------------------*/
+
   get(endpoint : string ,apiType = "rest"){
     this.HttpService.setApiType(apiType);
     return this.HttpService.get(endpoint);

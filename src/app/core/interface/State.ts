@@ -1,6 +1,7 @@
+
 import { User } from "./Api";
 
-export interface UserState {
+export interface user {
   token: string;
   user: User;
 }

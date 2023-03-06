@@ -16,13 +16,22 @@ export interface Role {
 }
 
 export interface User {
-  firstname: string;
-  lastname: string;
+  billing?: any;
+  countryCode?: string;
+  createdAt?: string;
   email: string;
+  firstname: string;
+  id?: string;
+  isActive?: boolean;
+  isCertifed?: boolean;
+  lastname: string;
+  password: string;
   phone: string;
-  countryCode: string;
-  password ?: string;
   role: {
     id: string;
+    name?: string;
   };
+  transactions?: any;
+  updatedAt?: string;
+  useWeb3?: string;
 }

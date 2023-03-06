@@ -1,3 +1,4 @@
+import { SNavbarWidgetComponent } from './../components/widgets/s-components/s-navbar-widget/s-navbar-widget.component';
 import { GlowButtonComponent } from './../components/shared/website/glow-button/glow-button.component';
 import { SCarouselComponent } from './../components/widgets/s-components/s-carousel/s-carousel.component';
 import { NgModule } from '@angular/core';
@@ -40,6 +41,8 @@ import { SRoleSelectComponent } from '../components/widgets/s-components/s-role-
     MarketBannerComponent,
     SCountrySelectComponent,
     SRoleSelectComponent,
+    SNavbarWidgetComponent
+
   ],
   exports: [
     BackButtonComponent,

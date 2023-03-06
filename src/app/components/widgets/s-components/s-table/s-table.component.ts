@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterContentInit } from '@angular/core';
 import { Observable, Subscription, of } from 'rxjs';
 
 @Component({
@@ -6,7 +6,7 @@ import { Observable, Subscription, of } from 'rxjs';
   templateUrl: './s-table.component.html',
   styleUrls: ['./s-table.component.scss']
 })
-export class STableComponent {
+export class STableComponent implements AfterContentInit {
 
   @Input() type : string = 'sell';
 
@@ -189,7 +189,7 @@ export class STableComponent {
   }
 
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit(): void {
       this.userSubscription = this.getUsers.subscribe(
         (users)=> {
           this.loading = false;

@@ -1,7 +1,7 @@
 <ng-container class="mt-2">
   <br>
   <br>
-  <app-login-form *ngIf="!useWeb3" (connectionState)="getUserState($event)"></app-login-form>
+  <app-login-form *ngIf="!useWeb3"></app-login-form>
   <!--<app-web3-form *ngIf="useWeb3" (connectionState)="getUserState($event)"></app-web3-form>!-->
 </ng-container>
  <!--<button nz-button (click)="useWeb3 = !useWeb3" class="col-md-12 mt-4">
