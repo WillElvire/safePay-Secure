@@ -1,7 +1,7 @@
-import { AppFacades } from './../../../../core/services/facades/app.facades';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { AppFacades } from 'src/app/core/services/facades/app.facades';
 
 @Component({
   selector: 'app-web3-form',

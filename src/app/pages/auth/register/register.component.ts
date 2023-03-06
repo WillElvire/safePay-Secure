@@ -8,7 +8,7 @@ import {
   UntypedFormGroup,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { FormToolComponent } from 'src/app/components/shared/form/form-tool/form-tool.component';
+import { FormToolComponent } from 'src/app/components/shared/website/form/form-tool/form-tool.component';
 import { ComponentModule } from 'src/app/modules/components.module';
 import { NZoroModule } from 'src/app/modules/nzoro.module';
 import { AppFacades } from 'src/app/core/services/facades/app.facades';
@@ -35,6 +35,7 @@ export class RegisterComponent implements OnDestroy {
   countryCode: string = '';
   roleId !: string ;
   subscription = new Subscription();
+  isSpinned : boolean = false;
 
   constructor(private fb: UntypedFormBuilder,private appFacades :AppFacades,private router : Router) {}
 
@@ -57,22 +58,28 @@ export class RegisterComponent implements OnDestroy {
 
   // check if all is ok before sent to the server
   submitForm(): void {
-    this.setPhoneValue();
-    console.log(this.roleId);
-    if (!this.valideUserForm()) return this.displayErrors();
-    return this.submitUserForm();
+
+    if(this.verifyUserRole()) {
+      this.setPhoneValue();
+      if (!this.valideUserForm()) return this.displayErrors();
+      return this.submitUserForm();
+    }
+
   }
 
 
   //send http request to the server
   submitUserForm() {
+    this.isSpinned = true;
     this.subscription = this.appFacades.registerUser({...this.validateForm.value,"roleId" :this.roleId}).subscribe(
        {
         next :  (response)=>{
           this.appFacades.mBuildSuccess(response.message);
           this.router.navigate(["/auth/login"]);
+          this.isSpinned = false;
         },
         error : (err)=> {
+          this.isSpinned = false;
           this.appFacades.mBuildError(err.error.message ? err.error.message : err.message);
         }
        }
@@ -83,6 +90,12 @@ export class RegisterComponent implements OnDestroy {
   setPhoneValue() {
     if(!!this.countryCode) return this.validateForm.get("countryCode")?.setValue(this.countryCode);
     return this.appFacades.mBuildError("Veuillez choisir votre pays de residence")
+  }
+
+  verifyUserRole(){
+    if(!!this.roleId) return true;
+    this.appFacades.mBuildError("Veuillez choisir le type de compte souhaité");
+    return false;
   }
 
 

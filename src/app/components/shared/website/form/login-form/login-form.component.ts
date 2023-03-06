@@ -27,6 +27,7 @@ export class LoginFormComponent implements OnInit , OnDestroy {
   @Output() connectionState = new EventEmitter<any>();
   subscription  = new Subscription();
   validateForm!: UntypedFormGroup;
+  isSpinned : boolean = false;
 
   constructor(
     private fb: UntypedFormBuilder,
@@ -46,14 +47,17 @@ export class LoginFormComponent implements OnInit , OnDestroy {
   }
 
   loginUser() {
+    this.isSpinned  = true;
     this.subscription =  this.appFacades.loginUser(this.validateForm.value).subscribe({
       next : (response)=>{
         if(response.code == "ACCEPTED") {
 
         }
+        this.isSpinned = false;
         console.log(response)
       },
       error : (err)=>{
+        this.isSpinned = false;
         this.appFacades.mBuildError(err.error.message ? err.error.message : err.message);
         console.log(err);
       }
