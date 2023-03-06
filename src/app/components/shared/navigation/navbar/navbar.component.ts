@@ -5,25 +5,26 @@ import {
   Component,
   HostListener,
   Input,
-  Renderer2,
   ViewChild,
-  ChangeDetectorRef,
   OnInit,
-  ChangeDetectionStrategy,
+  OnChanges,
+  SimpleChanges,
+  ViewEncapsulation,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, shareReplay } from 'rxjs';
+import { User } from 'src/app/core/interface/Api';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation : ViewEncapsulation.None
 })
 /**
  * @description class for control the navbar component
  * @author willelvire
  */
-export class NavbarComponent implements AfterViewInit, OnInit {
+export class NavbarComponent implements AfterViewInit, OnInit  , OnChanges{
   //variables
   @Input() fixable: boolean = true;
   @Input() color!: string;
@@ -35,13 +36,16 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
   //subscription
   subscription = new Subscription();
-  connectedUser!: user;
+  connectedUser!: User;
 
   constructor(
-    private renderer: Renderer2,
     private userQuery: UserQuery,
-    private changeDetectorRef: ChangeDetectorRef
-  ) {}
+  ) {
+
+    this.subscription = this.userQuery.selectUser$.pipe(shareReplay(1)).subscribe((user: any) => {
+      this.connectedUser = user as User;
+    });
+  }
 
   /**
    * @description  get the user connected
@@ -49,12 +53,13 @@ export class NavbarComponent implements AfterViewInit, OnInit {
    */
   ngOnInit(): void {
     //get the user state
-    this.subscription = this.userQuery.selectUser$.subscribe((user: any) => {
-      this.connectedUser = user as user;
-      this.changeDetectorRef.detectChanges();
-    });
+
   }
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit', this.connectedUser);
+
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+      console.log(changes);
   }
 }

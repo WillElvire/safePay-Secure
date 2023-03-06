@@ -30,7 +30,7 @@ export class UserQuery extends Query<UserState> {
   update(user : user) {
     applyTransaction(()=>{
       this.store.update(user);
-      this.store.setLoading(false);
+      this.store.setLoading(true);
     })
   }
 }

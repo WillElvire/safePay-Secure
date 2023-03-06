@@ -19,24 +19,7 @@
           <a class="nav-link " aria-current="page" routerLink="/faq" routerLinkActive="active">Faq</a>
         </li>
       </ul>
-
-      {{connectedUser?.user?.id}}
-
-      <div class="d-flex buttons"  *ngIf="!connectedUser?.user?.id;else profil">
-        <button nz-button routerLink="/auth/register">Inscription</button>
-        <button nz-button style="margin-left: 5%;" routerLink="/auth/login">
-          <span>Connexion</span>
-        </button>
-      </div>
-      <ng-template #profil class="d-flex">
-        <nz-avatar nzText="{{connectedUser?.user?.firstname?.[0]| uppercase }}{{ connectedUser?.user?.lastname?.[0]| uppercase }}"
-          style="color:white; background-color:black;cursor: pointer;" nzSize="large" nz-dropdown [nzDropdownMenu]="menu1">
-        </nz-avatar>
-        <nz-dropdown-menu #menu1="nzDropdownMenu" style="width:100% !important;">
-          <s-navbar-widget></s-navbar-widget>
-        </nz-dropdown-menu>
-      </ng-template>
-
+      <s-navbar-account-widget [(connectedUser)]="connectedUser"></s-navbar-account-widget>
     </div>
   </div>
 </nav>

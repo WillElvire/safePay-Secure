@@ -1,3 +1,4 @@
+import { SNavbarAccountWidgetComponent } from './../components/widgets/s-components/s-navbar-account-widget/s-navbar-account-widget.component';
 import { SNavbarWidgetComponent } from './../components/widgets/s-components/s-navbar-widget/s-navbar-widget.component';
 import { GlowButtonComponent } from './../components/shared/website/glow-button/glow-button.component';
 import { SCarouselComponent } from './../components/widgets/s-components/s-carousel/s-carousel.component';
@@ -41,7 +42,8 @@ import { SRoleSelectComponent } from '../components/widgets/s-components/s-role-
     MarketBannerComponent,
     SCountrySelectComponent,
     SRoleSelectComponent,
-    SNavbarWidgetComponent
+    SNavbarWidgetComponent,
+    SNavbarAccountWidgetComponent
 
   ],
   exports: [

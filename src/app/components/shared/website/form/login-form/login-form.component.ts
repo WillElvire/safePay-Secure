@@ -1,3 +1,4 @@
+import { user } from './../../../../../core/interface/State';
 import { environment } from './../../../../../../environments/environment.prod';
 import { Subscription } from 'rxjs';
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
@@ -41,10 +42,6 @@ export class LoginFormComponent implements OnInit , OnDestroy {
     private userQuery : UserQuery,
     private router : Router
   ) {
-    // select userConnected
-    this.userQuery.selectUser$.subscribe((response)=>{
-      console.log(response);
-    })
   }
 
 
@@ -73,10 +70,12 @@ export class LoginFormComponent implements OnInit , OnDestroy {
    return { next : (response : MResultMessage )=>{
       //verify the code
       if(response.code == "ACCEPTED") {
-        const user = {user : response.returnObject as User, token : '' };
+        const user : user = {user : response.returnObject as User, token : '' };
+        console.log(user);
         //update the user state
         this.userQuery.update(user);
-        this.appFacades.setStorage({key : environment.STORAGE_USER_KEY,value : JSON.stringify(user)});
+        this.appFacades.setStorage({key : environment.STORAGE_USER_KEY,value : JSON.stringify(user.user)});
+        this.appFacades.setStorage({key : environment.STORAGE_USER_TOKEN , value : user.token});
         this.router.navigate(["/"]);
       }
       this.isSpinned = false;

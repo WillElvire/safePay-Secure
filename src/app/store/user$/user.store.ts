@@ -28,16 +28,13 @@ export class userStateAdapter   {
 class defaultUserService {
 
   private static INSTANCE :defaultUserService;
-
   private constructor(private userService : UserService){
 
   }
+
   public static  getInstance() : defaultUserService
   {
-    if(defaultUserService.INSTANCE == null)
-    {
-      return new defaultUserService(new UserService(new StorageService()));
-    }
+    if(defaultUserService.INSTANCE == null) return new defaultUserService(new UserService(new StorageService()));
     return defaultUserService.INSTANCE;
   }
 

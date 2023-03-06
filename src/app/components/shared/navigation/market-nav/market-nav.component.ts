@@ -1,9 +1,10 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-market-nav',
   templateUrl: './market-nav.component.html',
-  styleUrls: ['./market-nav.component.scss']
+  styleUrls: ['./market-nav.component.scss'],
+  encapsulation : ViewEncapsulation.Emulated
 })
 /**
  * @author willelvire
