@@ -1,5 +1,5 @@
 import { apiFunctionService } from './../../../../core/services/function/api.function';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, map, of, take } from 'rxjs';
 import { CryptoIcon } from 'src/app/core/types/crypto';
@@ -13,6 +13,7 @@ import { CryptoIcon } from 'src/app/core/types/crypto';
 export class SSelectComponent {
 
   @Output() data  = new EventEmitter();
+  @Input() typeTransaction = "Achat";
   cryptos$  : Observable<CryptoIcon[]> = of([]);
   crypto  = new FormControl() ;
 

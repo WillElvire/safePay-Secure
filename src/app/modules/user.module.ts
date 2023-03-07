@@ -6,12 +6,14 @@ import { NZoroModule } from "./nzoro.module";
 import { ServiceModule } from "./service.module";
 import { ComponentModule } from './components.module';
 import { ProfilToolsComponent } from '../components/widgets/profil-tools/profil-tools.component';
+import { UAddPublicationComponent } from '../pages/dashboard/user/upublication/add-publication/add-publication.component';
 
 
 @NgModule({
   declarations : [
     UhomeComponent,
     UserLayoutComponent,
+    UAddPublicationComponent,
 
   ],
   exports : [UhomeComponent],

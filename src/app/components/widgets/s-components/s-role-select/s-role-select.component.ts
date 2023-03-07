@@ -1,4 +1,4 @@
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AppFacades } from './../../../../core/services/facades/app.facades';
 import { Component, OnDestroy, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Role } from 'src/app/core/interface/Api';

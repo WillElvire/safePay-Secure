@@ -23,6 +23,9 @@ import { MarketBannerComponent } from '../components/shared/website/market-banne
 import { SCountrySelectComponent } from '../components/widgets/s-components/s-country-select/s-country-select.component';
 import { ServiceModule } from './service.module';
 import { SRoleSelectComponent } from '../components/widgets/s-components/s-role-select/s-role-select.component';
+import { SAddPublicationComponent } from '../components/widgets/s-components/s-modal/s-add-publication/s-add-publication.component';
+import { SellPublicationFormComponent } from '../components/shared/website/form/sell-publication-form/sell-publication-form.component';
+import { BuyPublicationFormComponent } from '../components/shared/website/form/buy-publication-form/buy-publication-form.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import { SRoleSelectComponent } from '../components/widgets/s-components/s-role-
     SRoleSelectComponent,
     SNavbarWidgetComponent,
     SNavbarAccountWidgetComponent,
+    SAddPublicationComponent,
+    SellPublicationFormComponent,
+    BuyPublicationFormComponent,
 
 
   ],

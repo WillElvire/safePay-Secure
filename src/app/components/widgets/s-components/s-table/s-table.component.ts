@@ -9,6 +9,8 @@ import { Observable, Subscription, of } from 'rxjs';
 export class STableComponent implements AfterContentInit {
 
   @Input() type : string = 'sell';
+  @Input() tableType : string = 'crypto';
+  @Input() data : Observable<any[]> | object = of([]);
 
   getUsers : Observable<any[]> = of([
     {
@@ -180,8 +182,8 @@ export class STableComponent implements AfterContentInit {
   userSubscription !: Subscription ;
   listOfData : any;
   loading = true;
-  pageSize = 20;
-  pageIndex = 1;
+  @Input() pageSize : number = 20;
+  @Input() pageIndex = 1;
   total = 1;
 
   onCurrentPageDataChange(event : any) {

@@ -1,4 +1,4 @@
-<section class="data">
+<section class="data" *ngIf="tableType=='crypto'">
   <div class="container table-responsive mt-5">
     <nz-table #headerTable [nzData]="listOfData" [nzScroll]="{ y: '500px' }" [nzFrontPagination]="true" [nzShowQuickJumper]="true"
       [nzLoading]="loading" [nzTotal]="total" [nzPageSize]="pageSize" [nzPageIndex]="pageIndex">
@@ -40,4 +40,9 @@
       </tbody>
     </nz-table>
   </div>
+</section>
+
+
+<section>
+  
 </section>

@@ -22,11 +22,13 @@ export class apiFunctionService {
   }
 
   private getExchangeRate(currency1 : string  , currency2 : string) : Observable<CryptoExchange> {
+    this.api.setApiType("crypto");
     const endpoint = `${this.exchange}${currency1}/${currency2}`
     return this.api.get<CryptoExchange>(endpoint).pipe(shareReplay(1));
   }
 
   private getCryptoIcons() : Observable<CryptoIcon[]> {
+    this.api.setApiType("crypto");
     const endpoint =  `${this.icons}icons/32` ;
     return this.api.get<CryptoIcon[]>(endpoint).pipe( publishReplay(1),refCount() );
   }

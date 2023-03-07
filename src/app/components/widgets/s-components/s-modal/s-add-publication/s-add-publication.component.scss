@@ -1,0 +1,19 @@
+
+
+.buttons {
+  margin-left: 40% !important;
+  button{
+    border : none;
+  }
+
+  .active {
+    background-color:  var(--base-color) !important;
+    color : white;
+  }
+
+  .inactive {
+    background-color: black !important;
+    color : white;
+  }
+}
+

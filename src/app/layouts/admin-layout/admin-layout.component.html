@@ -1,5 +1,5 @@
 <nz-layout class="app-layout" >
-  <nz-sider class="menu-sidebar" nzTheme="light" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+  <nz-sider class="menu-sidebar" nzTheme="dark" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
     [nzTrigger]="null">
     <div class="sidebar-logo">
       <a  routerLink="/">
@@ -7,25 +7,15 @@
         <h1>SafePay Secure</h1>
       </a>
     </div>
-    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item routerLink="/user/" routerLinkActive="active">
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item routerLink="/admin/" routerLinkActive="active">
         <span nz-icon nzType="dashboard" nzTheme="fill"></span>
         <span>Dashboard</span>
       </li>
 
-      <li nz-menu-item routerLink="/auth/" routerLinkActive="active">
-        <span nz-icon nzType="user" nzTheme="outline"></span>
-        <span>Profil</span>
-      </li>
-
-      <li nz-menu-item routerLink="/auth/" routerLinkActive="active">
-        <span nz-icon nzType="folder-add" nzTheme="fill"></span>
-        <span>Publication</span>
-      </li>
-
-      <li nz-menu-item>
-        <span nz-icon nzType="shopping-cart"></span>
-        <span>Pannier</span>
+      <li nz-menu-item routerLink="/admin/" routerLinkActive="active">
+        <span nz-icon nzType="sound" nzTheme="fill"></span>
+        <span>Demande de publication</span>
       </li>
 
       <li nz-menu-item>
@@ -34,8 +24,23 @@
       </li>
 
       <li nz-menu-item>
-        <span nz-icon nzType="message" nzTheme="fill"></span>
-        <span >Notification</span>
+        <span nz-icon nzType="wallet" nzTheme="fill"></span>
+        <span>Moyen de paiement</span>
+      </li>
+
+      <li nz-menu-item>
+        <span nz-icon nzType="unlock" nzTheme="fill"></span>
+        <span>Moyen de paiement</span>
+      </li>
+
+      <li nz-menu-item>
+        <span nz-icon nzType="usergroup-add" nzTheme="outline"></span>
+        <span>Utilisateurs</span>
+      </li>
+
+      <li nz-menu-item>
+        <span nz-icon nzType="notification" nzTheme="outline"></span>
+        <span >Gestion Notification</span>
       </li>
 
       <li nz-menu-item>
