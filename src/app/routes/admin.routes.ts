@@ -1,3 +1,4 @@
+import { AccessGuard } from './../guards/access/access.guard';
 import { AdminLayoutComponent } from './../layouts/admin-layout/admin-layout.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from "@angular/core";
@@ -6,6 +7,7 @@ const routes: Routes = [
   {
     path : '',
     component : AdminLayoutComponent,
+    canActivate : [AccessGuard],
     children : [
       {
         path : '',

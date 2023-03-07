@@ -6,12 +6,13 @@
 }
 
 
+
 .app-layout {
   height: 100vh;
 }
 
 .active{
-  background-color: #0663ba;
+  background-color: var(--base-color);
   color: white;
 }
 
@@ -40,8 +41,14 @@
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
-  background: #001529;
+  //background: #001529;
   transition: all .3s;
+}
+
+.nz-menu-item{
+  &:hover {
+    color: white !important;
+  }
 }
 
 .sidebar-logo img {
@@ -54,7 +61,7 @@
 .sidebar-logo h1 {
   display: inline-block;
   margin: 0 0 0 20px;
-  color: #fff;
+  color: black;
   font-weight: 600;
   font-size: 14px;
   font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
@@ -90,10 +97,7 @@ nz-dropdown-menu{
 
 }
 
-nz-avatar{
-  width: 50px;
-  height: 50px;
-}
+
 
 @media(min-width:0px) and (max-width:900px) {
   .avatar {

@@ -13,7 +13,7 @@ const routes: Routes = [
     path : 'landing',loadComponent : ()=> import('./pages/simple/landing/landing.component').then((m)=> m.LandingComponent)
   },
   {
-    path: 'user',loadChildren: () =>import('./modules/adminDashboard.module').then((m) => m.AdminDashboard),
+    path: 'user',loadChildren: () =>import('./modules/user.module').then((m) => m.UserModule),
   },
   {
     path : 'payment', loadChildren : ()=> import('./modules/payment.module').then((m)=> m.PaymentModule)

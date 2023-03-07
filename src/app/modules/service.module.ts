@@ -12,6 +12,7 @@ import { MessageService } from './../core/helpers/message/message.service';
 import { NgModule } from '@angular/core';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { UserService } from '../core/services/storage/user.service';
+import { AccessGuard } from '../guards/access/access.guard';
 @NgModule({
   declarations: [],
   providers: [
@@ -26,7 +27,8 @@ import { UserService } from '../core/services/storage/user.service';
     StatesFacades,
     SessionService,
     StorageService,
-    UserService
+    UserService,
+    AccessGuard
   ],
   imports: [NzMessageModule],
 })

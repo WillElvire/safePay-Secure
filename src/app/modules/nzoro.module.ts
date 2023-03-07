@@ -13,6 +13,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 @NgModule({
   declarations: [],
@@ -30,7 +32,10 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     NzTableModule,
     NzResultModule,
     NzFormModule,
-    NzInputModule
+    NzInputModule,
+    NzLayoutModule,
+    NzBreadCrumbModule
+
   ],
   exports: [
     NzIconModule,
@@ -46,7 +51,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     NzTableModule,
     NzResultModule,
     NzFormModule,
-    NzInputModule
+    NzInputModule,
+    NzLayoutModule,
+    NzBreadCrumbModule
 
   ],
 })

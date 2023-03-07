@@ -1,0 +1,71 @@
+<nz-layout>
+  <nz-header>
+    <div class="logo">
+      SafePay Secure
+    </div>
+    <ul nz-menu nzMode="horizontal">
+      <li nz-menu-item nzSelected>
+        <span nz-icon nzType="home"></span>
+        Navigation One
+      </li>
+      <li nz-submenu nzTitle="Navigation Three - Submenu" nzIcon="setting">
+        <ul>
+          <li nz-menu-group nzTitle="Item 1">
+            <ul>
+              <li nz-menu-item>Option 1</li>
+              <li nz-menu-item>Option 2</li>
+            </ul>
+          </li>
+
+          <li nz-menu-group nzTitle="Item 2">
+            <ul>
+              <li nz-menu-item>Option 3</li>
+              <li nz-menu-item>Option 4</li>
+              <li nz-submenu nzTitle="Sub Menu">
+                <ul>
+                  <li nz-menu-item nzDisabled>Option 5</li>
+                  <li nz-menu-item>Option 6</li>
+                </ul>
+              </li>
+              <li nz-submenu nzDisabled nzTitle="Disabled Sub Menu">
+                <ul>
+                  <li nz-menu-item>Option 5</li>
+                  <li nz-menu-item>Option 6</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li nz-menu-item>
+        <a href="https://ng.ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
+      </li>
+      <li nz-menu-item nzTitle="Item3">
+        <div nz-col nzSpan="2" nzOffset="12" class="avatar">
+          <nz-avatar nzSize="large" nz-dropdown [nzDropdownMenu]="menu"  nzText = "j"
+            style="color:white; background-color:var(--base-color);cursor:pointer">
+          </nz-avatar>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <app-profil-tools>
+            </app-profil-tools>
+          </nz-dropdown-menu>
+        </div>
+      </li>
+    </ul>
+  </nz-header>
+  <nz-content>
+    <nz-breadcrumb>
+      <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+      <nz-breadcrumb-item>List</nz-breadcrumb-item>
+      <nz-breadcrumb-item>App</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <div class="inner-content">
+
+
+      <router-outlet>
+
+      </router-outlet>
+    </div>
+  </nz-content>
+  <nz-footer>Safepay Secure ©2023</nz-footer>
+</nz-layout>
