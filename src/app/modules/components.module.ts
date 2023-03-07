@@ -43,7 +43,8 @@ import { SRoleSelectComponent } from '../components/widgets/s-components/s-role-
     SCountrySelectComponent,
     SRoleSelectComponent,
     SNavbarWidgetComponent,
-    SNavbarAccountWidgetComponent
+    SNavbarAccountWidgetComponent,
+
 
   ],
   exports: [
