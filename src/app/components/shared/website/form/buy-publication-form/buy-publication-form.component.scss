@@ -1,12 +1,16 @@
 s-select {
-  margin-left: 1.3% !important;
+
   margin-top: 2%;
 }
 nz-select{
-  margin-left: 1.5% !important;
   border-radius: 20px !important;
 }
-
+input {
+  margin-top: 15px;
+}
+textarea {
+  margin-top: 15px;
+}
 .form{
   button {
     text-align: center;
@@ -14,6 +18,3 @@ nz-select{
   }
 }
 
-input {
-  margin : 15px
-}

@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent{
   constructor(private userState : userState) {
-    this.userState.isConnected$.subscribe((response)=>console.log("from parent : " + response));
+    //this.userState.isConnected$.subscribe((response)=>console.log("from parent : " + response));
   }
 
 }

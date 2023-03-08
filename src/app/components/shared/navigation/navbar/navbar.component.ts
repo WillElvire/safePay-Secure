@@ -60,6 +60,6 @@ export class NavbarComponent implements AfterViewInit, OnInit  , OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-      console.log(changes);
+      //console.log(changes);
   }
 }

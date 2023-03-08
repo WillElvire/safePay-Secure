@@ -9,7 +9,7 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
 })
 export class SAddPublicationComponent {
 
-  defaultPublicationForm  = "sell";
+  defaultPublicationForm  = "buy";
 
   constructor(private modal: NzModalRef,private appFacades :  AppFacades) {}
 

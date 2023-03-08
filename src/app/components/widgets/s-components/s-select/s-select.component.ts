@@ -12,15 +12,14 @@ import { CryptoIcon } from 'src/app/core/types/crypto';
 })
 export class SSelectComponent {
 
-  @Output() data  = new EventEmitter();
+  @Output() cryptoChange  = new EventEmitter();
+  @Input() crypto  = new FormControl();
   @Input() typeTransaction = "Achat";
   cryptos$  : Observable<CryptoIcon[]> = of([]);
-  crypto  = new FormControl() ;
+
 
   constructor(private apiFunctionService : apiFunctionService){
-   this.crypto.valueChanges.subscribe((value)=>{
-    if(!!value) return this.data.emit(value);
-   })
+
   }
 
   ngOnInit(): void {

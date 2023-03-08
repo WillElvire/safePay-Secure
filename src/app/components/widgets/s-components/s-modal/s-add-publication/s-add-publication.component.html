@@ -1,10 +1,10 @@
 <div class="container">
   <div class="buttons btn-group text-center">
     <div class="btn-group">
-      <button class="btn btn-primary buy" (click)="enableForm('buy')" [ngClass]="defaultPublicationForm == 'buy' ? 'active': 'inactive'" >
+      <button class="btn btn-primary" (click)="enableForm('buy')" [ngClass]="defaultPublicationForm == 'buy' ? 'active': 'inactive'" >
         <span>Achat</span> <span nz-icon nzType="arrow-up" nzTheme="outline"></span>
       </button>
-      <button class="btn btn-primary sell" (click)="enableForm('sell')" [ngClass]="defaultPublicationForm == 'sell' ? 'active': 'inactive'">
+      <button class="btn btn-primary" (click)="enableForm('sell')" [ngClass]="defaultPublicationForm == 'sell' ? 'active': 'inactive'">
         <span>Vente</span> <span nz-icon nzType="arrow-down" nzTheme="outline"></span>
       </button>
     </div>
@@ -15,4 +15,6 @@
       <app-sell-publication-form *ngIf="defaultPublicationForm == 'sell'"></app-sell-publication-form>
     </div>
 </div>
-
+<br>
+<br>
+<br>

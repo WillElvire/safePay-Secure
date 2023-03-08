@@ -2,7 +2,7 @@ import { CountryDialCode, MResultMessage, User } from './../../interface/Api';
 import { CryptoExchange, CryptoIcon } from './../../types/crypto';
 import { HttpService } from './../api/api.service';
 import { Injectable } from '@angular/core';
-import { Observable, combineLatest, publishReplay, refCount, shareReplay} from 'rxjs';
+import { Observable, forkJoin, map, publishReplay, refCount, shareReplay} from 'rxjs';
 
 @Injectable()
 export class apiFunctionService {
@@ -10,15 +10,23 @@ export class apiFunctionService {
   private exchange : string  = `exchangerate/`;
   private icons : string =  `assets/`;
 
-  cryptoIcons$ : Observable<CryptoIcon[]> = this.getCryptoIcons();
+  cryptoIconsSelf$ : Observable<CryptoIcon[]>  =  this.getCryptoIcons();
   countryCode$ : Observable<CountryDialCode[]> = this.getCoutryCode();
-  allRoles$    : Observable<MResultMessage>  = this.getUsersRole();
+  allRoles$    : Observable<MResultMessage>    = this.getUsersRole();
+  localCurreny$: Observable<CryptoIcon[]>      = this.getLocalCurrency();
+  cryptoIcons$ : Observable<CryptoIcon[]>      = forkJoin([this.localCurreny$, this.cryptoIconsSelf$]).pipe(
+    map(([localCurreny$, cryptoIconsSelf$]) => [
+      ...localCurreny$,
+      ...cryptoIconsSelf$,
+    ])
+  );
 
   cryptoExchange$ = (currency1 : string  , currency2 : string) : Observable<CryptoExchange> =>   {
     return this.getExchangeRate(currency1,currency2);
   };
 
   constructor(private api : HttpService){
+
   }
 
   private getExchangeRate(currency1 : string  , currency2 : string) : Observable<CryptoExchange> {
@@ -44,10 +52,14 @@ export class apiFunctionService {
     return this.api.get<MResultMessage>("api/role").pipe(shareReplay(1));
   }
 
-
   registerUser(user : User) : Observable<MResultMessage> {
     this.api.setApiType("rest");
     return this.api.post<MResultMessage>({endpoint : "api/users", data : user}).pipe(shareReplay(1));
+  }
+
+  getLocalCurrency() {
+    this.api.setApiType("assets");
+    return this.api.get<CryptoIcon[]>("localCurrency.json").pipe(shareReplay(1));
   }
 
   loginUser(data : Required<{email : string , password : string}>){

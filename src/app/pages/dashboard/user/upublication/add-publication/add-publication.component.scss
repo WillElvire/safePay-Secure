@@ -1,3 +1,9 @@
 button {
-  border : 1px solid var(--base-color);
+  width: 230px !important;
+  border : none;
+  span[nz-icon] {
+    position: absolute;
+    margin-top: 0.3%;
+    margin-left: 0.5%;
+  }
 }

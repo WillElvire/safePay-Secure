@@ -1,17 +1,19 @@
 <label>CryptoMonnaie a Acheter</label>
-<s-select [typeTransaction]="'Recevoir'"></s-select>
+<s-select [typeTransaction]="'Recevoir'" [(crypto)]="currency_to_buy"></s-select>
 <br>
 <br>
 <label>CryptoMonnaie a Vendre</label>
-<s-select></s-select>
+<s-select [(crypto)]="mean_of_payment"></s-select>
+<nz-alert style="margin-top: 2%;" nzType="info" nzMessage="Taux du jours : 1  {{mean_of_payment.value}} = {{currency_to_buy.value}}  {{currencyRate.rate}}" *ngIf="currencyRate"></nz-alert>
+<input class="form-control" placeholder="Quantité" />
+<input class="form-control" placeholder="Prix" />
 <input class="form-control" placeholder="Basic usage" />
 <input class="form-control" placeholder="Basic usage" />
 <input class="form-control" placeholder="Basic usage" />
-<input class="form-control" placeholder="Basic usage" />
-<input class="form-control" placeholder="Basic usage" />
-<input class="form-control" placeholder="Basic usage" />
+<textarea class="form-control" placeholder="Description">
+</textarea>
 <br>
-<button class="btn btn-outline-dark col-md-12">
+<button class="btn btn-dark col-md-12">
   Soumettre
   <span nz-icon nzType="check-circle" nzTheme="outline"></span>
 </button>

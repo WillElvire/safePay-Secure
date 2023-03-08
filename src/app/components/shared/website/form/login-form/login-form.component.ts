@@ -71,7 +71,7 @@ export class LoginFormComponent implements OnInit , OnDestroy {
       //verify the code
       if(response.code == "ACCEPTED") {
         const user : user = {user : response.returnObject as User, token : '' };
-        console.log(user);
+        //console.log(user);
         //update the user state
         this.userQuery.update(user);
         this.appFacades.setStorage({key : environment.STORAGE_USER_KEY,value : JSON.stringify(user.user)});
