@@ -105,6 +105,10 @@ export class AppFacades {
     return this.apiFunctionService.cryptoExchange$(currency1,currency2);
   }
 
+  getUserAddress(id : string) {
+    return this.apiFunctionService.getUserAddress(id);
+  }
+
   getAllRoles() {
     return this.apiFunctionService.allRoles$;
   }

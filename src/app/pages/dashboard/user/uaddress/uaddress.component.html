@@ -8,33 +8,24 @@
   <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Annonceur</th>
-        <th scope="col">Prix</th>
-        <th scope="col">Limite / Disponible</th>
-        <th scope="col">Monnaie d'exchange</th>
-        <th scope="col">Paiement</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Date d'ajout</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tr *ngFor="let address of addresses">
+        <th scope="row">{{address.name}}</th>
+        <td>{{address.address}}</td>
+        <td>{{address.createdAt | date}}</td>
+        <td>
+          <button  nz-button nzType="default">
+           <span nz-icon nzType="delete" nzTheme="outline"></span>
+          </button>
+        </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+
     </tbody>
   </table>
 </div>

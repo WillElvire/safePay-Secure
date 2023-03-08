@@ -8,6 +8,7 @@ import { ComponentModule } from './components.module';
 import { ProfilToolsComponent } from '../components/widgets/profil-tools/profil-tools.component';
 import { UAddPublicationComponent } from '../pages/dashboard/user/upublication/add-publication/add-publication.component';
 import { UAddressComponent } from '../pages/dashboard/user/uaddress/uaddress.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { UAddressComponent } from '../pages/dashboard/user/uaddress/uaddress.com
 
   ],
   exports : [UhomeComponent],
-  imports : [UserRoutingModule,NZoroModule,ServiceModule,ComponentModule,ProfilToolsComponent],
+  imports : [UserRoutingModule,NZoroModule,ServiceModule,CommonModule,ComponentModule,ProfilToolsComponent],
   providers : []
 })
 export class UserModule {

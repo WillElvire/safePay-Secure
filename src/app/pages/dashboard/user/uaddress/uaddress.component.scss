@@ -8,7 +8,21 @@ button {
   }
 }
 
+table {
+  button {
+    width: 100px !important;
+    text-align: center;
+    background: var(--base-color);
+    color:white !important;
+    span[nz-icon] {
+      position: relative;
+      margin-top:0;
+      margin-left:0;
+    }
+  }
+
+}
 thead{
-  background-color: rgb(28, 28, 28) !important;
+  background-color: rgb(74, 70, 70) !important;
   color : white !important;
 }

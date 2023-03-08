@@ -72,6 +72,7 @@ import { SAddAddressComponent } from '../components/widgets/s-components/s-modal
     MarketBannerComponent,
     SCountrySelectComponent,
     SRoleSelectComponent,
+
   ],
   imports: [
     RouterModule,

@@ -18,5 +18,5 @@ const cryptoAddressregexTable : Required<{blockchain:string , regex : any}[]> = 
 ]
 
 export function getCryptoRegex(blockchain : string) {
-  return cryptoAddressregexTable.find((el)=>{el.blockchain == blockchain});
+  return cryptoAddressregexTable.find((el)=>{return el.blockchain == blockchain});
 }

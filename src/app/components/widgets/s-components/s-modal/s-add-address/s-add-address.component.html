@@ -1,1 +1,34 @@
-<p>s-add-address works!</p>
+<div class="container mt-5">
+
+  <div class="btn-group">
+    <button nz-button (click)="enableWeb3Function()">
+      {{message}}
+    </button>
+  </div>
+
+  <div *ngIf="!enableWeb3;else web3Provider">
+    <br>
+    <br>
+    <s-select [(crypto)]="crypto"></s-select>
+    <br>
+    <br>
+    <input nz-input placeholder="Basic usage" [(ngModel)]="address" />
+    <br>
+    <br>
+    <button class="btn btn-dark col-md-12"> Ajouter l'addresse</button>
+  </div>
+
+  <ng-template #web3Provider>
+    <br>
+    <br>
+    <div>
+      Cette action vous permettra d'ajouter une addresse crypto de votre choix en fonction des portefeuilles
+      decentralisés que vous avez sur votre appareil
+    </div>
+    <br>
+    <br>
+    <button class="btn btn-dark col-md-12" (click)="connectWallet()">Ajouter une addresse</button>
+  </ng-template>
+
+
+</div>

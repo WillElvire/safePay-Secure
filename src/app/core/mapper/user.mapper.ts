@@ -12,6 +12,18 @@ export const mapUser = (value: any) => {
     },
   };
 
-  console.log(user);
+  //console.log(user);
   return user;
 };
+
+
+export const mapAddress = (value : any) => {
+  let address : any = {
+    name : value.name,
+    address : value.address,
+    user : {
+      id  : value.id
+    }
+  }
+  return address;
+}

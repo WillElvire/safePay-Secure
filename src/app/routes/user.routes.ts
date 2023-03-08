@@ -20,7 +20,7 @@ const routes: Routes = [
         component: UAddPublicationComponent,
       },
       {
-        path: 'address',
+        path: 'safe/connect',
         component: UAddressComponent,
       },
       {

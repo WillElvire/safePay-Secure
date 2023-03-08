@@ -66,6 +66,11 @@ export class apiFunctionService {
    this.api.setApiType("rest");
    return this.api.post<MResultMessage>({endpoint : "api/users/login",data}).pipe(shareReplay(1));
   }
+
+  getUserAddress(id: string) {
+   this.api.setApiType("rest");
+   return this.api.get<MResultMessage>(`api/address/user/${id}`).pipe(shareReplay(1));
+  }
 }
 
 
