@@ -1,8 +1,9 @@
-import { FormControl, FormRecord, Validators } from '@angular/forms';
-import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { AppFacades } from 'src/app/core/services/facades/app.facades';
+import { getCryptoRegex } from 'src/app/core/services/utils/regex';
 import { CryptoExchange } from 'src/app/core/types/crypto';
-import { take } from 'rxjs';
+import { take, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-buy-publication-form',
@@ -13,15 +14,23 @@ export class BuyPublicationFormComponent implements OnInit {
 
   currency_to_buy: FormControl = new FormControl([Validators.required]);
   mean_of_payment: FormControl = new FormControl([Validators.required]);
+  quantity       : FormControl<number> = new FormControl(1,[Validators.required]) as FormControl<number>;
   currencyRate   !: CryptoExchange ;
 
 
   constructor(private appFacades: AppFacades) {
-    this.mean_of_payment.valueChanges.subscribe((values) => {
+    this.mean_of_payment.valueChanges.pipe(takeWhile((value)=> true)).subscribe((values) => {
       if (!!this.currency_to_buy.value && !!values) return this.getRate();
     });
+    this.currency_to_buy.valueChanges.pipe(takeWhile((value)=> true)).subscribe((values) => {
+      if (!!this.mean_of_payment.value && !!values) return this.getRate();
+    });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const regex = getCryptoRegex("BTC");
+    console.log(regex);
+
+  }
 
   getRate() {
     this.appFacades
@@ -30,3 +39,4 @@ export class BuyPublicationFormComponent implements OnInit {
       .subscribe((rate) => this.currencyRate = rate);
   }
 }
+

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import Web3 from 'web3';
-import { provider } from 'web3-core';
 import Web3Modal from 'web3modal';
 
 

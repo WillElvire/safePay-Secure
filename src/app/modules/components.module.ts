@@ -26,6 +26,7 @@ import { SRoleSelectComponent } from '../components/widgets/s-components/s-role-
 import { SAddPublicationComponent } from '../components/widgets/s-components/s-modal/s-add-publication/s-add-publication.component';
 import { SellPublicationFormComponent } from '../components/shared/website/form/sell-publication-form/sell-publication-form.component';
 import { BuyPublicationFormComponent } from '../components/shared/website/form/buy-publication-form/buy-publication-form.component';
+import { SAddAddressComponent } from '../components/widgets/s-components/s-modal/s-add-address/s-add-address.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { BuyPublicationFormComponent } from '../components/shared/website/form/b
     SAddPublicationComponent,
     SellPublicationFormComponent,
     BuyPublicationFormComponent,
+    SAddAddressComponent,
 
 
   ],
