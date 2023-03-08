@@ -35,3 +35,13 @@ export interface User {
   updatedAt?: string;
   useWeb3?: string;
 }
+
+export interface Address {
+  address: string;
+  createdAt?: string;
+  id?: string;
+  name: string;
+  priority?: number;
+  status?: number;
+  updatedAt: string;
+}

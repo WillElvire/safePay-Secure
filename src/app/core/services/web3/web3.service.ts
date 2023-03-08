@@ -46,11 +46,6 @@ export class Web3Services {
         hover: "rgb(16, 26, 32)"
       }
     });
-
-
-
-
-
   }
 
   async connectAccount() {
@@ -60,6 +55,9 @@ export class Web3Services {
     this.web3js = new Web3(this.provider);
    // create web3 instance
     this.accounts = await this.web3js.eth.getAccounts();
+    return this.accounts;
     this.accountStatusSource.next(this.accounts);
   }
+
+
 }
