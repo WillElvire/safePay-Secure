@@ -1,5 +1,5 @@
 <div class="container">
-  <button class="btn btn-dark" (click)="showModal()"> Ajouter nouvelle addresse
+  <button class="btn btn-dark" (click)="showModal()"> Ajouter nouvelle adresse
     <span nz-icon nzType="file-protect" nzTheme="outline"></span>
   </button>
 </div>
@@ -20,7 +20,7 @@
         <td>{{address.address}}</td>
         <td>{{address.createdAt | date}}</td>
         <td>
-          <button  nz-button nzType="default">
+          <button  nz-button nzType="default" (click)="deleteAddress(address.id)">
            <span nz-icon nzType="delete" nzTheme="outline"></span>
           </button>
         </td>

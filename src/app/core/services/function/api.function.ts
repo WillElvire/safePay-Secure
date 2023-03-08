@@ -71,6 +71,17 @@ export class apiFunctionService {
    this.api.setApiType("rest");
    return this.api.get<MResultMessage>(`api/address/user/${id}`).pipe(shareReplay(1));
   }
+
+
+  deleteUserAddress(id: string) {
+    this.api.setApiType("rest");
+    return this.api.delete<MResultMessage>(`api/address/${id}`).pipe(shareReplay(1));
+  }
+
+  addUserAddress(data : any) {
+    this.api.setApiType("rest");
+    return this.api.post<MResultMessage>({endpoint : `api/address`,data }).pipe(shareReplay(1));
+  }
 }
 
 

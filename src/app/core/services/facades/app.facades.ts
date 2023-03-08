@@ -1,3 +1,4 @@
+import { mapAddress } from './../../mapper/user.mapper';
 import { apiFunctionService } from './../function/api.function';
 import { HttpService } from './../api/api.service';
 import { Injectable } from '@angular/core';
@@ -7,6 +8,7 @@ import { NotificationService } from '../../helpers/notification/notification.ser
 import { mapUser } from '../../mapper/user.mapper';
 import { SessionService } from '../storage/session.service';
 import { StorageService } from '../storage/storage.service';
+import { Address } from '../../interface/Api';
 
 @Injectable({
   providedIn: 'root',
@@ -119,5 +121,16 @@ export class AppFacades {
 
   loginUser(data : Required<{email : string , password : string}>){
     return this.apiFunctionService.loginUser(data);
+  }
+
+  deleteUserAddress(id : string){
+    return this.apiFunctionService.deleteUserAddress(id);
+  }
+
+  addUserAddress(data : any,id : string) {
+    console.log(id);
+    data["id"] = id;
+    const address = mapAddress(data);
+    return this.apiFunctionService.addUserAddress(address);
   }
 }

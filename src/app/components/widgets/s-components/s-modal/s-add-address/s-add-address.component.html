@@ -12,10 +12,10 @@
     <s-select [(crypto)]="crypto"></s-select>
     <br>
     <br>
-    <input nz-input placeholder="Basic usage" [(ngModel)]="address" />
+    <input nz-input placeholder="Renseigner votre adresse" [(ngModel)]="address" />
     <br>
     <br>
-    <button class="btn btn-dark col-md-12"> Ajouter l'addresse</button>
+    <button class="btn btn-dark col-md-12" (click)="addNewAddress()"> Ajouter l'addresse</button>
   </div>
 
   <ng-template #web3Provider>

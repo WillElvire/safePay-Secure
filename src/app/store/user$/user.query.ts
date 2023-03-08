@@ -13,7 +13,9 @@ export class UserQuery extends Query<UserState> {
   selectUser$ = this.select('user');
   fullUser$   = this.select(['user', 'token']);
   isLoading$  = this.selectLoading();
+  selectId$    = this.select(['id']);
   error$      = this.selectError();
+
 
   constructor(protected override store: UserStore) {
     super(store);

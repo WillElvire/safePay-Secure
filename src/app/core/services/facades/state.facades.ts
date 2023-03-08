@@ -1,3 +1,4 @@
+import { AddressQuery } from './../../../store/address$/address.query';
 import { UserQuery } from 'src/app/store/user$/user.query';
 import { Injectable } from "@angular/core";
 import { User } from '../../interface/Api';
@@ -10,12 +11,20 @@ export class StatesFacades {
 
 
 
-  constructor(private UserQuery : UserQuery) {
+  constructor(private UserQuery : UserQuery , private addressQuery : AddressQuery ) {
 
   }
 
   selectUser () {
     return  this.UserQuery.selectUser$;
+  }
+
+  selectAddresses() {
+    return this.addressQuery.selectAddress$;
+  }
+
+  selectId() {
+    return this.UserQuery.selectId$;
   }
 
   fullUser() {

@@ -1,3 +1,4 @@
+import { ActionSubjectService } from './../core/services/observer/action';
 import { AddressQuery } from './../store/address$/address.query';
 import { StorageService } from './../core/services/storage/storage.service';
 import { SessionService } from './../core/services/storage/session.service';
@@ -31,7 +32,8 @@ import { AccessGuard } from '../guards/access/access.guard';
     UserService,
     AccessGuard,
     StatesFacades,
-    AddressQuery
+    AddressQuery,
+    ActionSubjectService
   ],
   imports: [NzMessageModule],
 })
