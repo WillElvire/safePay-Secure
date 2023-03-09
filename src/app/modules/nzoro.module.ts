@@ -17,6 +17,8 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -36,7 +38,8 @@ import { NzAlertModule } from 'ng-zorro-antd/alert';
     NzInputModule,
     NzLayoutModule,
     NzBreadCrumbModule,
-    NzAlertModule
+    NzAlertModule,
+    NzSpinModule
 
   ],
   exports: [
@@ -57,7 +60,8 @@ import { NzAlertModule } from 'ng-zorro-antd/alert';
     NzLayoutModule,
     NzBreadCrumbModule,
     NzModalModule,
-    NzAlertModule
+    NzAlertModule,
+    NzSpinModule
 
   ],
 })

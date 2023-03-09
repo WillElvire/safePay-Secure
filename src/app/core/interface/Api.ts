@@ -45,3 +45,37 @@ export interface Address {
   status?: number;
   updatedAt: string;
 }
+
+export interface PublicationPayload {
+  title: string;
+  quantity: number;
+  price: number;
+  description: string;
+  monnaie_echange: string;
+  monnaie_a_recevoir: string;
+  address: string;
+  userId: string;
+}
+
+export interface Publication {
+  active: boolean;
+  createdAt: string;
+  id: string;
+  updatedAt: string;
+  verify: boolean;
+  detail: Detail;
+}
+
+export interface Detail {
+  address: string;
+  createdAt: string;
+  description: string;
+  id: string;
+  keyword: string;
+  monnaie_a_recevoir: string;
+  monnaie_echange: string;
+  price: number;
+  quantity: number;
+  title: string;
+  updatedAt: string;
+}

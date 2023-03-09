@@ -8,7 +8,7 @@ import { NotificationService } from '../../helpers/notification/notification.ser
 import { mapUser } from '../../mapper/user.mapper';
 import { SessionService } from '../storage/session.service';
 import { StorageService } from '../storage/storage.service';
-import { Address } from '../../interface/Api';
+import { Address, PublicationPayload } from '../../interface/Api';
 
 @Injectable({
   providedIn: 'root',
@@ -128,9 +128,20 @@ export class AppFacades {
   }
 
   addUserAddress(data : any,id : string) {
-    console.log(id);
     data["id"] = id;
     const address = mapAddress(data);
     return this.apiFunctionService.addUserAddress(address);
+  }
+
+  addPublication(publication : PublicationPayload) {
+    return this.apiFunctionService.addPublication(publication);
+  }
+
+  getPublicationById(id :string) {
+    return this.apiFunctionService.getPublicationById(id);
+  }
+
+  deletePublication(id : string) {
+    return this.apiFunctionService.deletePublication(id);
   }
 }

@@ -1,0 +1,6 @@
+<nz-select  nzShowSearch nzAllowClear nzPlaceHolder="Adresse Safe Connect" [formControl]="address" >
+  <nz-option nzCustomContent nzLabel="{{address.address}} ({{address.name}})" nzValue="{{address.address}}" *ngFor="let address of addresses ">
+    {{address.address}}  ({{address.name}})
+  </nz-option>
+</nz-select>
+

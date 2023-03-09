@@ -27,7 +27,8 @@ import { SAddPublicationComponent } from '../components/widgets/s-components/s-m
 import { SellPublicationFormComponent } from '../components/shared/website/form/sell-publication-form/sell-publication-form.component';
 import { BuyPublicationFormComponent } from '../components/shared/website/form/buy-publication-form/buy-publication-form.component';
 import { SAddAddressComponent } from '../components/widgets/s-components/s-modal/s-add-address/s-add-address.component';
-
+import { SSafeConnectComponent } from '../components/widgets/s-components/s-safe-connect/s-safe-connect.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     BackButtonComponent,
@@ -52,6 +53,7 @@ import { SAddAddressComponent } from '../components/widgets/s-components/s-modal
     SellPublicationFormComponent,
     BuyPublicationFormComponent,
     SAddAddressComponent,
+    SSafeConnectComponent,
 
 
   ],
@@ -72,6 +74,8 @@ import { SAddAddressComponent } from '../components/widgets/s-components/s-modal
     MarketBannerComponent,
     SCountrySelectComponent,
     SRoleSelectComponent,
+    SSafeConnectComponent,
+    NgxPaginationModule
 
   ],
   imports: [
@@ -81,7 +85,8 @@ import { SAddAddressComponent } from '../components/widgets/s-components/s-modal
     ReactiveFormsModule,
     CarouselModule,
     ServiceModule,
-    NZoroModule
+    NZoroModule,
+    NgxPaginationModule
 
 
   ],

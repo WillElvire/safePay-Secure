@@ -5,6 +5,7 @@ import { SessionService } from './../core/services/storage/session.service';
 import { UserQuery } from './../store/user$/user.query';
 import { apiFunctionService } from './../core/services/function/api.function';
 import { HttpService } from './../core/services/api/api.service';
+import { VerificationService } from './../core/services/data/verification';
 import { AppFacades } from './../core/services/facades/app.facades';
 import { StatesFacades } from './../core/services/facades/state.facades';
 import { Web3Services } from './../core/services/web3/web3.service';
@@ -33,7 +34,8 @@ import { AccessGuard } from '../guards/access/access.guard';
     AccessGuard,
     StatesFacades,
     AddressQuery,
-    ActionSubjectService
+    ActionSubjectService,
+    VerificationService
   ],
   imports: [NzMessageModule],
 })

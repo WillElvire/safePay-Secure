@@ -19,6 +19,8 @@ export class UAddressComponent implements OnInit , OnDestroy {
   subscription1 = new Subscription();
   subscription2 = new Subscription();
   subscription3 = new Subscription();
+  p: number = 1;
+  isLoad : boolean = false;
 
   constructor(
      private modalService : NzModalService,
@@ -37,16 +39,19 @@ export class UAddressComponent implements OnInit , OnDestroy {
   }
 
   ngOnInit(): void {
+    this.getUserAddress();
     this.subscription3 = this.actionSubject.modalSubject$.subscribe((val)=> {
       if(!!val) this.getUserAddress()
     })
-    this.getUserAddress();
   }
+
   getUserAddress() {
+    this.isLoad = true;
    this.subscription1 =  this.stateFacades.selectUser().subscribe((user)=>{
       this.subscription2 = this.appFacades.getUserAddress(user.id).subscribe((response)=>{
         this.addresses = response.returnObject as Address[];
-      });
+        this.isLoad = false;
+      },(err)=> this.isLoad = false);
     })
   }
 
