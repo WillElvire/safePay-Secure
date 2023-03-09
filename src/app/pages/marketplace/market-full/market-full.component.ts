@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { AppFacades } from 'src/app/core/services/facades/app.facades';
 
 
 @Component({
@@ -10,5 +11,9 @@ export class MarketFullComponent {
 
   type : string = 'buy';
   checkDefault : boolean = true;
+
+  constructor(private appFacades : AppFacades){
+
+  }
 
 }
