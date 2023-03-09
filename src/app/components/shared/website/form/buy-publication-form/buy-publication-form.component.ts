@@ -94,6 +94,7 @@ export class BuyPublicationFormComponent implements OnInit  , OnDestroy{
       }
     )
   }
+
   buildPublicationObject() {
     const publication : PublicationPayload = {
       monnaie_a_recevoir : this.currency_to_buy.value ,
