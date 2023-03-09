@@ -5,6 +5,7 @@ import { AccessGuard } from '../guards/access/access.guard';
 import { UserLayoutComponent } from '../layouts/user-layout/user-layout.component';
 import { UAddPublicationComponent } from '../pages/dashboard/user/upublication/add-publication/add-publication.component';
 import { UAddressComponent } from '../pages/dashboard/user/uaddress/uaddress.component';
+import { UaccountComponent } from '../pages/dashboard/user/uaccount/uaccount.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'publication/add',
         component: UAddPublicationComponent,
+      },
+      {
+        path: 'account',
+        component: UaccountComponent,
       },
       {
         path: 'safe/connect',

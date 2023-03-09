@@ -1,9 +1,8 @@
 import { FormControl, Validators } from '@angular/forms';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppFacades } from 'src/app/core/services/facades/app.facades';
-import { getCryptoRegex } from 'src/app/core/services/utils/regex';
 import { CryptoExchange } from 'src/app/core/types/crypto';
-import { take, takeWhile, Subscription } from 'rxjs';
+import { take,Subscription } from 'rxjs';
 import { PublicationPayload } from 'src/app/core/interface/Api';
 import { StatesFacades } from 'src/app/core/services/facades/state.facades';
 import { VerificationService } from 'src/app/core/services/data/verification';
@@ -86,6 +85,7 @@ export class BuyPublicationFormComponent implements OnInit  , OnDestroy{
           this.loadSpinner = false;
           this.actionSubject.emitModalSubject(true);
           this.appFacades.mBuildSuccess(response.message);
+          this.actionSubject.emitActionSubject(true);
         },
         error : (err)=> {
           this.loadSpinner = false;

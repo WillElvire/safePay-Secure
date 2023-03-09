@@ -1,18 +1,23 @@
 <br>
-<label>CryptoMonnaie a vendre</label>
-<s-select [typeTransaction]="'Recevoir'"></s-select>
+<br>
+<label>CryptoMonnaie a Vendre</label>
+<s-select [typeTransaction]="'Recevoir'" [(crypto)]="currency_to_sell"></s-select>
 <br>
 <br>
-<label>CryptoMonnaie a recevoir</label>
-<s-select></s-select>
-<input class="form-control" placeholder="Basic usage" />
-<input class="form-control" placeholder="Basic usage" />
-<input class="form-control" placeholder="Basic usage" />
-<input class="form-control" placeholder="Basic usage" />
-<input class="form-control" placeholder="Basic usage" />
-<input class="form-control" placeholder="Basic usage" />
+<label>Monnaie d'echange</label>
+<s-select [(crypto)]="mean_of_payment"></s-select>
+<nz-alert style="margin-top: 2%;" nzType="info"
+  nzMessage="Taux du jours : {{quantity.value}}   {{currency_to_sell.value }}  =   {{currencyRate.rate * quantity.value}}  {{mean_of_payment.value}}"
+  *ngIf="currencyRate"></nz-alert>
+<input class="form-control" type="number" placeholder="Quantité" [formControl]="quantity" />
+<input class="form-control" placeholder="Prix" [(ngModel)]="price" />
+<label>Adresse de transaction</label>
+<s-s-safe-connect [(address)]="address"></s-s-safe-connect>
 <br>
-<button class="btn btn-dark col-md-12">
+<textarea class="form-control" placeholder="Description" [formControl]="description">
+</textarea>
+<br>
+<button [disabled]="loadSpinner" class="btn btn-dark col-md-12" (click)="addPublication()">
   Soumettre
   <span nz-icon nzType="check-circle" nzTheme="outline"></span>
 </button>

@@ -5,40 +5,48 @@
 <!--<s-table [type]="'buy'" [pageSize]="4"></s-table>!-->
 <div class="container table-responsive mt-3" style="margin-top: 5% !important;">
   <nz-spin [nzSpinning]="isLoad">
-  <table class="table table-bordered">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Titre</th>
-        <th scope="col">Description</th>
-        <th scope="col">Monnaie a recevoir</th>
-        <th scope="col">Monnaie d'exchange</th>
-        <th scope="col">Prix</th>
-        <th scope="col">Quantité</th>
-        <th scope="col">Adresse</th>
-        <th scope="col">Status</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let publication of publications | paginate: { itemsPerPage: 5, currentPage: p }; trackBy:trackPublication">
-        <th scope="row">{{publication.detail.title}}</th>
-        <td>{{publication.detail.description}}</td>
-        <td>{{publication.detail.monnaie_a_recevoir}}</td>
-        <td>{{publication.detail.monnaie_echange}}</td>
-        <td>{{publication.detail.price}}</td>
-        <td>{{publication.detail.quantity}}</td>
-        <td>{{publication.detail.address}}</td>
-        <td>{{publication.detail.monnaie_echange}}</td>
-        <td>
-          <button class="btn btn-dark" style="background-color: var(--base-color);" (click)="deletePublication(publication.id)">
-            <span nz-icon nzType="delete" nzTheme="outline"></span>
-          </button>
-        </td>
-      </tr>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </tbody>
-  </table>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Titre</th>
+          <th scope="col">Description</th>
+          <th scope="col">Monnaie a recevoir</th>
+          <th scope="col">Monnaie d'exchange</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Quantité</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let publication of publications | paginate: { itemsPerPage: 5, currentPage: p }; trackBy:trackPublication">
+          <th scope="row">{{publication.detail.title}}</th>
+          <td>{{publication.detail.description}}</td>
+          <td>{{publication.detail.monnaie_a_recevoir}}</td>
+          <td>{{publication.detail.monnaie_echange}}</td>
+          <td>{{publication.detail.price}}</td>
+          <td>{{publication.detail.quantity}}</td>
+          <td>{{publication.detail.address}}</td>
+          <td>
+            <span *ngIf="!publication.verify">
+              <span nz-icon nzType="clock-circle" nzTheme="fill"></span> en attente
+            </span>
+            <span *ngIf="publication.verify">
+              <span nz-icon nzType="check-circle" nzTheme="fill"></span> confirmé
+            </span>
+          </td>
+          <td>
+            <button nz-button style="background-color: var(--base-color);color : white !important"
+              (click)="deletePublication(publication.id)">
+              <span nz-icon nzType="delete" nzTheme="outline"></span>
+            </button>
+          </td>
+        </tr>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </tbody>
+
+    </table>
   </nz-spin>
 </div>
-
-

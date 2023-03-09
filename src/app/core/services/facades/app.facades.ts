@@ -144,4 +144,8 @@ export class AppFacades {
   deletePublication(id : string) {
     return this.apiFunctionService.deletePublication(id);
   }
+
+  getLastPublication(){
+    return this.apiFunctionService.getLastPublication();
+  }
 }

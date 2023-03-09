@@ -18,7 +18,7 @@
 nz-card{
   margin: 20px !important;
   width: 300px  !important;
-  height: 300px;
+  height: 480px;
 }
 
 .shop-element {
@@ -30,4 +30,9 @@ nz-card{
   button{
     width: 100%;
   }
+}
+
+button {
+  width: 100%;
+  background-color: var(--base-color);
 }

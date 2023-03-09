@@ -1,8 +1,12 @@
 <div class="wrapper">
   <app-market-nav></app-market-nav>
   <app-market-banner [titre]="'Achetez et vendez facilement'" [middleWord]="'vos'"></app-market-banner>
-  <div class="container"><s-carousel [title]="'Achat'"></s-carousel></div>
-  <div class="container"><s-carousel [title]="'Vente'"></s-carousel></div>
+  <nz-spin [nzSpinning]="isSpinning" nzSize="large">
+    <div class="container"><s-carousel [title]="'Achat'" [data]="buyPublication"></s-carousel></div>
+  </nz-spin>
+  <nz-spin [nzSpinning]="isSpinning" nzSize="large">
+    <div class="container"><s-carousel [title]="'Vente'" [data]="sellPublication"></s-carousel></div>
+  </nz-spin>
   <app-glow-button [url]="'/marketplace/index'"></app-glow-button>
   <br>
   <br>

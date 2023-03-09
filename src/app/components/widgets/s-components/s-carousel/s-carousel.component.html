@@ -7,31 +7,29 @@
   </div>
   <h3 class="text-center">P2P {{title | uppercase}}</h3>
   <owl-carousel-o [options]="customOptions" #owlCar2>
-    <ng-template carouselSlide>
-      <nz-card class="col-md-3" [nzCover]="coverTemplate">
-        <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
-        <button nz-button> voir plus</button>
-      </nz-card>
-    </ng-template>
-    <ng-template carouselSlide>
-      <nz-card class="col-md-3" [nzCover]="coverTemplate">
-        <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
-      </nz-card>
-    </ng-template>
-    <ng-template carouselSlide>
-      <nz-card class="col-md-3" [nzCover]="coverTemplate">
-        <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
-      </nz-card>
-    </ng-template>
-    <ng-template carouselSlide>
-      <nz-card class="col-md-3" [nzCover]="coverTemplate">
-        <nz-card-meta nzTitle="Card title" nzDescription="This is the description"></nz-card-meta>
+    <ng-template carouselSlide *ngFor="let publication of data">
+      <nz-card class="col-md-3" [nzCover]="coverTemplate" [nzActions]="[actionCheckout,actionCart]"  >
+        <nz-card-meta nzTitle="{{publication.detail.title}}"></nz-card-meta>
+        <br>
+        <p>Monnaie a acheter : {{publication.detail.monnaie_a_recevoir}}</p>
+        <p>Moyen de paiement : {{publication.detail.monnaie_echange}}</p>
+        <p>Quantité  : {{publication.detail.quantity}}</p>
+        <p>Prix Proposé  : {{publication.detail.price}}</p>
+        <p>Description  : {{publication.detail.description}}</p>
       </nz-card>
     </ng-template>
   </owl-carousel-o>
 
   <ng-template #coverTemplate>
-    <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+    <img alt="example" src="https://www.fidelity.com/bin-public/060_www_fidelity_com/images/Viewpoints/AT/bitcoin_banner_2022.jpg" style="width: 100% !important;height: 20vh !important;"   />
   </ng-template>
+
+  <ng-template #actionCheckout>
+   {{title == 'Achat' ? 'Vendre' : 'Acheter'}}
+  </ng-template>
+  <ng-template #actionCart>
+   Safe Cart
+  </ng-template>
+
 </div>
 

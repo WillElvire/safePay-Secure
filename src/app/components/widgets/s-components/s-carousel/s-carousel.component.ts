@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Publication } from 'src/app/core/interface/Api';
 
 @Component({
   selector: 's-carousel',
@@ -8,6 +9,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class SCarouselComponent {
   @Input() title !: string ;
+  @Input() data  !: Publication[];
   customOptions: OwlOptions = {
     autoWidth : false,
     loop: true,
