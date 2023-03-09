@@ -3,8 +3,8 @@
     <span nz-icon nzType="file-protect" nzTheme="outline"></span>
   </button>
 </div>
-
 <div class="container table-responsive mt-3" style="margin-top: 5% !important;">
+  <nz-spin [nzSpinning]="isLoad">
   <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let address of addresses">
+      <tr *ngFor="let address of addresses | paginate: { itemsPerPage: 5, currentPage: p }">
         <th scope="row">{{address.name}}</th>
         <td>{{address.address}}</td>
         <td>{{address.createdAt | date}}</td>
@@ -25,7 +25,8 @@
           </button>
         </td>
       </tr>
-
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </tbody>
   </table>
+</nz-spin>
 </div>
