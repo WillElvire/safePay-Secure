@@ -148,4 +148,8 @@ export class AppFacades {
   getLastPublication(){
     return this.apiFunctionService.getLastPublication();
   }
+
+  getAllPlans()  {
+    return this.apiFunctionService.getAllPlans();
+  }
 }

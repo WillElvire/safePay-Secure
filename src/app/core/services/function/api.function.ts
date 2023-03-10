@@ -101,6 +101,11 @@ export class apiFunctionService {
     this.api.setApiType("rest");
     return this.api.get<MResultMessage>(`api/publication/last`).pipe(shareReplay(1));
   }
+
+  getAllPlans()  {
+    this.api.setApiType("rest");
+    return this.api.get<MResultMessage>(`api/plan`).pipe(shareReplay(1));
+  }
 }
 
 

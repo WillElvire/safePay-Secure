@@ -79,3 +79,14 @@ export interface Detail {
   title: string;
   updatedAt: string;
 }
+
+export interface Plan {
+  id: string;
+  name: string;
+  description: string;
+  duration: number;
+  price: number;
+  createdAt: string;
+  updatedAt: string;
+
+}
