@@ -10,13 +10,13 @@ import { Observable, of, take } from 'rxjs';
 })
 export class UaccountComponent implements OnInit {
 
-  User !:User;
+  user !:User;
 
   constructor(private statesFacades: StatesFacades){
 
   }
   ngOnInit(): void {
-      this.statesFacades.selectUser().pipe(take(1)).subscribe((user)=> this.User = user);
+      this.statesFacades.selectUser().pipe(take(1)).subscribe((user)=> this.user = user);
   }
 
 }

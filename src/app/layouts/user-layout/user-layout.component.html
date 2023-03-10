@@ -1,10 +1,9 @@
-<nz-layout class="app-layout" >
-  <nz-sider class="menu-sidebar" nzTheme="light" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
-    [nzTrigger]="null">
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar" nzTheme="light" nzCollapsible nzWidth="256px" nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
     <div class="sidebar-logo">
-      <a  routerLink="/">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>SafePay Secure</h1>
+      <a routerLink="/">
+        <img src="/assets/imgs/logo.png" [ngClass]="isCollapsed ? 'small':''">
       </a>
     </div>
     <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
@@ -35,12 +34,12 @@
 
       <li nz-menu-item>
         <span nz-icon nzType="message" nzTheme="fill"></span>
-        <span >Notification</span>
+        <span>Notification</span>
       </li>
 
       <li nz-menu-item>
         <span nz-icon nzType="logout" nzTheme="outline"></span>
-        <span >Déconnexion</span>
+        <span>Déconnexion</span>
       </li>
 
       <!-- <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
@@ -51,9 +50,9 @@
         </ul>
       </li>-->
     </ul>
-  </nz-sider  >
+  </nz-sider>
   <nz-layout>
-    <nz-header >
+    <nz-header>
       <div class="app-header" nz-row>
         <div nz-col nzSpan="10">
           <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
@@ -61,7 +60,8 @@
           </span>
         </div>
         <div nz-col nzSpan="2" nzOffset="12" class="avatar">
-          <nz-avatar nzSize="large" nz-dropdown [nzDropdownMenu]="menu"  nzText = "{{user!.firstname[0] }}{{ user!.lastname[0] }}"
+          <nz-avatar nzSize="large" nz-dropdown [nzDropdownMenu]="menu"
+            nzText="{{user!.firstname[0] }}{{ user!.lastname[0] }}"
             style="color:white; background-color:black;cursor:pointer">
           </nz-avatar>
           <nz-dropdown-menu #menu="nzDropdownMenu">

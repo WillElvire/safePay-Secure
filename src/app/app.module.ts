@@ -16,7 +16,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
-
+import {TuiRootModule} from '@taiga-ui/core';
 
 registerLocaleData(fr);
 
@@ -32,6 +32,7 @@ registerLocaleData(fr);
     CKEditorModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule,
+    TuiRootModule
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }, { provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
   bootstrap: [AppComponent],

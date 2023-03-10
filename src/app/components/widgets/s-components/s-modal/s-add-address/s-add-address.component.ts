@@ -46,7 +46,7 @@ export class SAddAddressComponent implements OnInit {
 
   addNewAddress() {
     const data = {address : this.address,name :this.crypto.value};
-    if(!this.address && !this.crypto.value)  return this.appFacades.nBuildError("Veuillez renseigner tout les champs");
+    if(!this.address && !this.crypto.value)  return this.appFacades.mBuildError("Veuillez renseigner tout les champs");
     return this.appFacades.addUserAddress(data,this.userId).pipe(take(1)).subscribe(
       {
         next : (response)=> {

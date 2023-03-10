@@ -38,10 +38,11 @@
 
 .sidebar-logo {
   position: relative;
-  height: 64px;
+  height: auto;
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
+  width: 100%;
   //background: #001529;
   transition: all .3s;
 }
@@ -54,8 +55,7 @@
 
 .sidebar-logo img {
   display: inline-block;
-  height: 32px;
-  width: 32px;
+  height: 50px !important;
   vertical-align: middle;
 }
 
@@ -69,6 +69,11 @@
   vertical-align: middle;
 }
 
+.small{
+  width: 60px;
+  height: 10px;
+  margin-left: -5% !important;
+}
 nz-header {
   padding: 0;
   width: 100%;
