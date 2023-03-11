@@ -5,12 +5,13 @@ import { TransGatewayComponent } from '../pages/gateway/trans-gateway/trans-gate
 import { ComponentModule } from "./components.module";
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 @NgModule({
   declarations: [
     TransGatewayComponent
   ],
   exports : [TransGatewayComponent],
-  imports :[NZoroModule,PaymentRoutingModule,ComponentModule,NzRadioModule,FormsModule]
+  imports :[NZoroModule,PaymentRoutingModule,ComponentModule,NzRadioModule,FormsModule,CommonModule]
 })
 export class PaymentModule {
 

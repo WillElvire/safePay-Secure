@@ -13,7 +13,7 @@ const routes : Routes = [
       {
         path : 'checkout/:id',
         component : TransGatewayComponent
-      }
+      },
     ]
   }
 ]

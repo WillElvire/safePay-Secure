@@ -6,6 +6,11 @@
   height: 90vh;
 }
 
+.payment {
+  &:active {
+    border : 1px solid var(--base-color);
+  }
+}
 .pay_method {
   nz-card {
     margin: 10px;
@@ -20,4 +25,19 @@
       box-shadow:  Opx  Opx 1Opx Opx rgba(0,0,0,0.3);
     }
   }
+}
+
+@media (min-width:0px) and (max-width : 1200px) {
+  .main-card{
+    margin-left: auto;
+    margin-top: 2% ;
+    width: auto;
+    height: auto;
+
+    img {
+      width: 50px;
+      margin-top: 0% !important;
+    }
+  }
+
 }

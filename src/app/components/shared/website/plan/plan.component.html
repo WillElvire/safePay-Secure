@@ -12,11 +12,11 @@
 
               <span class="h2">XOF {{plan.price}}</span>/mois
               <br><br>
-              <h6>
+              <p>
                 {{formatData(plan.description)}}
-              </h6>
+              </p>
               <div class="d-grid my-3">
-                <button nz-button>Souscrire</button>
+                <button nz-button (click)="navigate(plan.id)" >Souscrire</button>
               </div>
             </div>
           </div>

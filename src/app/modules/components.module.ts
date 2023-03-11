@@ -29,6 +29,7 @@ import { BuyPublicationFormComponent } from '../components/shared/website/form/b
 import { SAddAddressComponent } from '../components/widgets/s-components/s-modal/s-add-address/s-add-address.component';
 import { SSafeConnectComponent } from '../components/widgets/s-components/s-safe-connect/s-safe-connect.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { SStripePaymentComponent } from '../components/widgets/s-components/s-stripe-payment/s-stripe-payment.component';
 @NgModule({
   declarations: [
     BackButtonComponent,
@@ -54,6 +55,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BuyPublicationFormComponent,
     SAddAddressComponent,
     SSafeConnectComponent,
+    SStripePaymentComponent,
 
 
   ],
@@ -75,7 +77,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     SCountrySelectComponent,
     SRoleSelectComponent,
     SSafeConnectComponent,
-    NgxPaginationModule
+    NgxPaginationModule,
+    SStripePaymentComponent
 
   ],
   imports: [
@@ -86,9 +89,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CarouselModule,
     ServiceModule,
     NZoroModule,
-    NgxPaginationModule
-
-
+    NgxPaginationModule,
+    RouterModule
   ],
 })
 export class ComponentModule {}

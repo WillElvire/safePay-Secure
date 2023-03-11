@@ -18,10 +18,7 @@ export class BackButtonComponent implements OnInit,AfterContentInit {
 
   }
   ngAfterContentInit(): void {
-    const  button$ = document.getElementById("button") as HTMLMenuElement;
-    button$.style.float = this.direction as string;
-    button$.style.marginTop = this.margin + "%";
-    button$.style.marginLeft = this.margin + "%";
+
   }
   ngOnInit(): void {
 

@@ -1,10 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 't-gateway',
   templateUrl: './trans-gateway.component.html',
-  styleUrls: ['./trans-gateway.component.scss']
+  styleUrls: ['./trans-gateway.component.scss'],
 })
-export class TransGatewayComponent {
+export class TransGatewayComponent implements OnInit {
 
+  payment : string = "crypto";
+
+  constructor(private activatedRoute: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.activatedRoute.queryParamMap.subscribe((params) =>
+      console.log(params)
+    );
+  }
+
+  activePaymentMethod(type : string)  {
+    this.payment = type;
+  }
+
+  getVisaTransactionDetail($event :any) {
+    console.log("parent node",$event);
+  }
 }
