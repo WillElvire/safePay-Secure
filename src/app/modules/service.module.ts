@@ -16,6 +16,7 @@ import { NgModule } from '@angular/core';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { UserService } from '../core/services/storage/user.service';
 import { AccessGuard } from '../guards/access/access.guard';
+import { PaymentGuard } from '../guards/payment/payment.guard';
 @NgModule({
   declarations: [],
   providers: [
@@ -35,7 +36,8 @@ import { AccessGuard } from '../guards/access/access.guard';
     StatesFacades,
     AddressQuery,
     ActionSubjectService,
-    VerificationService
+    VerificationService,
+    PaymentGuard
   ],
   imports: [NzMessageModule],
 })

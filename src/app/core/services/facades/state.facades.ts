@@ -19,6 +19,10 @@ export class StatesFacades {
     return  this.UserQuery.selectUser$;
   }
 
+  get isLoggedIn() {
+    return this.UserQuery.isLoggedIn;
+  }
+
   selectAddresses() {
     return this.addressQuery.selectAddress$;
   }

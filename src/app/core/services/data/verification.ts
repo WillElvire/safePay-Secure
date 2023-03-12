@@ -24,3 +24,15 @@ export class  VerificationService {
   }
 
 }
+
+export function verifyObj(obj : {},logType : string = "error") {
+  let count= 0;
+  let index : number[] = [];
+  Object.values(obj).forEach((value,i)=>{
+    if(!value) {
+      index.push(i)
+      count ++;
+    }
+  })
+  return   {count , index };
+}

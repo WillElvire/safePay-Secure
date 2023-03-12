@@ -1,7 +1,7 @@
 import { AppFacades } from 'src/app/core/services/facades/app.facades';
 import { UserQuery } from 'src/app/store/user$/user.query';
 import { Injectable, OnDestroy } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/core/interface/Api';
 import { Location } from '@angular/common';

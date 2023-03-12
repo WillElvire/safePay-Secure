@@ -78,7 +78,12 @@ import { SStripePaymentComponent } from '../components/widgets/s-components/s-st
     SRoleSelectComponent,
     SSafeConnectComponent,
     NgxPaginationModule,
-    SStripePaymentComponent
+    SStripePaymentComponent,
+    NZoroModule,
+    ReactiveFormsModule,
+    CommonModule,
+    RouterModule,
+    FormsModule
 
   ],
   imports: [

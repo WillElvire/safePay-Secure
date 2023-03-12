@@ -3,17 +3,18 @@ import { user } from './../../core/interface/State';
 import { UserState } from './user.states';
 import { Query, applyTransaction } from '@datorama/akita';
 import { UserStore} from './user.store';
+import { verifyObj } from 'src/app/core/services/data/verification';
 
 
 @Injectable()
 export class UserQuery extends Query<UserState> {
 
   //user$   = this.select();
-  isLoggedIn$ = this.select(state => !!state["token"]);
+  isLoggedIn$ = this.select(state => !!state["user"]);
   selectUser$ = this.select('user');
   fullUser$   = this.select(['user', 'token']);
   isLoading$  = this.selectLoading();
-  selectId$    = this.select(['id']);
+  selectId$   = this.select(['id']);
   error$      = this.selectError();
 
 
@@ -22,7 +23,8 @@ export class UserQuery extends Query<UserState> {
   }
 
   get isLoggedIn() {
-    return !!this.getValue()["token"];
+    const user = this.getValue()["user"];
+    return verifyObj(user).index[0] != 0 ;
   }
 
   get user() {

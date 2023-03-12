@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 export class SStripePaymentComponent implements OnInit , OnDestroy {
 
   paymentHandler: any = null;
+
   @Output() transactionDetail  : EventEmitter<any> = new EventEmitter();
 
   makePayment(amount: any) {
@@ -16,7 +17,6 @@ export class SStripePaymentComponent implements OnInit , OnDestroy {
       key: environment.STRIPE_PUBLIC_KEY,
       locale: 'fr',
       token:  (stripeToken: any) => {
-        console.log(stripeToken);
         this.transactionDetail.emit(stripeToken);
         alert('Stripe token generated!');
       },

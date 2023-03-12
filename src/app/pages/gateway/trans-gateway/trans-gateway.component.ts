@@ -7,22 +7,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./trans-gateway.component.scss'],
 })
 export class TransGatewayComponent implements OnInit {
-
-  payment : string = "crypto";
+  payment: string = 'crypto';
+  transactionAmount!: string;
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.activatedRoute.queryParamMap.subscribe((params) =>
-      console.log(params)
-    );
+    this.activatedRoute.queryParamMap.subscribe((params) => {
+      this.transactionAmount = params.get("amount") as string
+      console.log(params);
+    });
   }
 
-  activePaymentMethod(type : string)  {
+  activePaymentMethod(type: string) {
     this.payment = type;
   }
 
-  getVisaTransactionDetail($event :any) {
-    console.log("parent node",$event);
+  getVisaTransactionDetail($event: any) {
+    console.log('parent node', $event);
   }
 }

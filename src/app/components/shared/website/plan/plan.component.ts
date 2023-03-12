@@ -36,7 +36,7 @@ export class PlanComponent  implements OnInit {
     return field;
   }
 
-  navigate(id : string){
-   this.router.navigate(["/payment/transaction/checkout/plan"],{queryParams : { plan : id , inc : this.userId}})
+  navigate(plan : Plan){
+   this.router.navigate(["/payment/transaction/checkout/plan"],{queryParams : { plan : plan.id , inc : this.userId,amount : plan.price , duration : plan.duration }})
   }
 }

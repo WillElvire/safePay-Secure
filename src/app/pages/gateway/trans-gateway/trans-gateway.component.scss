@@ -1,15 +1,27 @@
 
 .main-card{
   margin-left: 20%;
-  margin-top: 2% ;
+  margin-top: 2% !important;
   width: 800px;
   height: 90vh;
 }
 
-.payment {
-  &:active {
-    border : 1px solid var(--base-color);
-  }
+.wrapper {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  margin-top: -2%;
+  height: 100%;
+  background-color: var(--base-color);
+}
+
+.crypto{
+  width: 40% !important;
+}
+
+
+.active {
+  border : 1px solid var(--base-color);
 }
 .pay_method {
   nz-card {
@@ -21,8 +33,7 @@
       margin-top: -10%;
     }
     &:hover{
-      border : 2px solid var(--base-color);
-      box-shadow:  Opx  Opx 1Opx Opx rgba(0,0,0,0.3);
+      box-shadow:  0px  0px 10px 0px rgba(0,0,0,0.1);
     }
   }
 }
