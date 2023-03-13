@@ -55,6 +55,10 @@ export class UAddressComponent implements OnInit , OnDestroy {
     })
   }
 
+  changeSort(event :any) {
+    console.log(event);
+  }
+
   deleteAddress(id : any){
     this.appFacades.deleteUserAddress(id).subscribe((response)=>{
       console.log(response);

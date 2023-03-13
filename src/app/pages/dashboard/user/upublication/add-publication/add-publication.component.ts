@@ -1,6 +1,6 @@
 import { Publication } from './../../../../../core/interface/Api';
 import { NzModalService } from 'ng-zorro-antd/modal';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { SAddPublicationComponent } from 'src/app/components/widgets/s-components/s-modal/s-add-publication/s-add-publication.component';
 import { AppFacades } from 'src/app/core/services/facades/app.facades';
 import { StatesFacades } from 'src/app/core/services/facades/state.facades';
@@ -21,13 +21,22 @@ export class UAddPublicationComponent implements OnInit , OnDestroy {
   publications : Publication[] = [];
   subscription = new Subscription();
   p: number = 1;
+  pageY  :number = 0;
+  pageSize !: number;
+  pageIndex = 1;
+  total = 1;
 
+  @HostListener("window:scroll",['$event'])onScrollEvent($event : any) {
+    //this.pageY = window.pageYOffset;
+    console.log($event);
+  }
   constructor(
     private modalService: NzModalService,
     private appFacades: AppFacades,
     private stateFacade: StatesFacades,
     private actionSubject : ActionSubjectService
   ) {
+    this.pageSize= this.pageY  > 400 ? 4 : 3;
     this.getUserId();
   }
 

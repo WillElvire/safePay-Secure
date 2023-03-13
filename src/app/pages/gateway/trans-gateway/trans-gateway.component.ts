@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./trans-gateway.component.scss'],
 })
 export class TransGatewayComponent implements OnInit {
-  payment: string = 'crypto';
+  payment: string = 'electronic';
   transactionAmount!: string;
 
   constructor(private activatedRoute: ActivatedRoute) {}

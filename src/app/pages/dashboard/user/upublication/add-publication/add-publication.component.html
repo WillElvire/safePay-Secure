@@ -3,9 +3,10 @@
   <span nz-icon nzType="plus" nzTheme="outline"></span>
 </button>
 <!--<s-table [type]="'buy'" [pageSize]="4"></s-table>!-->
-<div class="container table-responsive mt-3" style="margin-top: 5% !important;">
+<div class="container table-responsive" style="margin-top: 3% !important;">
   <nz-spin [nzSpinning]="isLoad">
-    <table class="table table-bordered">
+    <nz-table class="table table-bordered" #headerTable [nzData]="publications" nzShowPagination  [nzFrontPagination]="true"
+     [nzTotal]="total" [(nzPageSize)]="pageSize" [nzPageIndex]="pageIndex">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Titre</th>
@@ -20,9 +21,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          *ngFor="let publication of publications | paginate: { itemsPerPage: 5, currentPage: p }; trackBy:trackPublication">
-          <th scope="row">{{publication.detail.title}}</th>
+        <tr *ngFor="let publication of headerTable.data; trackBy:trackPublication">
+          <td scope="row">{{publication.detail.title}}</td>
           <td>{{publication.detail.description}}</td>
           <td>{{publication.detail.monnaie_a_recevoir}}</td>
           <td>{{publication.detail.monnaie_echange}}</td>
@@ -30,11 +30,11 @@
           <td>{{publication.detail.quantity}}</td>
           <td>{{publication.detail.address}}</td>
           <td>
-            <span *ngIf="!publication.verify">
-              <span nz-icon nzType="clock-circle" nzTheme="fill"></span> en attente
+            <span *ngIf="!publication.verify" style="color: gray;">
+              <span nz-icon nzType="clock-circle" nzTheme="fill"></span>
             </span>
-            <span *ngIf="publication.verify">
-              <span nz-icon nzType="check-circle" nzTheme="fill"></span> confirmé
+            <span *ngIf="publication.verify" style="color:forestgreen">
+              <span nz-icon nzType="check-circle" nzTheme="fill"></span>
             </span>
           </td>
           <td>
@@ -45,7 +45,6 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </nz-table>
   </nz-spin>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

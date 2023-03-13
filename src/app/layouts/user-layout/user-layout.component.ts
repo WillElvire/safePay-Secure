@@ -9,11 +9,13 @@ import { Component } from '@angular/core';
 })
 export class UserLayoutComponent {
   isCollapsed : boolean = true;
+  condition : boolean = false;
   user  !: User;
 
   constructor(private userQuery : UserQuery) {
     this.userQuery.selectUser$.subscribe((responce)=>{
       this.user = responce;
+      this.condition = this.user.role.name =='Utilisateur';
       console.log(responce);
     })
   }

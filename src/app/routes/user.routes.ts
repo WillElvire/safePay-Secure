@@ -6,6 +6,7 @@ import { UserLayoutComponent } from '../layouts/user-layout/user-layout.componen
 import { UAddPublicationComponent } from '../pages/dashboard/user/upublication/add-publication/add-publication.component';
 import { UAddressComponent } from '../pages/dashboard/user/uaddress/uaddress.component';
 import { UaccountComponent } from '../pages/dashboard/user/uaccount/uaccount.component';
+import { UcompteComponent } from '../pages/dashboard/user/ucompte/ucompte.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'account',
         component: UaccountComponent,
+      },
+      {
+        path: 'compte',
+        component: UcompteComponent,
       },
       {
         path: 'safe/connect',

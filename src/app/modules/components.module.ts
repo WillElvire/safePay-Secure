@@ -30,6 +30,9 @@ import { SAddAddressComponent } from '../components/widgets/s-components/s-modal
 import { SSafeConnectComponent } from '../components/widgets/s-components/s-safe-connect/s-safe-connect.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { SStripePaymentComponent } from '../components/widgets/s-components/s-stripe-payment/s-stripe-payment.component';
+import { SPieChartComponent } from '../components/widgets/s-components/s-chart/s-pie-chart/s-pie-chart.component';
+import { SLineChartComponent } from '../components/widgets/s-components/s-chart/s-line-chart/s-line-chart.component';
+import { SBarChartComponent } from '../components/widgets/s-components/s-chart/s-bar-chart/s-bar-chart.component';
 @NgModule({
   declarations: [
     BackButtonComponent,
@@ -56,6 +59,9 @@ import { SStripePaymentComponent } from '../components/widgets/s-components/s-st
     SAddAddressComponent,
     SSafeConnectComponent,
     SStripePaymentComponent,
+    SPieChartComponent,
+    SLineChartComponent,
+    SBarChartComponent,
 
 
   ],
@@ -79,6 +85,9 @@ import { SStripePaymentComponent } from '../components/widgets/s-components/s-st
     SSafeConnectComponent,
     NgxPaginationModule,
     SStripePaymentComponent,
+    SPieChartComponent,
+    SLineChartComponent,
+    SBarChartComponent,
     NZoroModule,
     ReactiveFormsModule,
     CommonModule,

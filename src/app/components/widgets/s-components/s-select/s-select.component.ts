@@ -15,6 +15,8 @@ export class SSelectComponent {
   @Output() cryptoChange  = new EventEmitter();
   @Input() crypto  = new FormControl();
   @Input() typeTransaction = "Achat";
+  @Input() typeOfPaymentMethod = "Full";
+
   cryptos$  : Observable<CryptoIcon[]> = of([]);
 
 
@@ -23,10 +25,30 @@ export class SSelectComponent {
   }
 
   ngOnInit(): void {
-    this.cryptos$ = this.apiFunctionService.cryptoIcons$.pipe(
-      map((element)=> {return element}),
-      take(1)
-     )
+
+    switch(this.typeOfPaymentMethod) {
+      case  "crypto" :
+        this.cryptos$ = this.apiFunctionService.cryptoIconsSelf$.pipe(
+          map((element)=> {return element}),
+          take(1)
+        )
+      break;
+
+      case  "electronic" :
+        this.cryptos$ = this.apiFunctionService.localCurreny$.pipe(
+          map((element)=> {return element}),
+          take(1)
+        )
+      break;
+
+      default :
+        this.cryptos$ = this.apiFunctionService.cryptoIcons$.pipe(
+          map((element)=> {return element}),
+          take(1)
+        )
+      break;
+    }
+
   }
 
 

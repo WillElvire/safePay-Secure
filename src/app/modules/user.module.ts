@@ -10,6 +10,8 @@ import { UAddPublicationComponent } from '../pages/dashboard/user/upublication/a
 import { UAddressComponent } from '../pages/dashboard/user/uaddress/uaddress.component';
 import { CommonModule } from '@angular/common';
 import { UaccountComponent } from '../pages/dashboard/user/uaccount/uaccount.component';
+import { UcompteComponent } from '../pages/dashboard/user/ucompte/ucompte.component';
+import { UnotificationComponent } from '../pages/dashboard/user/unotification/unotification.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { UaccountComponent } from '../pages/dashboard/user/uaccount/uaccount.com
     UAddPublicationComponent,
     UAddressComponent,
     UaccountComponent,
+    UcompteComponent,
+    UnotificationComponent,
   ],
   exports: [UhomeComponent],
   imports: [

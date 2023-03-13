@@ -6,19 +6,20 @@
       <app-back-button [text]="'Retour'"></app-back-button>
       <div class="grid container pay_method" style="margin-top: 3%;">
         <div class="row justify-content-center">
-          <nz-card class="col-md-3 payment" (click)="activePaymentMethod('mobileMoney')" [ngClass]="payment=='mobileMoney' ? 'active':'inactive'">
+          <nz-card class="col-md-3 payment" (click)="activePaymentMethod('electronic')"
+            [ngClass]="payment=='electronic' ? 'active':'inactive'">
             <img src="/assets/imgs/payment/electronic.png" class="img-fluid" width="80" height="80">
           </nz-card>
-          <nz-card class="col-md-3 payment" (click)="activePaymentMethod('visa')" [ngClass]="payment=='visa' ? 'active':'inactive'">
+          <nz-card class="col-md-3 payment" (click)="activePaymentMethod('visa')"
+            [ngClass]="payment=='visa' ? 'active':'inactive'">
             <img src="/assets/imgs/payment/visa.png" class="img-fluid" width="200" height="80">
           </nz-card>
-          <nz-card class="col-md-3 payment" (click)="activePaymentMethod('crypto')" [ngClass]="payment=='crypto' ? 'active':'inactive'">
+          <nz-card class="col-md-3 payment" (click)="activePaymentMethod('crypto')"
+            [ngClass]="payment=='crypto' ? 'active':'inactive'">
             <img src="/assets/imgs/payment/crypto.png" class="img-fluid" width="80" height="80">
           </nz-card>
         </div>
-
       </div>
-
       <ng-container *ngIf="payment == 'crypto'" class="crypto">
         <div class="container">
           <h5 style="margin-top:3% !important">Paiement Par Cryptomonnaie</h5>
@@ -26,7 +27,7 @@
           <s-s-safe-connect></s-s-safe-connect>
           <br>
           <br>
-          <s-select></s-select>
+          <s-select [typeOfPaymentMethod]="'crypto'"></s-select>
           <br>
           <br>
           <input nz-input placeholder="montant de transaction" [(ngModel)]="transactionAmount" [disabled]="true" />
@@ -36,16 +37,35 @@
         </div>
       </ng-container>
       <ng-container *ngIf="payment == 'visa'">
-        <s-stripe-payment (transactionDetail)="getVisaTransactionDetail($event)"></s-stripe-payment>
+        <div class="container">
+          <h5 style="margin-top:3% !important">Paiement Par carte</h5>
+          <br>
+          <br>
+          <input nz-input placeholder="montant de transaction" [(ngModel)]="transactionAmount" [disabled]="true" />
+          <br>
+          <br>
+          <s-stripe-payment (transactionDetail)="getVisaTransactionDetail($event)" [amount]="transactionAmount"></s-stripe-payment>
+        </div>
       </ng-container>
-      <ng-container *ngIf="payment == 'mobileMoney'">
-        loresss
+      <ng-container *ngIf="payment == 'electronic'">
+        <div class="container">
+          <h5 style="margin-top:3% !important">Paiement Monnaie electronic</h5>
+          <br>
+          <s-s-safe-connect></s-s-safe-connect>
+          <br>
+          <br>
+          <s-select [typeOfPaymentMethod]="'electronic'"></s-select>
+          <br>
+          <br>
+          <input nz-input placeholder="montant de transaction" [(ngModel)]="transactionAmount" [disabled]="true" />
+          <br>
+          <br>
+          <button nz-button class="col-md-12">Confirmer</button>
+        </div>
       </ng-container>
     </nz-card>
-
   </div>
   <br>
   <br>
   <br>
 </div>
-

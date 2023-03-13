@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { number } from 'prop-types';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -11,11 +12,12 @@ export class SStripePaymentComponent implements OnInit , OnDestroy {
   paymentHandler: any = null;
 
   @Output() transactionDetail  : EventEmitter<any> = new EventEmitter();
+  @Input() amount !: string;
 
-  makePayment(amount: any) {
+  makePayment() {
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key: environment.STRIPE_PUBLIC_KEY,
-      locale: 'fr',
+      locale: 'us',
       token:  (stripeToken: any) => {
         this.transactionDetail.emit(stripeToken);
         alert('Stripe token generated!');
@@ -24,7 +26,7 @@ export class SStripePaymentComponent implements OnInit , OnDestroy {
     paymentHandler.open({
       name: 'SafePay Secure',
       description: 'Checkout',
-      amount: amount * 100,
+      amount: (Number.parseInt(this.amount)/650)*100,
     });
   }
 

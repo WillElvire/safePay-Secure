@@ -5,18 +5,19 @@
 </div>
 <div class="container table-responsive mt-3" style="margin-top: 5% !important;">
   <nz-spin [nzSpinning]="isLoad">
-  <table class="table table-bordered">
+  <nz-table class="table table-bordered" #sortTable [nzData]="addresses" [nzTotal]="4"  nzShowPagination  [nzFrontPagination]="true"
+  [nzTotal]="1" [nzPageSize]="4" [nzPageIndex]="1" >
     <thead class="thead-dark">
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Address</th>
-        <th scope="col">Date d'ajout</th>
+      <tr >
+        <th scope="col" [nzShowSort]="true" (nzSortOrderChange)="changeSort($event)">Name</th>
+        <th scope="col" [nzShowSort]="true">Address</th>
+        <th scope="col" [nzShowSort]="true">Date d'ajout</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let address of addresses | paginate: { itemsPerPage: 5, currentPage: p }">
-        <th scope="row">{{address.name}}</th>
+      <tr *ngFor="let address of sortTable.data">
+        <td ><b>{{address.name}}</b></td>
         <td>{{address.address}}</td>
         <td>{{address.createdAt | date}}</td>
         <td>
@@ -25,8 +26,7 @@
           </button>
         </td>
       </tr>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </tbody>
-  </table>
+  </nz-table>
 </nz-spin>
 </div>

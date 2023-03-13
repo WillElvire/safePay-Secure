@@ -18,10 +18,13 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
-import {TuiLineDaysChartModule} from '@taiga-ui/addon-charts';
+import {TuiLineDaysChartModule, TuiRingChartModule} from '@taiga-ui/addon-charts';
 import {TuiLineChartModule} from '@taiga-ui/addon-charts';
 import {TuiAxesModule} from '@taiga-ui/addon-charts';
 import {TuiArcChartModule} from '@taiga-ui/addon-charts';
+import {TuiMoneyModule} from '@taiga-ui/addon-commerce';
+import {TuiLegendItemModule} from '@taiga-ui/addon-charts';
+
 
 @NgModule({
   declarations: [],
@@ -47,7 +50,10 @@ import {TuiArcChartModule} from '@taiga-ui/addon-charts';
     TuiLineDaysChartModule,
     TuiLineChartModule,
     TuiAxesModule,
-    TuiArcChartModule
+    TuiArcChartModule,
+    TuiMoneyModule,
+    TuiRingChartModule,
+    TuiLegendItemModule
 
   ],
   exports: [
@@ -73,7 +79,10 @@ import {TuiArcChartModule} from '@taiga-ui/addon-charts';
     TuiLineDaysChartModule,
     TuiLineChartModule,
     TuiAxesModule,
-    TuiArcChartModule
+    TuiArcChartModule,
+    TuiMoneyModule,
+    TuiRingChartModule,
+    TuiLegendItemModule
 
   ],
 })
