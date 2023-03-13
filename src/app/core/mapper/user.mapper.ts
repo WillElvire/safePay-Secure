@@ -1,5 +1,5 @@
 import { User } from './../interface/Api';
-export const mapUser = (value: any) => {
+export const  mapUser = (value: any) => {
   let user: User = {
     firstname: value.firstname,
     lastname: value.lastname,
