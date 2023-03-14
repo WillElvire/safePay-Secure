@@ -6,15 +6,21 @@
 }
 
 
+.navbar {
+  background-color: var(--base-color) !important;
+}
 
 .app-layout {
   height: 100vh;
 }
 
 .active{
-  background-color: var(--base-color) !important;
   color: white !important;
   border-left: none !important;
+}
+
+.avatar {
+  margin-left: -5% !important;
 }
 
 .menu-sidebar {
@@ -95,7 +101,7 @@ nz-content {
 .inner-content {
   padding: 24px;
   background: #fff;
-  height: 100%;
+  height: auto;
 }
 
 nz-dropdown-menu{

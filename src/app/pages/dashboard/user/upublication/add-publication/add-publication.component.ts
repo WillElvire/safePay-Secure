@@ -25,6 +25,7 @@ export class UAddPublicationComponent implements OnInit , OnDestroy {
   pageSize !: number;
   pageIndex = 1;
   total = 1;
+  filter !: any;
 
   @HostListener("window:scroll",['$event'])onScrollEvent($event : any) {
     //this.pageY = window.pageYOffset;
@@ -111,5 +112,22 @@ export class UAddPublicationComponent implements OnInit , OnDestroy {
       }
     }
     )
+  }
+
+
+
+  delete(id : string): void {
+    this.modalService.confirm({
+      nzTitle: 'Voulez vous vraiment supprimer cette publication ?',
+      nzContent: '<b style="color: red;">Cette action est irreversible</b>',
+      nzOkText: 'Supprimer',
+      nzOkType: 'primary',
+      nzOkDanger: true,
+      nzOnOk: () =>{
+        this.deletePublication(id)
+      },
+      nzCancelText: 'Annuler',
+      nzOnCancel: () => console.log('Cancel')
+    });
   }
 }

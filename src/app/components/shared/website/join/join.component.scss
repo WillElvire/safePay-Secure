@@ -28,11 +28,12 @@
 
 @media (min-width: 0px) and (max-width: 900px) {
   .join {
-    height: 30%;
+    height: auto;
   }
   .join .grid {
     width: 100%;
     margin-left: 0px;
+    position: relative;
   }
   .join .grid button {
     margin-left: 5%;

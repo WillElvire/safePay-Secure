@@ -73,4 +73,19 @@ export class UAddressComponent implements OnInit , OnDestroy {
     this.subscription3.unsubscribe();
   }
 
+  delete(id : any): void {
+    this.modalService.confirm({
+      nzTitle: 'Voulez vous vraiment supprimer cette addresse ?',
+      nzContent: '<b style="color: red;">Cette action est irreversible</b>',
+      nzOkText: 'Supprimer',
+      nzOkType: 'primary',
+      nzOkDanger: true,
+      nzOnOk: () =>{
+        this.deleteAddress(id)
+      },
+      nzCancelText: 'Annuler',
+      nzOnCancel: () => console.log('Cancel')
+    });
+  }
+
 }

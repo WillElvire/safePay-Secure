@@ -1,7 +1,16 @@
+
 <button class="btn btn-dark" (click)="showModal()">
   <span>Ajouter une publication</span>
-  <span nz-icon nzType="plus" nzTheme="outline"></span>
+  <i class="fa fa-plus-circle" style="margin-left:2% !important" aria-hidden="true"></i>
 </button>
+<div style="margin-top: 1%;">
+  <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Filtrer par status" [(ngModel)]="filter">
+    <nz-option nzLabel="Tout" nzValue="2"></nz-option>
+    <nz-option nzLabel="Actif" nzValue="true"></nz-option>
+    <nz-option nzLabel="Innactif" nzValue="false"></nz-option>
+  </nz-select>
+</div>
+
 <!--<s-table [type]="'buy'" [pageSize]="4"></s-table>!-->
 <div class="container table-responsive" style="margin-top: 3% !important;">
   <nz-spin [nzSpinning]="isLoad">
@@ -21,7 +30,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let publication of headerTable.data; trackBy:trackPublication">
+        <tr *ngFor="let publication of headerTable.data | tableFilter : filter ; trackBy:trackPublication">
           <td scope="row">{{publication.detail.title}}</td>
           <td>{{publication.detail.description}}</td>
           <td>{{publication.detail.monnaie_a_recevoir}}</td>
@@ -39,7 +48,7 @@
           </td>
           <td>
             <button nz-button style="background-color: var(--base-color);color : white !important"
-              (click)="deletePublication(publication.id)">
+              (click)="delete(publication.id)">
               <span nz-icon nzType="delete" nzTheme="outline"></span>
             </button>
           </td>

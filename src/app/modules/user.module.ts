@@ -1,3 +1,4 @@
+import { TableFilterPipe } from './../pipes/data/table-filter.pipe';
 import { UserLayoutComponent } from './../layouts/user-layout/user-layout.component';
 import { NgModule } from '@angular/core';
 import { UserRoutingModule } from '../routes/user.routes';
@@ -22,6 +23,7 @@ import { UnotificationComponent } from '../pages/dashboard/user/unotification/un
     UaccountComponent,
     UcompteComponent,
     UnotificationComponent,
+    TableFilterPipe
   ],
   exports: [UhomeComponent],
   imports: [

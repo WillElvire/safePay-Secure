@@ -1,5 +1,5 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar" nzTheme="light" nzCollapsible nzWidth="256px" nzBreakpoint="md"
+  <!--<nz-sider class="menu-sidebar" nzTheme="light" nzCollapsible nzWidth="256px" nzBreakpoint="md"
     [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
     <div class="sidebar-logo">
       <a routerLink="/">
@@ -47,40 +47,88 @@
         <span>Compte</span>
       </li>
 
+      <li nz-menu-item routerLink="/landing" routerLinkActive="active">
+        <span nz-icon nzType="home" nzTheme="fill"></span>
+        <span>Voir le site</span>
+      </li>
+
       <li nz-menu-item>
         <span nz-icon nzType="logout" nzTheme="outline"></span>
         <span>Déconnexion</span>
       </li>
 
 
-
-      <!-- <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
-          </li>
-        </ul>
-      </li>-->
     </ul>
-  </nz-sider>
+  </nz-sider>-->
+
   <nz-layout>
     <nz-header>
-      <div class="app-header" nz-row>
-        <div nz-col nzSpan="10">
-          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
-          </span>
-        </div>
-        <div nz-col nzSpan="2" nzOffset="12" class="avatar">
-          <nz-avatar nzSize="large" nz-dropdown [nzDropdownMenu]="menu"
-            nzText="{{user!.firstname[0] }}{{ user!.lastname[0] }}"
-            style="color:white; background-color:black;cursor:pointer">
-          </nz-avatar>
-          <nz-dropdown-menu #menu="nzDropdownMenu">
-            <app-profil-tools>
-            </app-profil-tools>
-          </nz-dropdown-menu>
-        </div>
+      <div class="app-header">
+        <nav class=" app-header navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="/assets/imgs/logo.png" class="img-fluid" width="80" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" routerLink="/user/home" routerLinkActive="active">
+                    <span>Dashboard</span>
+                    <i class="fa fa-tachometer ml-2" aria-hidden="true" ></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/user/account" routerLinkActive="active">
+
+                    <span>Profil</span>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" routerLink="/user/publication/add" routerLinkActive="active"
+                    *ngIf="condition">
+                    <span>Mes publications</span>
+                    <i class="fa fa-commenting" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" routerLink="/user/safe/connect" routerLinkActive="active">
+                    <span>Safe Connect</span>
+                    <i class="fa fa-th-large" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="nav-item" *ngIf="!condition">
+                  <a class="nav-link" aria-current="page" href="#">
+                    <span>Notification</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" routerLink="/user/compte" routerLinkActive="active">
+                    <span>Rapport</span>
+                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+              <li class="d-flex">
+                <div nz-col nzOffset="12" class="avatar">
+                  <nz-avatar nzSize="large" nz-dropdown [nzDropdownMenu]="menu"
+                    nzText="{{user!.firstname[0] | uppercase }}{{ user!.lastname[0] | uppercase }}"
+                    style="color:white; background-color:black;cursor:pointer">
+                  </nz-avatar>
+                  <nz-dropdown-menu #menu="nzDropdownMenu">
+                    <app-profil-tools>
+                    </app-profil-tools>
+                  </nz-dropdown-menu>
+                </div>
+              </li>
+            </div>
+          </div>
+        </nav>
       </div>
     </nz-header>
     <nz-content>

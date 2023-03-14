@@ -21,7 +21,7 @@
         <td>{{address.address}}</td>
         <td>{{address.createdAt | date}}</td>
         <td>
-          <button  nz-button nzType="default" (click)="deleteAddress(address.id)">
+          <button  nz-button nzType="default" (click)="delete(address.id)">
            <span nz-icon nzType="delete" nzTheme="outline"></span>
           </button>
         </td>

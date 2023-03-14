@@ -13,6 +13,12 @@
         <h1>10</h1>
         <p>Business fermé </p>
       </nz-card>
+      <div nzHoverable class="col-md-3">
+        <nz-card nzHoverable class="col-md-3">
+          <h1>5</h1>
+          <p>Adresse de transactions</p>
+        </nz-card>
+      </div>
     </div>
   </div>
 
@@ -20,8 +26,8 @@
   <div class="chart">
     <h6>Progression business</h6>
     <tui-axes class="axes" [verticalLines]="4" [horizontalLines]="2">
-      <tui-line-chart [x]="0" [y]="0" [width]="400" [height]="200" [dots]="true" [value]="value" [xStringify]="stringify"
-        [yStringify]="stringify"></tui-line-chart>
+      <tui-line-chart [x]="0" [y]="0" [width]="400" [height]="200" [dots]="true" [value]="value"
+        [xStringify]="stringify" [yStringify]="stringify"></tui-line-chart>
     </tui-axes>
 
   </div>
