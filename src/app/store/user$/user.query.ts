@@ -32,9 +32,13 @@ export class UserQuery extends Query<UserState> {
   }
 
   update(user : user) {
-    applyTransaction(()=>{
+    return applyTransaction(()=>{
       this.store.update(user);
       this.store.setLoading(true);
     })
+  }
+
+  logout() {
+    this.store.reset();
   }
 }

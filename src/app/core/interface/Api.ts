@@ -43,7 +43,7 @@ export interface Address {
   name: string;
   priority?: number;
   status?: number;
-  updatedAt: string;
+  updatedAt?: string;
 }
 
 export interface PublicationPayload {

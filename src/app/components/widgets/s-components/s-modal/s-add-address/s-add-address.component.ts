@@ -1,3 +1,4 @@
+import { Address } from './../../../../../core/interface/Api';
 import { getCryptoRegex } from 'src/app/core/services/utils/regex';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -20,7 +21,11 @@ export class SAddAddressComponent implements OnInit {
   message : string = "Renseigner une addresse";
   userId : string = "";
 
-  constructor(private appFacades : AppFacades,private stateFacade : StatesFacades , private actionSubject : ActionSubjectService) {
+  constructor(
+    private appFacades : AppFacades,
+    private stateFacade : StatesFacades ,
+    private actionSubject : ActionSubjectService
+    ) {
     this.getUserId();
   }
 
@@ -35,9 +40,27 @@ export class SAddAddressComponent implements OnInit {
 
 
   async connectWallet(){
-    const wallet = await this.appFacades.connectAccount();
-    console.log(wallet);
+    const wallet : any[] = await this.appFacades.connectAccount();
+    console.log("wallet",wallet);
+    const addresses = this.formatToAddress(wallet);
+    addresses.forEach((address)=>{
+      this.addAddressToBackend(address);
+    })
   }
+
+  formatToAddress(wallet : any[])  : Address[]{
+    const addresses : Address[] = []
+    wallet.forEach((element)=> {
+       const address = {
+        address : element,
+        name  : 'ETH'
+       }
+       addresses.push(address)
+    })
+    return addresses;
+  }
+
+
 
   enableWeb3Function(){
     this.message = this.enableWeb3 ? "Renseigner une addresse" : "Utiliser un wallet connect";
@@ -47,7 +70,11 @@ export class SAddAddressComponent implements OnInit {
   addNewAddress() {
     const data = {address : this.address,name :this.crypto.value};
     if(!this.address && !this.crypto.value)  return this.appFacades.mBuildError("Veuillez renseigner tout les champs");
-    return this.appFacades.addUserAddress(data,this.userId).pipe(take(1)).subscribe(
+    return this.addAddressToBackend(data)
+  }
+
+  addAddressToBackend(address : any) {
+    this.appFacades.addUserAddress(address,this.userId).pipe(take(1)).subscribe(
       {
         next : (response)=> {
           this.actionSubject.emitModalSubject(true);

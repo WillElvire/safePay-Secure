@@ -1,3 +1,4 @@
+import { AppStateFacade } from './../core/services/facades/appState.facades';
 import { ActionSubjectService } from './../core/services/observer/action';
 import { AddressQuery } from './../store/address$/address.query';
 import { StorageService } from './../core/services/storage/storage.service';
@@ -37,7 +38,8 @@ import { PaymentGuard } from '../guards/payment/payment.guard';
     AddressQuery,
     ActionSubjectService,
     VerificationService,
-    PaymentGuard
+    PaymentGuard,
+    AppStateFacade
   ],
   imports: [NzMessageModule],
 })

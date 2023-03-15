@@ -7,15 +7,19 @@ import { UAddPublicationComponent } from '../pages/dashboard/user/upublication/a
 import { UAddressComponent } from '../pages/dashboard/user/uaddress/uaddress.component';
 import { UaccountComponent } from '../pages/dashboard/user/uaccount/uaccount.component';
 import { UcompteComponent } from '../pages/dashboard/user/ucompte/ucompte.component';
+import { PaymentGuard } from '../guards/payment/payment.guard';
+import { UsoldeComponent } from '../pages/dashboard/user/usolde/usolde.component';
 
 const routes: Routes = [
   {
     path : '',
     component :UserLayoutComponent,
+    canActivate : [AccessGuard],
     children : [
       {
         path: 'home',
         component: UhomeComponent,
+
       },
       {
         path: 'publication/add',
@@ -30,6 +34,10 @@ const routes: Routes = [
         component: UcompteComponent,
       },
       {
+        path : 'solde',
+        component : UsoldeComponent
+      },
+      {
         path: 'safe/connect',
         component: UAddressComponent,
       },
@@ -39,7 +47,6 @@ const routes: Routes = [
         pathMatch: 'full',
       },
     ],
-    canActivate : [AccessGuard]
   }
 
 ];

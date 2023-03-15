@@ -3,6 +3,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { RouterModule } from '@angular/router';
+import { AppStateFacade } from 'src/app/core/services/facades/appState.facades';
 
 @Component({
   selector: 'app-profil-tools',
@@ -13,7 +14,14 @@ import { RouterModule } from '@angular/router';
 })
 export class ProfilToolsComponent implements AfterViewInit {
 
+  constructor(private appStateFacade : AppStateFacade) {
+
+  }
   ngAfterViewInit() {
     console.log();
+  }
+
+  logout() {
+    return this.appStateFacade.logout$();
   }
 }

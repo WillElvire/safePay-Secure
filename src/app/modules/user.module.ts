@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { UaccountComponent } from '../pages/dashboard/user/uaccount/uaccount.component';
 import { UcompteComponent } from '../pages/dashboard/user/ucompte/ucompte.component';
 import { UnotificationComponent } from '../pages/dashboard/user/unotification/unotification.component';
+import { UsoldeComponent } from '../pages/dashboard/user/usolde/usolde.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UnotificationComponent } from '../pages/dashboard/user/unotification/un
     UaccountComponent,
     UcompteComponent,
     UnotificationComponent,
-    TableFilterPipe
+    TableFilterPipe,
+    UsoldeComponent
   ],
   exports: [UhomeComponent],
   imports: [

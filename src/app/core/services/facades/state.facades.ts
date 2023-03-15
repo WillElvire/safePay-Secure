@@ -1,7 +1,7 @@
+import { user } from 'src/app/core/interface/State';
 import { AddressQuery } from './../../../store/address$/address.query';
 import { UserQuery } from 'src/app/store/user$/user.query';
 import { Injectable } from '@angular/core';
-import { user } from '../../interface/State';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +18,14 @@ export class StatesFacades {
 
   get isLoggedIn() {
     return this.UserQuery.isLoggedIn;
+  }
+
+  get logout() {
+    return this.UserQuery.logout();
+  }
+
+  updateUserState(user : user) {
+    return this.UserQuery.update(user)
   }
 
   selectAddresses() {
