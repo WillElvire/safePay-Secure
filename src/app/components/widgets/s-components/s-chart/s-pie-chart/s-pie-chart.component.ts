@@ -9,7 +9,7 @@ import { Chart } from 'chart.js/auto';
 export class SPieChartComponent {
 
   @ViewChild('MyChart', { static: true }) MyChart?: any;
-  @Input() data?: any[] ;
+  @Input() data?: number[] ;
   @Input() label?: string[];
   public chart !: any;
 
@@ -28,8 +28,8 @@ export class SPieChartComponent {
         labels: this.label,
         datasets: [
           {
-            data: this.data,
-            backgroundColor: ["#43acd1","#EFAE08"]
+            data: this.data as number[],
+            backgroundColor: ["#43acd1","#EFAE08","gray"]
           },
         ],
       },

@@ -18,7 +18,7 @@ export class SAddAddressComponent implements OnInit {
   crypto = new FormControl();
   address : string = "" ;
   enableWeb3 : boolean  = false;
-  message : string = "Renseigner une addresse";
+  message : string = "Utiliser un wallet connect";
   userId : string = "";
 
   constructor(
@@ -63,7 +63,7 @@ export class SAddAddressComponent implements OnInit {
 
 
   enableWeb3Function(){
-    this.message = this.enableWeb3 ? "Renseigner une addresse" : "Utiliser un wallet connect";
+    this.message = this.enableWeb3 ?  "Utiliser un wallet connect" : "Renseigner une addresse";
     return this.enableWeb3 = !this.enableWeb3;
   }
 

@@ -31,6 +31,9 @@ export class AppFacades {
   getAccount() {
     return this.web3Services.accountStatus$;
   }
+  getBalance(address : string) {
+    return this.web3Services.getBalance(address);
+  }
   /*--------------------------------*/
 
   setStorage(data  : {key : string ,value : any}) {
@@ -151,5 +154,10 @@ export class AppFacades {
 
   getAllPlans()  {
     return this.apiFunctionService.getAllPlans();
+  }
+
+
+  getReportById(id : string) {
+   return this.apiFunctionService.getReportById(id)
   }
 }

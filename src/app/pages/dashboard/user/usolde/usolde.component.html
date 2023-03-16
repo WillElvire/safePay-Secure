@@ -1,1 +1,13 @@
-<s-s-safe-connect></s-s-safe-connect>
+<app-back-button></app-back-button>
+<br>
+<br>
+<h3>Consulter votre solde</h3>
+<label>Selectionner votre compte</label>
+<s-s-safe-connect [(address)]="address"></s-s-safe-connect>
+<ng-container *ngIf="balance !=-1 && !!balance">
+  <nz-card class="mt-4 text-center">
+    <h1>{{balance}} ETH</h1>
+    <p>Solde pour l'adresse :  <tui-badge value="{{address.value}}" style="background : var(--base-color)"></tui-badge></p>
+  </nz-card>
+</ng-container>
+

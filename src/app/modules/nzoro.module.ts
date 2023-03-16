@@ -25,6 +25,7 @@ import {TuiArcChartModule} from '@taiga-ui/addon-charts';
 import {TuiMoneyModule} from '@taiga-ui/addon-commerce';
 import {TuiLegendItemModule} from '@taiga-ui/addon-charts';
 import { TuiButtonModule } from '@taiga-ui/core';
+import { TuiBadgeModule } from '@taiga-ui/kit';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { TuiButtonModule } from '@taiga-ui/core';
     TuiMoneyModule,
     TuiRingChartModule,
     TuiLegendItemModule,
-    TuiButtonModule
+    TuiButtonModule,
+    TuiBadgeModule
 
   ],
   exports: [
@@ -85,7 +87,8 @@ import { TuiButtonModule } from '@taiga-ui/core';
     TuiMoneyModule,
     TuiRingChartModule,
     TuiLegendItemModule,
-    TuiButtonModule
+    TuiButtonModule,
+    TuiBadgeModule
 
   ],
 })

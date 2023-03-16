@@ -88,8 +88,6 @@ export class UAddPublicationComponent implements OnInit , OnDestroy {
       .selectUser()
       .pipe(take(1))
       .subscribe((user) => (this.id = user.id));
-
-      console.log(this.id)
   }
 
   trackPublication(index : number , publication :any) {

@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class GlowButtonComponent {
    @Input() url !: string;
+   @Input() text =  "Acceder a la boutique P2P";
 }

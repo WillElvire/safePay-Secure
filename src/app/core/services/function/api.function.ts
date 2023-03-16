@@ -106,6 +106,11 @@ export class apiFunctionService {
     this.api.setApiType("rest");
     return this.api.get<MResultMessage>(`api/plan`).pipe(shareReplay(1));
   }
+
+  getReportById(id : string) {
+    this.api.setApiType("rest");
+    return this.api.get<MResultMessage>(`api/users/${id}/report`).pipe(shareReplay(1));
+  }
 }
 
 
