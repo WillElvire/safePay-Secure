@@ -159,6 +159,9 @@ export class AppFacades {
    return this.apiFunctionService.getReportById(id)
   }
 
+  getTransactionHistory(id : string)  {
+    return this.apiFunctionService.getTransactionHistory(id);
+  }
   /*--------------------------------*/
   getCryptoIcons() {
     return this.apiFunctionService.cryptoIcons$;

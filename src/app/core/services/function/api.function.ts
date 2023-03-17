@@ -9,7 +9,6 @@ export class apiFunctionService {
 
   private exchange : string  = `exchangerate/`;
   private icons : string =  `assets/`;
-
   private readonly  api  = inject(HttpService);
   cryptoIconsSelf$ : Observable<CryptoIcon[]>  =  this.getCryptoIcons();
   countryCode$ : Observable<CountryDialCode[]> = this.getCoutryCode();
@@ -55,7 +54,7 @@ export class apiFunctionService {
 
   registerUser(user : User) : Observable<MResultMessage> {
     this.api.setApiType("rest");
-    return this.api.post<MResultMessage>({endpoint : "api/users", data : user}).pipe(shareReplay(1));
+    return this.api.post<MResultMessage>({endpoint : `api/users`, data : user}).pipe(shareReplay(1));
   }
 
   getLocalCurrency() {
@@ -116,6 +115,12 @@ export class apiFunctionService {
   planSubscription(data : any) {
     this.api.setApiType("rest");
     return this.api.post<MResultMessage>({endpoint : `api/transactions/plan/subscription`,data}).pipe(shareReplay(1))
+  }
+
+
+  getTransactionHistory(id : string) {
+    this.api.setApiType("rest");
+    return this.api.get<MResultMessage>(`api/transactions/${id}`).pipe(shareReplay(1));
   }
 }
 

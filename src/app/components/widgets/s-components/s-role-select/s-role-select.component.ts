@@ -28,7 +28,7 @@ export class SRoleSelectComponent implements OnInit , OnDestroy {
   ngOnInit(): void {
     this.subcription =  this.appFacades.getAllRoles().subscribe((response)=>{
       var roles = response.returnObject as Role[];
-      this.allRoles = roles.filter((el)=> el.name != "staff" && el.name != "admin") as Role[];
+      this.allRoles = roles.filter((el)=> el.name != "Staff" && el.name != "Admin") as Role[];
     });
   }
 }

@@ -46,7 +46,8 @@ export class NotificationService implements IBuilder<NotificationService> {
 
   getOptions() :NzNotificationDataOptions{
     return {
-      nzPlacement : this.placement
+      nzPlacement : this.placement,
+      nzDuration : this.duration
     }
   }
 }

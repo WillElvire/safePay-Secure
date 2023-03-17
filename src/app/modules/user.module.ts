@@ -14,6 +14,7 @@ import { UaccountComponent } from '../pages/dashboard/user/uaccount/uaccount.com
 import { UcompteComponent } from '../pages/dashboard/user/ucompte/ucompte.component';
 import { UnotificationComponent } from '../pages/dashboard/user/unotification/unotification.component';
 import { UsoldeComponent } from '../pages/dashboard/user/usolde/usolde.component';
+import { UtransactionComponent } from '../pages/dashboard/user/utransaction/utransaction.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UsoldeComponent } from '../pages/dashboard/user/usolde/usolde.component
     UcompteComponent,
     UnotificationComponent,
     TableFilterPipe,
-    UsoldeComponent
+    UsoldeComponent,
+    UtransactionComponent
   ],
   exports: [UhomeComponent],
   imports: [

@@ -9,6 +9,7 @@ import { UaccountComponent } from '../pages/dashboard/user/uaccount/uaccount.com
 import { UcompteComponent } from '../pages/dashboard/user/ucompte/ucompte.component';
 import { PaymentGuard } from '../guards/payment/payment.guard';
 import { UsoldeComponent } from '../pages/dashboard/user/usolde/usolde.component';
+import { UtransactionComponent } from '../pages/dashboard/user/utransaction/utransaction.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path : 'solde',
         component : UsoldeComponent
+      },
+      {
+        path : 'transaction',
+        component : UtransactionComponent
       },
       {
         path: 'safe/connect',

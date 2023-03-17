@@ -1,0 +1,45 @@
+<div>
+  <h4>Historique des transactions <b>{{transactions.length}}</b></h4>
+</div>
+<div class="table table-responsive">
+  <nz-spin [nzSpinning]="isLoad">
+    <nz-table class="table table-bordered" #headerTable [nzData]="transactions" nzShowPagination
+      [nzFrontPagination]="true" [nzTotal]="total" [(nzPageSize)]="pageSize" [nzPageIndex]="pageIndex">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Ref</th>
+          <th scope="col">Description</th>
+          <th scope="col">Type de transaction</th>
+          <th scope="col">Date d'expiration</th>
+          <th scope="col">Montant</th>
+          <th scope="col">Moyen de paiement</th>
+          <th scope="col">Adresse de transaction</th>
+          <th scope="col">Date transaction</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of headerTable.data">
+          <td scope="row">ref#{{transaction.id}}</td>
+          <td scope="row">{{transaction.transactionType.libelle}}</td>
+          <td scope="row">{{transaction.transactionType.name}}</td>
+          <td scope="row">{{transaction.transactionDetail.billing.expriationDate|date}}</td>
+          <td scope="row">{{transaction.transactionDetail.amount}}</td>
+          <td scope="row">{{transaction.transactionDetail.billing.mean_of_payment}}</td>
+          <td scope="row">{{transaction.transactionDetail.billing.address}}</td>
+          <td scope="row">{{transaction.createdAt | date }}</td>
+          <td scope="row">
+            <span *ngIf="!transaction.transactionDetail.billing.active" style="color: gray;">
+              ...En attente
+            </span>
+            <span *ngIf="transaction.transactionDetail.billing.active" style="color:forestgreen">
+              Payé
+            </span>
+          </td>
+        </tr>
+
+      </tbody>
+    </nz-table>
+  </nz-spin>
+
+</div>

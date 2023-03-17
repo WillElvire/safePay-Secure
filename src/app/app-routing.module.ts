@@ -25,6 +25,13 @@ const routes: Routes = [
     path: 'admin',loadChildren: () =>import('./modules/adminDashboard.module').then((m) => m.AdminDashboard),
   },
   {
+    path : 'transaction',
+    children : [
+      { path : 'success' , loadComponent : ()=> import('./pages/simple/payment/success/success.component').then((c)=> c.SuccessComponent)},
+      { path : 'failed' , loadComponent : ()=> import('./pages/simple/payment/failed/failed.component').then((c)=> c.FailedComponent)}
+    ]
+  },
+  {
     path : '**',
     loadComponent : ()=> import('./pages/simple/error/not-found/not-found.component').then((c)=> c.NotFoundComponent)
   },

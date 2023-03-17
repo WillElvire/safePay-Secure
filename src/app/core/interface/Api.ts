@@ -88,5 +88,42 @@ export interface Plan {
   price: number;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface Transaction {
+  createdAt: string;
+  id: string;
+  transactionDetail: TransactionDetail;
+  transactionType: TransactionType;
+  updatedAt: string;
+}
+
+export interface Billing {
+  active: boolean;
+  createdAt: string;
+  expriationDate: string;
+  id: string;
+  status: number;
+  updatedAt: string;
+  mean_of_payment: string,
+  address : string
+}
+
+export interface TransactionType {
+  createdAt: string;
+  id: string;
+  libelle: string;
+  name: string;
+  updatedAt: string;
+}
+export interface TransactionDetail {
+  amount: string;
+  billing: Billing;
+  createdAt: string;
+  id: string;
+  isValid: false;
+  reason: string;
+  updatedAt: string;
+  valid: false;
 
 }

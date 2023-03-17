@@ -1,17 +1,13 @@
-import { User } from './../interface/Api';
 export const  mapUser = (value: any) => {
-  let user: User = {
+  let user: any = {
     firstname: value.firstname,
     lastname: value.lastname,
     email: value.email,
     countryCode: value.countryCode,
     password : value.password,
     phone: value.phone,
-    role: {
-      id: value.roleId,
-    },
+    roleId : value.roleId,
   };
-
   //console.log(user);
   return user;
 };
@@ -21,9 +17,7 @@ export const mapAddress = (value : any) => {
   let address : any = {
     name : value.name,
     address : value.address,
-    user : {
-      id  : value.id
-    }
+    user_id :  value.id
   }
   console.log(address);
   return address;

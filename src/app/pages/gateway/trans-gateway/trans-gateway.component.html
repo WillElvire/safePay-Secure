@@ -33,7 +33,7 @@
           <input nz-input placeholder="montant de transaction" [(ngModel)]="transactionAmount" [disabled]="true" />
           <br>
           <br>
-          <button nz-button class="col-md-12" (click)="makePayment()">Confirmer</button>
+          <button nz-button [nzLoading]="isLoading" class="col-md-12" (click)="makePayment()">Confirmer</button>
         </div>
       </ng-container>
       <ng-container *ngIf="payment == 'visa'">

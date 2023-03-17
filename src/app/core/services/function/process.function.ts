@@ -22,11 +22,12 @@ export class ProcessFunction {
   }
 
   updateStateOrNot(makertPlace: []) {
-    if (makertPlace?.length == 0) {
-      this.api
+    if (makertPlace == null) {
+     this.api
         .getLastPublication()
         .pipe(take(1))
         .subscribe((response) => {
+          console.log(response);
           const obj: publications = {
             publication: response.returnObject as Publication[],
           };

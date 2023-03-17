@@ -8,7 +8,7 @@ export interface MarketPlaceState  extends EntityState<publications, number> {
 
 export function createInitialState(): MarketPlaceState {
   return {
-    publication  : []
+    publication  : null
   };
 }
 
