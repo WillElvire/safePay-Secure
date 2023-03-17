@@ -1,3 +1,5 @@
+import { ProcessFunction } from './../core/services/function/process.function';
+import { MarketPlaceQuery } from './../store/marketplace$/marketplace.query';
 import { AppStateFacade } from './../core/services/facades/appState.facades';
 import { ActionSubjectService } from './../core/services/observer/action';
 import { AddressQuery } from './../store/address$/address.query';
@@ -39,7 +41,9 @@ import { PaymentGuard } from '../guards/payment/payment.guard';
     ActionSubjectService,
     VerificationService,
     PaymentGuard,
-    AppStateFacade
+    AppStateFacade,
+    MarketPlaceQuery,
+    ProcessFunction
   ],
   imports: [NzMessageModule],
 })

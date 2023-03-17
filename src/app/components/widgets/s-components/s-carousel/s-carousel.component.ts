@@ -34,4 +34,8 @@ export class SCarouselComponent {
     },
     nav: false,
   };
+
+  fetchData(index : number , item : any){
+    return item.item;
+ }
 }

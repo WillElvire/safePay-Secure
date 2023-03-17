@@ -1,7 +1,7 @@
 import { CountryDialCode, MResultMessage, User } from './../../interface/Api';
 import { CryptoExchange, CryptoIcon } from './../../types/crypto';
 import { HttpService } from './../api/api.service';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, forkJoin, map, publishReplay, refCount, shareReplay} from 'rxjs';
 
 @Injectable()
@@ -10,6 +10,7 @@ export class apiFunctionService {
   private exchange : string  = `exchangerate/`;
   private icons : string =  `assets/`;
 
+  private readonly  api  = inject(HttpService);
   cryptoIconsSelf$ : Observable<CryptoIcon[]>  =  this.getCryptoIcons();
   countryCode$ : Observable<CountryDialCode[]> = this.getCoutryCode();
   allRoles$    : Observable<MResultMessage>    = this.getUsersRole();
@@ -25,7 +26,7 @@ export class apiFunctionService {
     return this.getExchangeRate(currency1,currency2);
   };
 
-  constructor(private api : HttpService){
+  constructor(){
 
   }
 
@@ -110,6 +111,11 @@ export class apiFunctionService {
   getReportById(id : string) {
     this.api.setApiType("rest");
     return this.api.get<MResultMessage>(`api/users/${id}/report`).pipe(shareReplay(1));
+  }
+
+  planSubscription(data : any) {
+    this.api.setApiType("rest");
+    return this.api.post<MResultMessage>({endpoint : `api/transactions/plan/subscription`,data}).pipe(shareReplay(1))
   }
 }
 

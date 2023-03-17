@@ -119,5 +119,15 @@ nz-dropdown-menu{
   .navbar-nav{
     background-color: #fff !important;
     text-align: center;
+
+  }
+
+  .navbar {
+    z-index: 9999 !important;
+  }
+
+  .active{
+    color: var(--base-color) !important;
+    border-left: none !important;
   }
 }

@@ -1,4 +1,5 @@
-import { Subscription } from 'rxjs';
+import { StatesFacades } from 'src/app/core/services/facades/state.facades';
+import { Subscription, delay } from 'rxjs';
 import { Publication } from './../../../core/interface/Api';
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { AppFacades } from 'src/app/core/services/facades/app.facades';
@@ -14,8 +15,9 @@ export class MarketComponent implements OnInit , OnDestroy {
   allPublication : Publication[] = [];
   subscription = new Subscription();
   isSpinning = false;
+  loadFinish : boolean = false;
 
-  constructor(private appFacades: AppFacades, private actionSubject : ActionSubjectService) {
+  constructor(private appFacades: AppFacades, private actionSubject : ActionSubjectService,private StatesFacades : StatesFacades) {
     this.loadPublications();
   }
 
@@ -27,15 +29,17 @@ export class MarketComponent implements OnInit , OnDestroy {
 
   loadPublications() {
     this.isSpinning = true;
-    this.appFacades.getLastPublication().subscribe((response) => {
-      this.allPublication =  response.returnObject as Publication[];
+    this.appFacades.getLastPublication()
+    this.StatesFacades.marketPlace$.subscribe((response) => {
+      this.allPublication = response as Publication[];
       this.isSpinning = false;
+      this.loadFinish = true;
       this.getSpecifiquePublication();
     },(err)=> this.isSpinning = false);
   }
 
   getSpecifiquePublication() {
-    this.allPublication.forEach((element) => {
+    this.allPublication?.forEach((element) => {
       if (element.detail.title?.includes('VENTE')) {
         this.sellPublication.push(element);
       }

@@ -9,6 +9,7 @@ import { AddressStore } from './address.store';
 @Injectable()
 export class AddressQuery extends Query<AddressState> {
 
+
   //user$   = this.select();
   selectAddress$ = this.select();
   isLoading$  = this.selectLoading();

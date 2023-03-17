@@ -1,7 +1,7 @@
 <div class="wrapper">
   <app-market-nav></app-market-nav>
   <app-market-banner [titre]="'Achetez et vendez facilement'" [middleWord]="'vos'"></app-market-banner>
-  <div *ngIf="!isSpinning && allPublication.length!=0;else elseBlock">
+  <div *ngIf="(!isSpinning && allPublication?.length!=0);else elseBlock">
     <nz-spin [nzSpinning]="isSpinning" nzSize="large">
       <div class="container"><s-carousel [title]="'Achat'" [data]="buyPublication"></s-carousel></div>
     </nz-spin>
@@ -11,17 +11,17 @@
     <app-glow-button [url]="'/marketplace/index'"></app-glow-button>
   </div>
 
-  <ng-template #elseBlock>
-    <br>
-    <br>
-    <br>
-    <br>
-   <h3 class="text-center"> Aucune de publication <i class="fa fa-message"></i> </h3>
-   <p class="text-center">Faites le premier pat avec nous safepay secure</p>
-   <app-glow-button [url]="'/user/publication/add'" [text]="'Ajouter une publication'" ></app-glow-button>
+  <ng-template #elseBlock >
+    <div *ngIf="loadFinish && !isSpinning && allPublication.length == 0">
+      <br>
+      <br>
+      <br>
+      <br>
+     <h3 class="text-center"> Aucune de publication <i class="fa fa-message"></i> </h3>
+     <p class="text-center">Faites le premier pat avec nous safepay secure</p>
+     <app-glow-button [url]="'/user/publication/add'" [text]="'Ajouter une publication'" ></app-glow-button>
+    </div>
   </ng-template>
-
-
   <br>
   <br>
   <br>

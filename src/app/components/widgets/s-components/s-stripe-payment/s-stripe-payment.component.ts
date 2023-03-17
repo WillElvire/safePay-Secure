@@ -12,7 +12,7 @@ export class SStripePaymentComponent implements OnInit , OnDestroy {
   paymentHandler: any = null;
 
   @Output() transactionDetail  : EventEmitter<any> = new EventEmitter();
-  @Input() amount !: string;
+  @Input() amount !: number;
 
   makePayment() {
     const paymentHandler = (<any>window).StripeCheckout.configure({
@@ -26,7 +26,7 @@ export class SStripePaymentComponent implements OnInit , OnDestroy {
     paymentHandler.open({
       name: 'SafePay Secure',
       description: 'Checkout',
-      amount: (Number.parseInt(this.amount)/650)*100,
+      amount: (this.amount)*100,
     });
   }
 

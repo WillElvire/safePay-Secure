@@ -24,16 +24,16 @@
         <div class="container">
           <h5 style="margin-top:3% !important">Paiement Par Cryptomonnaie</h5>
           <br>
-          <s-s-safe-connect></s-s-safe-connect>
+          <s-s-safe-connect [(address)]="address"></s-s-safe-connect>
           <br>
           <br>
-          <s-select [typeOfPaymentMethod]="'crypto'"></s-select>
+          <s-select [typeOfPaymentMethod]="'crypto'" [(crypto)]="crypto"></s-select>
           <br>
           <br>
           <input nz-input placeholder="montant de transaction" [(ngModel)]="transactionAmount" [disabled]="true" />
           <br>
           <br>
-          <button nz-button class="col-md-12">Confirmer</button>
+          <button nz-button class="col-md-12" (click)="makePayment()">Confirmer</button>
         </div>
       </ng-container>
       <ng-container *ngIf="payment == 'visa'">

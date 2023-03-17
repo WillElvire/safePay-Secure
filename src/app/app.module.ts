@@ -31,7 +31,7 @@ registerLocaleData(fr);
     BrowserAnimationsModule,
     IconsProviderModule,
     CKEditorModule,
-    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    environment.production ? [] : AkitaNgDevtools.forRoot({maxAge : 25}),
     AkitaNgRouterStoreModule,
     TuiRootModule,
     ServiceModule

@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment.prod';
 import { mapAddress } from './../../mapper/user.mapper';
 import { apiFunctionService } from './../function/api.function';
 import { HttpService } from './../api/api.service';
@@ -9,6 +10,7 @@ import { mapUser } from '../../mapper/user.mapper';
 import { SessionService } from '../storage/session.service';
 import { StorageService } from '../storage/storage.service';
 import { Address, PublicationPayload } from '../../interface/Api';
+import { ProcessFunction } from '../function/process.function';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +23,8 @@ export class AppFacades {
     private HttpService : HttpService,
     private apiFunctionService : apiFunctionService,
     private sessionService : SessionService,
-    private storageService : StorageService
+    private storageService : StorageService,
+    private proccessFunction : ProcessFunction
   ) {}
 
   /*--------------------------------*/
@@ -34,6 +37,11 @@ export class AppFacades {
   getBalance(address : string) {
     return this.web3Services.getBalance(address);
   }
+
+  sendTransaction(from : string , amount : number , to ?: string  ) {
+    return this.web3Services.sendTransaction(from,amount,environment.ADDRESS_OF_TRANSACTION);
+  }
+
   /*--------------------------------*/
 
   setStorage(data  : {key : string ,value : any}) {
@@ -98,18 +106,6 @@ export class AppFacades {
   }
   /*--------------------------------*/
 
-  getCryptoIcons() {
-    return this.apiFunctionService.cryptoIcons$;
-  }
-
-  getCoutryDialCode() {
-    return this.apiFunctionService.countryCode$;
-  }
-
-  getCryptoExchange(currency1 : string , currency2 : string) {
-    return this.apiFunctionService.cryptoExchange$(currency1,currency2);
-  }
-
   getUserAddress(id : string) {
     return this.apiFunctionService.getUserAddress(id);
   }
@@ -149,15 +145,32 @@ export class AppFacades {
   }
 
   getLastPublication(){
-    return this.apiFunctionService.getLastPublication();
+    return this.proccessFunction.getPublications();
   }
 
   getAllPlans()  {
     return this.apiFunctionService.getAllPlans();
   }
 
-
+  planSubscription(data : any) {
+    return this.apiFunctionService.planSubscription(data);
+  }
   getReportById(id : string) {
    return this.apiFunctionService.getReportById(id)
   }
+
+  /*--------------------------------*/
+  getCryptoIcons() {
+    return this.apiFunctionService.cryptoIcons$;
+  }
+
+  getCoutryDialCode() {
+    return this.apiFunctionService.countryCode$;
+  }
+
+  getCryptoExchange(currency1 : string , currency2 : string) {
+    return this.apiFunctionService.cryptoExchange$(currency1,currency2);
+  }
+   /*--------------------------------*/
+
 }

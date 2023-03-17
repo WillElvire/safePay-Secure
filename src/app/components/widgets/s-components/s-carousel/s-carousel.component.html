@@ -1,13 +1,11 @@
-<div class="container shop-element">
-
-
+<div class="container shop-element" *ngIf="data.length > 0">
   <div class="buttons ml-5" style="margin-left:3%">
     <button nz-button class="slider-button" (click)="owlCar2.next()"><</button>
     <button nz-button class="slider-button" style="margin-left: 1%;" (click)="owlCar2.prev()">></button>
   </div>
   <h3 class="text-center">P2P {{title | uppercase}}</h3>
   <owl-carousel-o [options]="customOptions" #owlCar2>
-    <ng-template carouselSlide *ngFor="let publication of data">
+    <ng-template carouselSlide *ngFor="let publication of data;trackBy:fetchData">
       <nz-card class="col-md-3" [nzCover]="coverTemplate" [nzActions]="[actionCheckout,actionCart]"  >
         <nz-card-meta nzTitle="{{publication.detail.title}}"></nz-card-meta>
         <br>
@@ -30,6 +28,5 @@
   <ng-template #actionCart>
    <b style="color:black">Safe Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i> </b>
   </ng-template>
-
 </div>
 
