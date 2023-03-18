@@ -1,3 +1,4 @@
+import { AuthorisationGuard } from './../guards/authorisation/authorisation.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UhomeComponent } from '../pages/dashboard/user/uhome/uhome.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
       {
         path: 'publication/add',
         component: UAddPublicationComponent,
+        canActivate : [AuthorisationGuard]
       },
       {
         path: 'account',
