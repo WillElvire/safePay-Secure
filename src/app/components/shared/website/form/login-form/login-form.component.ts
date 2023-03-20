@@ -9,6 +9,7 @@ import { UserQuery } from 'src/app/store/user$/user.query';
 import { MResultMessage, User } from 'src/app/core/interface/Api';
 import { NZoroModule } from 'src/app/modules/nzoro.module';
 import { Router } from '@angular/router';
+import { AppStateFacade } from 'src/app/core/services/facades/appState.facades';
 
 @Component({
   selector: 'app-login-form',
@@ -38,7 +39,7 @@ export class LoginFormComponent implements OnInit , OnDestroy {
 
   constructor(
     private fb: UntypedFormBuilder,
-    private appFacades : AppFacades,
+    private appState : AppStateFacade,
     private userQuery : UserQuery,
     private router : Router
   ) {
@@ -62,7 +63,7 @@ export class LoginFormComponent implements OnInit , OnDestroy {
   //login user
   loginUser() {
     this.isSpinned  = true;
-    this.subscription =  this.appFacades.loginUser(this.validateForm.value).subscribe(this.processAfterLogin())
+    this.subscription =  this.appState.AppFacades.loginUser(this.validateForm.value).subscribe(this.processAfterLogin())
   }
 
   // the proccess launched after the login
@@ -73,9 +74,7 @@ export class LoginFormComponent implements OnInit , OnDestroy {
         const user : user = {user : response.returnObject as User, token : '' };
         //console.log(user);
         //update the user state
-        this.userQuery.update(user);
-        this.appFacades.setStorage({key : environment.STORAGE_USER_KEY,value : JSON.stringify(user.user)});
-        this.appFacades.setStorage({key : environment.STORAGE_USER_TOKEN , value : user.token});
+        this.appState.updateUser(user);
         this.router.navigate(["/"]);
       }
       this.isSpinned = false;
@@ -83,7 +82,7 @@ export class LoginFormComponent implements OnInit , OnDestroy {
     },
     error : (err : any)=>{
       this.isSpinned = false;
-      this.appFacades.mBuildError(err.error.message ? err.error.message : err.message);
+      this.appState.AppFacades.mBuildError(err.error.message ? err.error.message : err.message);
       console.log(err);
     }
    }

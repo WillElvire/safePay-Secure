@@ -105,8 +105,8 @@ export interface Billing {
   id: string;
   status: number;
   updatedAt: string;
-  mean_of_payment: string,
-  address : string
+  mean_of_payment: string;
+  address: string;
 }
 
 export interface TransactionType {
@@ -125,5 +125,12 @@ export interface TransactionDetail {
   reason: string;
   updatedAt: string;
   valid: false;
+}
 
+export interface MarketPlacePublicationDetail {
+  active: boolean;
+  certifed: boolean;
+  firstname: boolean;
+  lastname: boolean;
+  product : Publication
 }

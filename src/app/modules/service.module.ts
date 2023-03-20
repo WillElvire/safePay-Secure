@@ -13,6 +13,7 @@ import { AppFacades } from './../core/services/facades/app.facades';
 import { StatesFacades } from './../core/services/facades/state.facades';
 import { Web3Services } from './../core/services/web3/web3.service';
 import { ModalService } from './../core/helpers/modal/modal.service';
+import { NativeNotificationService } from './../core/helpers/native-notification/native-notification.service'
 import { NotificationService } from './../core/helpers/notification/notification.service';
 import { MessageService } from './../core/helpers/message/message.service';
 import { NgModule } from '@angular/core';
@@ -43,7 +44,8 @@ import { PaymentGuard } from '../guards/payment/payment.guard';
     PaymentGuard,
     AppStateFacade,
     MarketPlaceQuery,
-    ProcessFunction
+    ProcessFunction,
+    NativeNotificationService
   ],
   imports: [NzMessageModule],
 })

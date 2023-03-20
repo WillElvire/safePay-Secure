@@ -6,13 +6,13 @@
   <div class="tool-bar">
     <div class="btn-group">
       <button nz-button class="buy-btn" [ngClass]="checkDefault ? 'default' : 'none'"
-        (click)="type='buy'; checkDefault = false"
+        (click)="type='buy'; checkDefault = false;getValue()"
       >Acheter crypto</button>
-      <button nz-button class="sell-btn" (click)="type='sell'; checkDefault = false"
+      <button nz-button class="sell-btn" (click)="type='sell'; checkDefault = false;getValue()"
         >Vendre Crypto</button>
     </div>
   </div>
-  <s-table [type]="type"></s-table>
+  <s-table [type]="type" [data]="tableToTransfer" ></s-table>
 </section>
 
 <app-join></app-join>

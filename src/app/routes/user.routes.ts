@@ -1,3 +1,4 @@
+import { BusinessRoleGuard } from './../guards/authorisation/business.guard';
 import { AuthorisationGuard } from './../guards/authorisation/authorisation.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,9 +9,9 @@ import { UAddPublicationComponent } from '../pages/dashboard/user/upublication/a
 import { UAddressComponent } from '../pages/dashboard/user/uaddress/uaddress.component';
 import { UaccountComponent } from '../pages/dashboard/user/uaccount/uaccount.component';
 import { UcompteComponent } from '../pages/dashboard/user/ucompte/ucompte.component';
-import { PaymentGuard } from '../guards/payment/payment.guard';
 import { UsoldeComponent } from '../pages/dashboard/user/usolde/usolde.component';
 import { UtransactionComponent } from '../pages/dashboard/user/utransaction/utransaction.component';
+import { UnotificationComponent } from '../pages/dashboard/user/unotification/unotification.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,11 @@ const routes: Routes = [
       {
         path : 'transaction',
         component : UtransactionComponent
+      },
+      {
+        path : 'notification',
+        component : UnotificationComponent,
+        canActivate : [BusinessRoleGuard]
       },
       {
         path: 'safe/connect',

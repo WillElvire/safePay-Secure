@@ -1,14 +1,48 @@
 <div class="container">
-  <div class="grid">
+  <div class="grid text-center">
     <div class="row">
-      <div class="col-md-4">
+      <nz-upload
+        class="avatar-uploader"
+        nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        nzName="avatar"
+        nzListType="picture-card"
+        [nzShowUploadList]="false"
+        [nzBeforeUpload]="beforeUpload"
+        (nzChange)="handleChange($event)"
+      >
+        <ng-container *ngIf="!avatarUrl">
+          <span
+            class="upload-icon"
+            nz-icon
+            [nzType]="loading ? 'loading' : 'plus'"
+          ></span>
+          <div class="ant-upload-text">Upload</div>
+        </ng-container>
+        <img *ngIf="avatarUrl" [src]="avatarUrl" style="width: 100%" />
+      </nz-upload>
+    </div>
 
+    <div>
+      <div>
+        <tui-badge
+          *ngIf="user.isActive"
+          status="success"
+          [value]="'Compte verifié'"
+          class="tui-space_right-2"
+        ></tui-badge>
+        <tui-badge
+          *ngIf="!user.isActive"
+          status="error"
+          [value]="'Compte invalid'"
+          class="tui-space_right-2"
+        ></tui-badge>
       </div>
-      <div class="col-md-8">
-        <h6>Nom : {{user.firstname}}</h6>
-        <h6>Prenom : {{user.lastname}}</h6>
-        <h6>Email : {{user.email}}</h6>
-        <h6>Téléphone : {{user.phone}}</h6>
+      <hr />
+      <div>
+        <h6>Nom : {{ user.firstname }}</h6>
+        <h6>Prenom : {{ user.lastname }}</h6>
+        <h6>Email : {{ user.email }}</h6>
+        <h6>Téléphone : {{ user.phone }}</h6>
       </div>
     </div>
   </div>

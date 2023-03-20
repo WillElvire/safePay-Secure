@@ -26,7 +26,7 @@ import {TuiMoneyModule} from '@taiga-ui/addon-commerce';
 import {TuiLegendItemModule} from '@taiga-ui/addon-charts';
 import { TuiButtonModule } from '@taiga-ui/core';
 import { TuiBadgeModule } from '@taiga-ui/kit';
-
+import { NzUploadModule } from 'ng-zorro-antd/upload';
 
 @NgModule({
   declarations: [],
@@ -49,6 +49,7 @@ import { TuiBadgeModule } from '@taiga-ui/kit';
     NzBreadCrumbModule,
     NzAlertModule,
     NzSpinModule,
+    NzUploadModule,
     TuiLineDaysChartModule,
     TuiLineChartModule,
     TuiAxesModule,
@@ -88,7 +89,8 @@ import { TuiBadgeModule } from '@taiga-ui/kit';
     TuiRingChartModule,
     TuiLegendItemModule,
     TuiButtonModule,
-    TuiBadgeModule
+    TuiBadgeModule,
+    NzUploadModule,
 
   ],
 })

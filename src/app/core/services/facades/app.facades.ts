@@ -148,8 +148,16 @@ export class AppFacades {
     return this.proccessFunction.getPublications();
   }
 
+  getPublications() {
+    return this.apiFunctionService.getAllPublication();
+  }
+
   getAllPlans()  {
     return this.apiFunctionService.getAllPlans();
+  }
+
+  getNotification() {
+    return this.apiFunctionService.getNotification();
   }
 
   planSubscription(data : any) {

@@ -3,27 +3,26 @@
     <div class="row">
       <nz-card nzHoverable class="col-md-3">
         <nz-spin [nzSpinning]="loadSpinner">
-          <h1>{{report.u_p_confirmer}}</h1>
-          <p>Publication en cours </p>
+          <h1>{{ report.u_p_confirmer }}</h1>
+          <p>Publication en cours</p>
         </nz-spin>
-
       </nz-card>
       <nz-card nzHoverable class="col-md-3">
         <nz-spin [nzSpinning]="loadSpinner">
-          <h1>{{report.u_p_attente}}</h1>
+          <h1>{{ report.u_p_attente }}</h1>
           <p>Publication en attente de confirmation</p>
         </nz-spin>
       </nz-card>
       <nz-card nzHoverable class="col-md-3">
         <nz-spin [nzSpinning]="loadSpinner">
-          <h1>{{report.u_p_close}}</h1>
-          <p>Business fermé </p>
+          <h1>{{ report.u_t_count }}</h1>
+          <p>Nombre de transactions</p>
         </nz-spin>
       </nz-card>
       <div nzHoverable class="col-md-3">
         <nz-card nzHoverable class="col-md-3" routerLink="/user/safe/connect">
           <nz-spin [nzSpinning]="loadSpinner">
-            <h1>{{report.u_address}}</h1>
+            <h1>{{ report.u_address }}</h1>
             <p>Adresse de transactions</p>
           </nz-spin>
         </nz-card>
@@ -37,14 +36,28 @@
     <div class="row">
       <div class="col-md-6">
         <tui-axes class="axes" [verticalLines]="4" [horizontalLines]="2">
-          <tui-line-chart [x]="0" [y]="0" [width]="400" [height]="200" [dots]="true" [value]="value"
-            [xStringify]="stringify" [yStringify]="stringify"></tui-line-chart>
+          <tui-line-chart
+            [x]="0"
+            [y]="0"
+            [width]="400"
+            [height]="200"
+            [dots]="true"
+            [value]="value"
+            [xStringify]="stringify"
+            [yStringify]="stringify"
+          ></tui-line-chart>
         </tui-axes>
       </div>
       <div class="col-md-6">
-        <s-s-pie-chart  [data]="reportForChar" [label]="['Publication en cours','Publication en attente de paiement','Business fermé']"></s-s-pie-chart>
+        <s-s-pie-chart
+          [data]="reportForChar"
+          [label]="[
+            'Publication en cours',
+            'Publication en attente de paiement',
+            'Business fermé'
+          ]"
+        ></s-s-pie-chart>
       </div>
     </div>
   </div>
-
 </div>

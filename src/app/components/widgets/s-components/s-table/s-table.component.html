@@ -1,6 +1,6 @@
 <section class="data" *ngIf="tableType=='crypto'">
   <div class="container table-responsive mt-5">
-    <nz-table #headerTable [nzData]="listOfData" [nzScroll]="{ y: '500px' }" [nzFrontPagination]="true" [nzShowQuickJumper]="true"
+    <nz-table #headerTable [nzData]="data" [nzScroll]="{ y: '500px' }" [nzFrontPagination]="true" [nzShowQuickJumper]="true"
       [nzLoading]="loading" [nzTotal]="total" [nzPageSize]="pageSize" [nzPageIndex]="pageIndex">
       <thead>
         <tr>
@@ -17,21 +17,21 @@
           <td>
             <div>
               <nz-avatar [nzSize]="'small'" nzIcon="user" style="background-color:var(--base-color);"></nz-avatar>
-              <a style="margin-left: 5%;" routerLink="/marketplace/client/detail/{{data.name}}">{{ data.name }} </a>
-              <span nz-icon nzType="check-circle" nzTheme="fill" style="margin-left: 2%;"></span>
-              <span nz-icon nzType="star" nzTheme="fill" style="margin-left: 2%;"></span>
+              <a style="margin-left: 5%;" routerLink="/marketplace/client/detail/{{data.firstname}}">{{ data.firstname }} {{ data.lastname }} </a>
+              <span nz-icon nzType="check-circle" nzTheme="fill" style="margin-left: 2%;" *ngIf="data.active"></span>
+              <span nz-icon nzType="star" nzTheme="fill" style="margin-left: 2%;" *ngIf="data.certifed"></span>
             </div>
           </td>
-          <td>{{data.age }}</td>
-          <td>{{data.address }}</td>
-          <td>{{data.exchange}}</td>
-          <td>{{data.fiat}}</td>
+          <td>{{data.product.detail.price }}</td>
+          <td>{{data.product.detail.quantity }}</td>
+          <td>{{data.product.detail.monnaie_echange}}</td>
+          <td>{{data.product.detail.monnaie_a_recevoir}}</td>
           <td>
-            <button nz-button class="buy" *ngIf="type=='buy';else sellButtton " routerLink="/payment/transaction/checkout/{{data.name}}">Acheter {{data.exchange}}
+            <button nz-button class="buy" *ngIf="data.product.detail.title.includes('ACHAT');else sellButtton " routerLink="/payment/transaction/checkout/{{data.product.id}}">Acheter {{data.product.detail.monnaie_echange}}
               <span nz-icon nzType="arrow-up" nzTheme="outline"></span>
             </button>
             <ng-template #sellButtton>
-              <button nz-button class="sell" routerLink="/payment/transaction/checkout/{{data.name}}">Vendre {{data.exchange}}
+              <button nz-button class="sell" routerLink="/payment/transaction/checkout/{{data.product.id}}">Vendre {{data.product.detail.monnaie_a_recevoir}}
                 <span nz-icon nzType="arrow-down" nzTheme="outline"></span>
               </button>
             </ng-template>
@@ -44,5 +44,5 @@
 
 
 <section>
-  
+
 </section>

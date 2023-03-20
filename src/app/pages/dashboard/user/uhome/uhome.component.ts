@@ -4,6 +4,7 @@ import { TUI_DEFAULT_STRINGIFY } from '@taiga-ui/cdk';
 import { TuiPoint } from '@taiga-ui/core';
 import { AppFacades } from 'src/app/core/services/facades/app.facades';
 import { delay, mergeMap } from 'rxjs';
+import { User } from 'src/app/core/interface/Api';
 @Component({
   selector: 'app-uhome',
   templateUrl: './uhome.component.html',
@@ -12,23 +13,18 @@ import { delay, mergeMap } from 'rxjs';
 export class UhomeComponent implements OnInit {
   private readonly appFacades = inject(AppFacades);
   private readonly StatesFacades = inject(StatesFacades);
+  user : any;
   loadSpinner: boolean = false;
   report = {
     u_address: 0,
     u_p_attente: 0,
     u_p_close: 0,
     u_p_confirmer: 0,
+    u_t_count: 0,
   };
-  reportForChar : number[] = [];
-  readonly value: readonly TuiPoint[] = [
-    [50, 50],
-    [100, 75],
-    [150, 50],
-    [200, 150],
-    [250, 155],
-    [300, 190],
-    [350, 90],
-  ];
+  reportForChar: number[] = [];
+  value!: TuiPoint[];
+
   readonly stringify = TUI_DEFAULT_STRINGIFY;
 
   ngOnInit(): void {
@@ -36,16 +32,30 @@ export class UhomeComponent implements OnInit {
     this.StatesFacades.selectUser()
       .pipe(
         delay(2000),
-        mergeMap((user) => this.getUserReport(user.id))
+        mergeMap((user) => this.getUserReport(user))
       )
       .subscribe((response) => {
         this.report = response.returnObject as any;
         this.loadSpinner = false;
-        this.reportForChar = [this.report.u_p_confirmer,this.report.u_p_attente,this.report.u_p_close]
+        this.value =
+          this.report.u_t_count > 0
+            ? [
+                [0, 0],
+                [300, 200],
+              ]
+            : [[0, 0]];
+
+        console.log(this.report);
+        this.reportForChar = [
+          this.report.u_p_confirmer,
+          this.report.u_p_attente,
+          this.report.u_p_close,
+        ];
       });
   }
 
-  getUserReport(id: string) {
-    return this.appFacades.getReportById(id);
+  getUserReport(user:User) {
+    this.user = user;
+    return this.appFacades.getReportById(user.id as string);
   }
 }
