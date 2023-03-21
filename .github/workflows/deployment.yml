@@ -13,13 +13,13 @@ jobs:
       - name: Use Node 16.x
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 16.x
       - name: Install dependencies ⌨️
         run: |
           npm install
       - name: Build 🏗️
         run: |
-          npm run build
+          npm run build-prod
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
