@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UhomeComponent } from '../pages/dashboard/user/uhome/uhome.component';
 import { AccessGuard } from '../guards/access/access.guard';
+import { UserPoliciesGuard } from '../guards/policies/user.dash.guard';
 import { UserLayoutComponent } from '../layouts/user-layout/user-layout.component';
 import { UAddPublicationComponent } from '../pages/dashboard/user/upublication/add-publication/add-publication.component';
 import { UAddressComponent } from '../pages/dashboard/user/uaddress/uaddress.component';
@@ -17,7 +18,7 @@ const routes: Routes = [
   {
     path : '',
     component :UserLayoutComponent,
-    canActivate : [AccessGuard],
+    canActivate : [AccessGuard,UserPoliciesGuard],
     children : [
       {
         path: 'home',

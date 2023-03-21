@@ -8,32 +8,27 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item routerLink="/admin/" routerLinkActive="active">
+      <li nz-menu-item routerLink="/admin/index" routerLinkActive="active">
         <span nz-icon nzType="dashboard" nzTheme="fill"></span>
         <span>Dashboard</span>
       </li>
 
-      <li nz-menu-item routerLink="/admin/" routerLinkActive="active">
+      <li nz-menu-item routerLink="/admin/publications" routerLinkActive="active">
         <span nz-icon nzType="sound" nzTheme="fill"></span>
         <span>Demande de publication</span>
       </li>
 
-      <li nz-menu-item>
+      <li nz-menu-item routerLink="/admin/transactions">
         <span nz-icon nzType="pie-chart" nzTheme="fill"></span>
         <span>Vente</span>
       </li>
 
-      <li nz-menu-item>
+      <li nz-menu-item routerLink="/admin/transaction-type">
         <span nz-icon nzType="wallet" nzTheme="fill"></span>
         <span>Moyen de paiement</span>
       </li>
 
-      <li nz-menu-item>
-        <span nz-icon nzType="unlock" nzTheme="fill"></span>
-        <span>Moyen de paiement</span>
-      </li>
-
-      <li nz-menu-item>
+      <li nz-menu-item routerLink="/admin/user">
         <span nz-icon nzType="usergroup-add" nzTheme="outline"></span>
         <span>Utilisateurs</span>
       </li>
@@ -43,7 +38,7 @@
         <span >Gestion Notification</span>
       </li>
 
-      <li nz-menu-item>
+      <li nz-menu-item (click)="logout()">
         <span nz-icon nzType="logout" nzTheme="outline"></span>
         <span >Déconnexion</span>
       </li>

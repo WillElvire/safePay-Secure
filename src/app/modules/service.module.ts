@@ -21,6 +21,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { UserService } from '../core/services/storage/user.service';
 import { AccessGuard } from '../guards/access/access.guard';
 import { PaymentGuard } from '../guards/payment/payment.guard';
+import { UserPoliciesGuard } from '../guards/policies/user.dash.guard';
 @NgModule({
   declarations: [],
   providers: [
@@ -45,7 +46,8 @@ import { PaymentGuard } from '../guards/payment/payment.guard';
     AppStateFacade,
     MarketPlaceQuery,
     ProcessFunction,
-    NativeNotificationService
+    NativeNotificationService,
+    UserPoliciesGuard
   ],
   imports: [NzMessageModule],
 })

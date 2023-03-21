@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="grid">
+    <div class="row">
+      <div class="col-md-4">
+        <nz-card class="text-center">
+          <h1>{{publications.length}}</h1>
+          <p>Publication en attente de confirmation</p>
+        </nz-card>
+      </div>
+      <div class="col-md-4">
+        <nz-card class="text-center">
+          <h1>0</h1>
+          <p>Transaction effectué</p>
+        </nz-card>
+      </div>
+      <div class="col-md-4">
+        <nz-card class="text-center">
+          <h1>0</h1>
+          <p>Transaction echoué</p>
+        </nz-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div  class="container mt-4 table table-responsive">
+  <h5>Recentes demande de publication <i class="fa fa-comments" aria-hidden="true"></i> </h5>
+  <table class="table mt-3">
+    <thead class="bg bg-dark text-light">
+      <tr>
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">Monnaie a recevoir</th>
+        <th scope="col">Monnaie d'exchange</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Adresse</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let publication of publications| paginate: { itemsPerPage: 3, currentPage: p }">
+        <td scope="row">{{publication.product.detail.title}}</td>
+        <td>{{publication.product.detail.description}}</td>
+        <td>{{publication.product.detail.monnaie_a_recevoir}}</td>
+        <td>{{publication.product.detail.monnaie_echange}}</td>
+        <td>{{publication.product.detail.price}}</td>
+        <td>{{publication.product.detail.quantity}}</td>
+        <td>{{publication.product.detail.address}}</td>
+
+        <td>
+          <button nz-button style="background-color: var(--base-color);color : white !important"
+            >
+            <span nz-icon nzType="check" nzTheme="outline"></span>
+          </button>
+          <button nz-button style="background-color: rgb(36, 35, 35);color : white !important"
+            >
+            <span nz-icon nzType="warning" nzTheme="outline"></span>
+          </button>
+
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

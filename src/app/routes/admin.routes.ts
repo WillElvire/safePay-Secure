@@ -2,7 +2,11 @@ import { AccessGuard } from './../guards/access/access.guard';
 import { AdminLayoutComponent } from './../layouts/admin-layout/admin-layout.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from "@angular/core";
-import { UhomeComponent } from '../pages/dashboard/user/uhome/uhome.component';
+import { AhomeComponent } from '../pages/dashboard/admin/ahome/ahome.component';
+import { ApublicationComponent } from '../pages/dashboard/admin/apublication/apublication.component';
+import { AroleComponent } from '../pages/dashboard/admin/arole/arole.component';
+import { AtransactionComponent } from '../pages/dashboard/admin/atransaction/atransaction.component';
+import { AtransactiontypeComponent } from '../pages/dashboard/admin/atransactiontype/atransactiontype.component';
 
 const routes: Routes = [
   {
@@ -12,8 +16,25 @@ const routes: Routes = [
     children : [
       {
         path : 'index',
-        component : UhomeComponent
-      },{
+        component : AhomeComponent
+      },
+      {
+        path : 'publications',
+        component : ApublicationComponent
+      },
+      {
+        path : 'roles',
+        component : AroleComponent
+      },
+      {
+        path : 'transactions',
+        component : AtransactionComponent
+      },
+      {
+        path : 'transaction-type',
+        component : AtransactiontypeComponent
+      },
+      {
         path : '',
         redirectTo : 'index',
         pathMatch : 'full'

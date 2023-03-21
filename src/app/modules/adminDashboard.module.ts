@@ -8,9 +8,14 @@ import { AdminLayoutComponent } from '../layouts/admin-layout/admin-layout.compo
 import { NgModule } from '@angular/core';
 import { NZ_I18N, fr_FR } from 'ng-zorro-antd/i18n';
 import { ComponentModule } from './components.module';
+import { AhomeComponent } from '../pages/dashboard/admin/ahome/ahome.component';
+import { ApublicationComponent } from '../pages/dashboard/admin/apublication/apublication.component';
+import { AtransactionComponent } from '../pages/dashboard/admin/atransaction/atransaction.component';
+import { AroleComponent } from '../pages/dashboard/admin/arole/arole.component';
+import { AtransactiontypeComponent } from '../pages/dashboard/admin/atransactiontype/atransactiontype.component';
 
 @NgModule({
-  declarations : [AdminLayoutComponent],
+  declarations : [AdminLayoutComponent, AhomeComponent, ApublicationComponent, AtransactionComponent, AroleComponent, AtransactiontypeComponent],
   imports : [
     NzLayoutModule,
     RouterModule,
