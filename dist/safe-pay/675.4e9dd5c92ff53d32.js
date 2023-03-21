@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksafePay=self.webpackChunksafePay||[]).push([[675],{2675:(o,n,a)=>{a.r(n),a.d(n,{FailedComponent:()=>e});var t=a(4650);class e{}e.\u0275fac=function(s){return new(s||e)},e.\u0275cmp=t.Xpm({type:e,selectors:[["app-failed"]],standalone:!0,features:[t.jDz],decls:0,vars:0,template:function(s,c){}})}}]);
