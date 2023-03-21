@@ -170,6 +170,10 @@ export class AppFacades {
   getTransactionHistory(id : string)  {
     return this.apiFunctionService.getTransactionHistory(id);
   }
+
+  activePublication(id : string) {
+    return this.apiFunctionService.activePublication(id);
+  }
   /*--------------------------------*/
   getCryptoIcons() {
     return this.apiFunctionService.cryptoIcons$;

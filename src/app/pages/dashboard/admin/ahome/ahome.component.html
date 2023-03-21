@@ -9,13 +9,13 @@
       </div>
       <div class="col-md-4">
         <nz-card class="text-center">
-          <h1>0</h1>
+          <h1>2</h1>
           <p>Transaction effectué</p>
         </nz-card>
       </div>
       <div class="col-md-4">
         <nz-card class="text-center">
-          <h1>0</h1>
+          <h1>4</h1>
           <p>Transaction echoué</p>
         </nz-card>
       </div>
@@ -49,7 +49,7 @@
         <td>{{publication.product.detail.address}}</td>
 
         <td>
-          <button nz-button style="background-color: var(--base-color);color : white !important"
+          <button (click)="activePublication(publication.product.id)" nz-button style="background-color: var(--base-color);color : white !important"
             >
             <span nz-icon nzType="check" nzTheme="outline"></span>
           </button>

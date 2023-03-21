@@ -26,7 +26,7 @@
         <td>{{publication.product.detail.address}}</td>
 
         <td>
-          <button nz-button style="background-color: var(--base-color);color : white !important"
+          <button (click)="activePublication(publication.product.id)" nz-button style="background-color: var(--base-color);color : white !important"
             >
             <span nz-icon nzType="check" nzTheme="outline"></span>
           </button>

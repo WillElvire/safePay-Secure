@@ -133,6 +133,12 @@ export class apiFunctionService {
     this.api.setApiType("rest");
     return this.api.get<MResultMessage>(`api/transactions/${id}`).pipe(shareReplay(1));
   }
+
+
+  activePublication(id : string) {
+    this.api.setApiType("rest");
+    return this.api.get<MResultMessage>(`api/publication/${id}/active`).pipe(shareReplay(1));
+  }
 }
 
 

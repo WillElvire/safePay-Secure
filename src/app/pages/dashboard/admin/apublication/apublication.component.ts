@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { take } from 'rxjs';
 import { MarketPlacePublicationDetail } from 'src/app/core/interface/Api';
 import { AppStateFacade } from 'src/app/core/services/facades/appState.facades';
 
@@ -17,5 +18,15 @@ export class ApublicationComponent implements OnInit {
   }
   getAllPublication() {
     this.appStateFacades.AppFacades.getNotification().subscribe((response)=>this.publications = response.returnObject as MarketPlacePublicationDetail[]);
+  }
+
+  activePublication(id : string) {
+    this.appStateFacades.AppFacades.activePublication(id).pipe(take(1)).subscribe((response)=>{
+      this.getAllPublication();
+      this.appStateFacades.AppFacades.mBuildSuccess(response.message);
+      console.log("response",response)
+    },(err)=>{
+      this.appStateFacades.AppFacades.mBuildError(err.error.message ? err.error.message  : err.message )
+    })
   }
 }
