@@ -33,6 +33,7 @@ import { SStripePaymentComponent } from '../components/widgets/s-components/s-st
 import { SPieChartComponent } from '../components/widgets/s-components/s-chart/s-pie-chart/s-pie-chart.component';
 import { SLineChartComponent } from '../components/widgets/s-components/s-chart/s-line-chart/s-line-chart.component';
 import { SBarChartComponent } from '../components/widgets/s-components/s-chart/s-bar-chart/s-bar-chart.component';
+import { SRatingComponent } from '../components/widgets/s-components/s-rating/s-rating.component';
 @NgModule({
   declarations: [
     BackButtonComponent,
@@ -62,6 +63,7 @@ import { SBarChartComponent } from '../components/widgets/s-components/s-chart/s
     SPieChartComponent,
     SLineChartComponent,
     SBarChartComponent,
+    SRatingComponent,
 
 
   ],
@@ -88,6 +90,7 @@ import { SBarChartComponent } from '../components/widgets/s-components/s-chart/s
     SPieChartComponent,
     SLineChartComponent,
     SBarChartComponent,
+    SRatingComponent,
     NZoroModule,
     ReactiveFormsModule,
     CommonModule,

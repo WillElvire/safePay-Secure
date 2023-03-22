@@ -1,7 +1,5 @@
-import { StatesFacades } from 'src/app/core/services/facades/state.facades';
 import { verifyObj } from 'src/app/core/services/data/verification';
 import { delay } from 'rxjs';
-import { AppFacades } from './../../../core/services/facades/app.facades';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,7 +21,11 @@ export class TransGatewayComponent implements OnInit {
   isLoading : boolean = false;
 
 
-  constructor(private activatedRoute: ActivatedRoute,private router : Router,private appState : AppStateFacade) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router : Router,
+    private appState : AppStateFacade,
+  ) {
     this.crypto.valueChanges.subscribe((item)=> this.getExchange(item))
   }
 

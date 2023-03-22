@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
 
 @Injectable({
   providedIn :'root'
@@ -12,6 +12,9 @@ export class ActionSubjectService {
   private actionSubject = new Subject<boolean>();
   actionSubject$ = this.actionSubject.asObservable();
 
+  private ratingSubject = new BehaviorSubject<boolean>(false);
+  ratingSubject$ = this.actionSubject.asObservable();
+
   constructor(){
     this.emitModalSubject(false);
   }
@@ -22,6 +25,10 @@ export class ActionSubjectService {
 
   emitActionSubject(val : boolean) {
     return this.actionSubject.next(val);
+  }
+
+  emitRatingSubject(val : boolean) {
+    return this.ratingSubject.next(val);
   }
 
 

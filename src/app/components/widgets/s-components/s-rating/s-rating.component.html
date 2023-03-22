@@ -1,0 +1,18 @@
+
+<nz-modal [(nzVisible)]="isVisible" [nzFooter]="null" (nzOnCancel)="handleCancel()" nzCentered>
+  <ng-container *nzModalContent >
+    <div class="text-center">
+      <h5>Veuillez nous aider à nous améliorer</h5>
+      <p>Comment avez vous trouvé nos différents services ?</p>
+      <nz-rate [(ngModel)]="value" [nzTooltips]="tooltips" ></nz-rate>
+      <span *ngIf="value" class="ant-rate-text">{{
+        value ? tooltips[getToolTipIndex()] : ""
+      }}</span>
+      <br>
+      <br>
+      <div>
+        <button nz-button (click)="soumettre()">Valider</button>
+      </div>
+    </div>
+  </ng-container>
+</nz-modal>

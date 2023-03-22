@@ -1,5 +1,5 @@
 import { Address } from './../../../../core/interface/Api';
-import { Observable, Subscription } from 'rxjs';
+import {Subscription } from 'rxjs';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { SAddAddressComponent } from 'src/app/components/widgets/s-components/s-modal/s-add-address/s-add-address.component';

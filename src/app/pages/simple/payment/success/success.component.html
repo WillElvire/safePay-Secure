@@ -1,5 +1,6 @@
 <div class="wrapper">
   <div class="container">
+
     <br>
     <br>
     <app-back-button></app-back-button>
@@ -15,5 +16,5 @@
       </nz-result>
     </nz-card>
   </div>
-
+  <s-s-rating *ngIf="enableRatingPage" (closable)="close($event)"></s-s-rating>
 </div>

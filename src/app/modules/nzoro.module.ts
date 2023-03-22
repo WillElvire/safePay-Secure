@@ -27,6 +27,7 @@ import {TuiLegendItemModule} from '@taiga-ui/addon-charts';
 import { TuiButtonModule } from '@taiga-ui/core';
 import { TuiBadgeModule } from '@taiga-ui/kit';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzRateModule } from 'ng-zorro-antd/rate';
 
 @NgModule({
   declarations: [],
@@ -91,6 +92,7 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
     TuiButtonModule,
     TuiBadgeModule,
     NzUploadModule,
+    NzRateModule
 
   ],
 })
