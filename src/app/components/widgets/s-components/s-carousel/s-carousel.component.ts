@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, Input, inject } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Publication } from 'src/app/core/interface/Api';
 
@@ -10,6 +11,7 @@ import { Publication } from 'src/app/core/interface/Api';
 export class SCarouselComponent {
   @Input() title !: string ;
   @Input() data  !: Publication[];
+  private readonly router  = inject(Router);
   customOptions: OwlOptions = {
     autoWidth : false,
     loop: true,
@@ -37,5 +39,9 @@ export class SCarouselComponent {
 
   fetchData(index : number , item : any){
     return item.item;
+ }
+
+ navigate(id :string){
+   this.router.navigate([`/payment/transaction/checkout/${id}`])
  }
 }

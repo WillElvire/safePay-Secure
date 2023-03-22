@@ -1,8 +1,18 @@
 <div class="container">
   <h3>Notifications recentes <i class="fa fa-bell" aria-hidden="true"></i> </h3>
-  <div>
+  <div *ngIf="user.isActive == true ;else elseblock">
     <s-table  [data]="notificationList" [pageSize]="5"></s-table>
   </div>
 
+  <ng-template #elseblock >
+    <div class="text-center">
+      <h2>
+        <i class="fa fa-ban" aria-hidden="true"></i>
+      </h2>
+      <h5>Vous n'avez pas de plan de souscription actif</h5>
+      <p>Souscrivez a un plan et faites la differences</p>
+      <app-glow-button url="/marketplace/offer/billing" text="Souscrire a un plan"></app-glow-button>
+    </div>
+  </ng-template>
 </div>
 
