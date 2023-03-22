@@ -12,13 +12,14 @@ import { AppStateFacade } from 'src/app/core/services/facades/appState.facades';
   styleUrls: ['./trans-gateway.component.scss'],
 })
 export class TransGatewayComponent implements OnInit {
-  payment: string = 'electronic';
+  payment: string = 'crypto';
   planId !: string ;
   userId !: string;
   transactionAmount!: number;
   crypto   = new FormControl() ;
   address  = new FormControl();
   isLoading : boolean = false;
+  mean_of_payment !: string;
 
 
   constructor(
@@ -34,6 +35,7 @@ export class TransGatewayComponent implements OnInit {
       this.transactionAmount = Number.parseInt(params.get("amount") as string)  / 660;
       this.planId = params.get("plan") as string;
       this.userId = params.get("inc") as string;
+      this.mean_of_payment = params.get("mean_of_payment") as string;
       console.log(params);
     });
   }

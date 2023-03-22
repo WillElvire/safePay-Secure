@@ -23,6 +23,8 @@
       <ng-container *ngIf="payment == 'crypto'" class="crypto">
         <div class="container">
           <h5 style="margin-top:3% !important">Paiement Par Cryptomonnaie</h5>
+          <nz-alert nzType="warning" *ngIf="!!mean_of_payment" nzMessage="Moyen de paiement exigé pour cette transaction  : {{mean_of_payment}}">
+          </nz-alert>
           <br>
           <s-s-safe-connect [(address)]="address"></s-s-safe-connect>
           <br>
@@ -39,6 +41,8 @@
       <ng-container *ngIf="payment == 'visa'">
         <div class="container">
           <h5 style="margin-top:3% !important">Paiement Par carte</h5>
+          <nz-alert nzType="warning" *ngIf="!!mean_of_payment" nzMessage="Moyen de paiement exigé pour cette transaction  : {{mean_of_payment}}">
+          </nz-alert>
           <br>
           <br>
           <input nz-input placeholder="montant de transaction" [(ngModel)]="transactionAmount" [disabled]="true" />
@@ -48,8 +52,11 @@
         </div>
       </ng-container>
       <ng-container *ngIf="payment == 'electronic'">
+
         <div class="container">
           <h5 style="margin-top:3% !important">Paiement Monnaie electronic</h5>
+          <nz-alert nzType="warning" *ngIf="!!mean_of_payment" nzMessage="Moyen de paiement exigé pour cette transaction  : {{mean_of_payment}}">
+          </nz-alert>
           <br>
           <s-s-safe-connect></s-s-safe-connect>
           <br>

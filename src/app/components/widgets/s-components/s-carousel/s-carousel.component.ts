@@ -1,7 +1,7 @@
+import { Publication } from './../../../../core/interface/Api';
 import { Router } from '@angular/router';
 import { Component, Input, inject } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { Publication } from 'src/app/core/interface/Api';
 
 @Component({
   selector: 's-carousel',
@@ -37,11 +37,16 @@ export class SCarouselComponent {
     nav: false,
   };
 
+
   fetchData(index : number , item : any){
     return item.item;
  }
 
  navigate(id :string){
    this.router.navigate([`/payment/transaction/checkout/${id}`])
+ }
+
+ startPayment(publication : Publication){
+
  }
 }

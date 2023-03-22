@@ -27,11 +27,11 @@
           <td>{{data.product.detail.monnaie_echange}}</td>
           <td>{{data.product.detail.monnaie_a_recevoir}}</td>
           <td>
-            <button nz-button class="buy" *ngIf="data.product.detail.title.includes('ACHAT');else sellButtton " routerLink="/payment/transaction/checkout/{{data.product.id}}">Acheter {{data.product.detail.monnaie_echange}}
+            <button nz-button class="buy" *ngIf="data.product.detail.title.includes('ACHAT');else sellButtton " (click)="startPayment(data,'achat')">Acheter {{data.product.detail.monnaie_echange}}
               <span nz-icon nzType="arrow-up" nzTheme="outline"></span>
             </button>
             <ng-template #sellButtton>
-              <button nz-button class="sell" routerLink="/payment/transaction/checkout/{{data.product.id}}">Vendre {{data.product.detail.monnaie_a_recevoir}}
+              <button nz-button class="sell" (click)="startPayment(data)">Vendre {{data.product.detail.monnaie_a_recevoir}}
                 <span nz-icon nzType="arrow-down" nzTheme="outline"></span>
               </button>
             </ng-template>
