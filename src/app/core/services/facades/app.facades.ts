@@ -174,6 +174,10 @@ export class AppFacades {
   activePublication(id : string) {
     return this.apiFunctionService.activePublication(id);
   }
+
+  getReceiptFile(){
+    return this.apiFunctionService.getReceiptFileForBilling();
+  }
   /*--------------------------------*/
   getCryptoIcons() {
     return this.apiFunctionService.cryptoIcons$;

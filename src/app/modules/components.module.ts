@@ -34,6 +34,7 @@ import { SPieChartComponent } from '../components/widgets/s-components/s-chart/s
 import { SLineChartComponent } from '../components/widgets/s-components/s-chart/s-line-chart/s-line-chart.component';
 import { SBarChartComponent } from '../components/widgets/s-components/s-chart/s-bar-chart/s-bar-chart.component';
 import { SRatingComponent } from '../components/widgets/s-components/s-rating/s-rating.component';
+import { SPdfGeneratorComponent } from '../components/widgets/s-components/s-pdf-generator/s-pdf-generator.component';
 @NgModule({
   declarations: [
     BackButtonComponent,
@@ -64,6 +65,7 @@ import { SRatingComponent } from '../components/widgets/s-components/s-rating/s-
     SLineChartComponent,
     SBarChartComponent,
     SRatingComponent,
+    SPdfGeneratorComponent,
 
 
   ],
@@ -90,6 +92,7 @@ import { SRatingComponent } from '../components/widgets/s-components/s-rating/s-
     SPieChartComponent,
     SLineChartComponent,
     SBarChartComponent,
+    SPdfGeneratorComponent,
     SRatingComponent,
     NZoroModule,
     ReactiveFormsModule,

@@ -16,10 +16,12 @@
           <th scope="col">Adresse de transaction</th>
           <th scope="col">Date transaction</th>
           <th scope="col">Status</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let transaction of headerTable.data">
+
+        <tr *ngFor="let transaction of headerTable.data;trackBy:getPublication">
           <td scope="row">ref#{{transaction.id}}</td>
           <td scope="row">{{transaction.transactionType.libelle}}</td>
           <td scope="row">{{transaction.transactionType.name}}</td>
@@ -35,6 +37,9 @@
             <span *ngIf="transaction.transactionDetail.billing.active" style="color:forestgreen">
               Payé
             </span>
+          </td>
+          <td>
+            <s-s-pdf-generator [data]="formatTransaction(transaction)" *ngIf="transaction"></s-s-pdf-generator>
           </td>
         </tr>
 

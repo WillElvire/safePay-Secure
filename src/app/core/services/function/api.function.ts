@@ -59,7 +59,7 @@ export class apiFunctionService {
 
   getLocalCurrency() {
     this.api.setApiType("assets");
-    return this.api.get<CryptoIcon[]>("localCurrency.json").pipe(shareReplay(1));
+    return this.api.get<CryptoIcon[]>("json/localCurrency.json").pipe(shareReplay(1));
   }
 
   loginUser(data : Required<{email : string , password : string}>){
@@ -138,6 +138,11 @@ export class apiFunctionService {
   activePublication(id : string) {
     this.api.setApiType("rest");
     return this.api.get<MResultMessage>(`api/publication/${id}/active`).pipe(shareReplay(1));
+  }
+
+  getReceiptFileForBilling(){
+    this.api.setApiType("assets");
+    return this.api.getHtml(`receipt/invoice.html`).pipe(shareReplay(1));
   }
 }
 
