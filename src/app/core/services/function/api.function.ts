@@ -44,7 +44,7 @@ export class apiFunctionService {
 
   private getCoutryCode()  : Observable<CountryDialCode[]> {
     this.api.setApiType("assets");
-    return this.api.get<CountryDialCode[]>("country.json").pipe(shareReplay(1));
+    return this.api.get<CountryDialCode[]>("json/country.json").pipe(shareReplay(1));
   }
 
   private getUsersRole() : Observable<MResultMessage> {
