@@ -14,6 +14,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
+      - name : install Linter
+        run : |
+            npm i eslint
       - name: Lint Action
         uses: wearerequired/lint-action@v2.3.0
         with:
